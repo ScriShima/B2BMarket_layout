@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Каталог - Лакомства B2B</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="b2b-header">
+      <div class="container header-container">
+        <a href="index.html" class="header-logo">ЛАКОМСТВА B2B</a>
+        
+        <button type="button" class="menu-toggle" id="menu-toggle-btn" aria-label="Открыть меню">
+          <svg viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <form class="header-search">
+          <input type="text" placeholder="Поиск по артикулу..." />
+          <button type="button">Найти</button>
+        </form>
+
+        <div class="header-actions" id="header-actions-menu">
+          <a href="#" class="action-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Войти</span>
+          </a>
+          <a href="#" class="action-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              ></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+            </svg>
+            <span>Заказы</span>
+          </a>
+          <a href="#" class="action-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              ></path>
+            </svg>
+            <span>Избранное</span>
+          </a>
+          <a href="catalog.html" class="action-item ml-1">
+            <div class="position-relative">
+              <svg viewBox="0 0 24 24" class="mb-0">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              <span class="badge">12</span>
+            </div>
+            <span class="cart-total">15 400 ₽</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="about" class="page">
+        <div
+          class="container py-4"
+        >
+          <h1 class="text-center" style="border: none">
+            О заводе "Лакомства для здоровья"
+          </h1>
+          <div class="grid-3 mt-4 mb-4">
+            <div class="stat-card">
+              <div class="num">10+</div>
+              <div>Лет на рынке</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">250</div>
+              <div>Товарных позиций (SKU)</div>
+            </div>
+            <div class="stat-card">
+              <div class="num">1500</div>
+              <div>Оптовых партнеров</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container grid-2 align-center">
+        <div>
+          <h2 style="color: white; border-color: var(--primary)">
+            Свяжитесь с нами
+          </h2>
+          <div class="mt-3" style="font-size: 20px">
+            <div>📞 <a href="tel:+74950000000" class="text-primary" style="text-decoration: none;">+7 (495) 000-00-00</a></div>
+            <div class="mt-1">
+              ✉️ <a href="mailto:opt@lakomie.ru" class="text-primary" style="text-decoration: none;">opt@lakomie.ru</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="form-block"
+            style="
+              background: #333;
+              border: 1px solid #444;
+              border-top: 4px solid var(--primary);
+            "
+          >
+            <h3 class="mt-0" style="color: white">
+              Заказать обратный звонок
+            </h3>
+            <form class="b2b-form">
+              <input
+                type="text"
+                placeholder="Имя *"
+                required
+                style="background: #444; color: white; border-color: #555"
+              />
+              <input
+                type="tel"
+                placeholder="Телефон *"
+                required
+                style="background: #444; color: white; border-color: #555"
+              />
+              <button type="submit" class="btn w-100">
+                Перезвоните мне
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

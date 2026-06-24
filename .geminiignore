@@ -1,0 +1,41 @@
+# Зависимости и виртуальные окружения
+node_modules/
+vendor/
+venv/
+env/
+.env
+
+# Системные и служебные папки
+.git/
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+
+# Кэш и загрузки (особенно актуально для тяжелых CMS)
+bitrix/cache/
+bitrix/managed_cache/
+bitrix/html_pages/
+bitrix/backup/
+upload/
+dist/
+build/
+
+# Базы данных и логи
+*.log
+*.sql
+*.sqlite
+*.db
+
+# Медиафайлы и архивы (нейросети они не нужны)
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+*.mp4
+*.mp3
+*.zip
+*.rar
+*.tar.gz
+*.pdf

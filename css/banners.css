@@ -1,0 +1,78 @@
+/* ========================================== */
+/* БАННЕРЫ                                    */
+/* ========================================== */
+.banner-container {
+  display: flex;
+  gap: 15px;
+  height: 200px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.banner-item {
+  flex: 1;
+  position: relative;
+  border-radius: 8px;
+  background-color: #222222;
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+}
+.banner-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 1;
+}
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* Усилили затемнение */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 50px 20px;
+  color: white;
+  transition: all 0.6s ease;
+  z-index: 2;
+  border-radius: 8px;
+}
+.banner-overlay h3 {
+  margin: 0;
+  font-size: 22px;
+  white-space: nowrap;
+}
+.banner-desc {
+  opacity: 0;
+  visibility: hidden;
+  width: 200px;
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1.4;
+  transition:
+    opacity 0.1s ease 0s,
+    visibility 0.1s ease 0s;
+}
+
+.banner-item:hover {
+  flex: 2.5;
+}
+.banner-item:hover .banner-img {
+  left: 45%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.banner-item:hover .banner-overlay {
+  background: transparent;
+}
+.banner-item:hover .banner-desc {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s ease 0.6s,
+    visibility 0s ease 0.6s;
+}

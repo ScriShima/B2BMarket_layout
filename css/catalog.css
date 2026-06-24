@@ -1,0 +1,182 @@
+/* ========================================== */
+/* КАТАЛОГ И КАРТОЧКИ ТОВАРОВ                 */
+/* ========================================== */
+
+/* БАЗОВЫЙ СТИЛЬ КАРТОЧКИ (ПЛИТКА) */
+.product-card {
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  background: var(--white);
+  height: 100%; /* Чтобы все карточки в сетке были одной высоты */
+}
+.product-card:hover {
+  box-shadow: var(--shadow-md);
+}
+.product-card .img-placeholder {
+  height: 160px;
+  background: var(--light-bg);
+  border-radius: var(--radius);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  background-size: cover;
+  background-position: center;
+}
+.product-card .sku {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: monospace;
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  align-self: flex-start;
+}
+.product-card h4 {
+  margin: 10px 0;
+  font-size: 15px;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+.product-card .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+.product-card .pack {
+  font-size: 13px;
+  color: var(--text-muted);
+  background: #fff8e1;
+  padding: 5px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.qty-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+.qty-controls input {
+  width: 60px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+/* ========================================== */
+/* ПЕРЕКЛЮЧЕНИЕ ВИДА (ПЛИТКА / ТАБЛИЦА)       */
+/* ========================================== */
+.view-toggle {
+  display: flex;
+  gap: 6px;
+}
+.view-btn {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.2s ease;
+}
+.view-btn.active {
+  color: var(--white);
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* === РЕЖИМ ПЛИТКИ (GRID) === */
+/* ВАЖНО: Применяем сетку ИМЕННО К СПИСКУ #products-list */
+.grid-view #products-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* === РЕЖИМ ТАБЛИЦЫ (TABLE) === */
+/* ВАЖНО: Применяем флекс-колонку ИМЕННО К СПИСКУ #products-list */
+.table-view #products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 80px 100px 1.5fr 100px 1.2fr 180px;
+  gap: 20px;
+  padding: 12px 20px;
+  font-weight: bold;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--border);
+  background: var(--light-bg);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+}
+
+.table-view .product-card {
+  display: grid;
+  grid-template-columns: 80px 100px 1.5fr 100px 1.2fr 180px;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 20px;
+  box-shadow: none;
+  height: auto;
+}
+.table-view .product-card .img-placeholder {
+  height: 50px;
+  margin-bottom: 0;
+}
+.table-view .product-card .sku,
+.table-view .product-card h4,
+.table-view .product-card .price,
+.table-view .product-card .pack {
+  margin: 0;
+  align-self: center;
+}
+.table-view .product-card .qty-controls {
+  margin-top: 0;
+}
+
+/* === ИСПРАВЛЕНИЕ НАЛОЖЕНИЯ КАРТОЧЕК В СЕТКЕ === */
+
+.grid-view #products-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+  gap: 30px !important; /* Увеличили отступ между рядами, чтобы было свободнее */
+  align-items: stretch !important; /* Все карточки в ряду будут одной высоты */
+}
+
+.grid-view .product-card {
+  height: auto !important; /* Снимаем жесткую фиксацию высоты, из-за которой выпадали кнопки */
+  min-height: 100% !important;
+  box-sizing: border-box !important; /* Правильный расчет высоты с учетом padding */
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: visible !important;
+}
+
+.grid-view .product-card .qty-controls {
+  margin-top: auto !important; /* Гарантированно прижимает блок кнопок к самому низу карточки */
+  padding-top: 20px !important; /* Не дает кнопкам прилипать к тексту выше */
+}
+
+/* Защита пагинации от наезда карточек */
+#pagination-container {
+  margin-top: 50px !important;
+  padding-bottom: 30px !important;
+  clear: both;
+  position: relative;
+  z-index: 10;
+}

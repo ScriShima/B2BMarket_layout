@@ -1,0 +1,249 @@
+@import 'base.css';
+@import 'header.css';
+@import 'footer.css';
+@import 'banners.css';
+@import 'components.css';
+@import 'catalog.css';
+@import 'sidebar.css';
+@import 'forms.css';
+
+/* ========================================== */
+/* АДАПТИВНОСТЬ (ПЛАНШЕТЫ И СМАРТФОНЫ)        */
+/* ========================================== */
+
+/* 1. ПЛАНШЕТЫ (от 769px до 992px) */
+@media (max-width: 992px) {
+  /* Перестраиваем сетки контента в 2 колонки */
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* БАННЕРЫ: Сетка 2x2 */
+  .banner-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+    gap: 15px;
+  }
+
+  .banner-item {
+    height: 200px;
+  }
+
+  /* Отключаем анимацию расширения и сдвига картинки */
+  .banner-item:hover {
+    flex: auto;
+  }
+  .banner-item:hover .banner-img {
+    left: 0;
+    border-radius: 8px;
+  }
+
+  /* Делаем текст всегда видимым и добавляем плотный черный градиент */
+  .banner-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.8) 50%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+    padding: 30px 20px;
+  }
+  .banner-item:hover .banner-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.8) 50%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  }
+
+  .banner-desc {
+    opacity: 1;
+    visibility: visible;
+    max-height: none;
+    width: 80%; /* Текст занимает 80% ширины, чтобы не лезть на картинку */
+  }
+
+  /* ШАПКА: Прячем текст под иконками, оставляем только SVG и бейдж */
+  .header-actions .action-item span:not(.badge) {
+    display: none;
+  }
+  /* Скрываем сумму корзины */
+  .header-actions .cart-total {
+    display: none;
+  }
+  /* Центрируем иконки */
+  .header-actions .action-item {
+    justify-content: center;
+  }
+  /* Уменьшаем отступ между иконками */
+  .header-actions {
+    gap: 15px;
+  }
+}
+
+/* 2. СМАРТФОНЫ (до 768px) */
+@media (max-width: 768px) {
+  /* ШАПКА: Переносим поиск на новую строку и добавляем гамбургер */
+  .header-container {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+  .header-search {
+    order: 3; /* Спускаем поиск вниз */
+    width: 100%;
+    max-width: 100%;
+  }
+  body {
+    padding-top: 140px; /* Увеличиваем отступ под высокую шапку */
+  }
+
+  .menu-toggle {
+    display: block;
+    order: 2;
+  }
+
+  .header-actions {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+    box-sizing: border-box;
+    z-index: 999;
+    border-top: 1px solid var(--border);
+  }
+
+  .header-actions.active {
+    display: flex;
+  }
+
+  .header-actions .action-item {
+    flex-direction: row !important;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border);
+    gap: 15px;
+  }
+
+  .header-actions .action-item:last-child {
+    border-bottom: none;
+  }
+
+  .header-actions .action-item span:not(.badge) {
+    display: inline !important; /* Показываем подписи к иконкам на мобильном для удобства */
+    font-size: 15px;
+  }
+
+  .header-actions .cart-total {
+    display: inline !important;
+    font-size: 15px;
+    margin-left: 5px;
+  }
+
+  /* Схлопываем все сетки в 1 колонку */
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  /* БАННЕРЫ: Горизонтальный скролл (Карусель) */
+  .banner-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-right: -20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    scrollbar-width: none;
+  }
+  .banner-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .banner-item {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+    height: 180px;
+  }
+
+  /* Адаптация типографики и отступов */
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  .container {
+    padding: 30px 20px;
+  }
+
+  /* Адаптивный табличный вид на смартфонах (компактный список) */
+  .table-view {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .table-view .table-header {
+    display: none !important;
+  }
+  .table-view .product-card {
+    display: grid !important;
+    grid-template-columns: 80px 1fr;
+    grid-template-areas:
+      "img title"
+      "img sku"
+      "img price"
+      "img pack"
+      "qty qty";
+    gap: 8px 12px;
+    padding: 12px;
+    height: auto;
+  }
+  .table-view .product-card .img-placeholder {
+    grid-area: img;
+    height: 80px;
+    margin-bottom: 0;
+    align-self: start;
+    font-size: 10px;
+  }
+  .table-view .product-card h4 {
+    grid-area: title;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  .table-view .product-card .sku {
+    grid-area: sku;
+    margin: 0;
+    font-size: 11px;
+  }
+  .table-view .product-card .price {
+    grid-area: price;
+    margin: 0;
+    font-size: 16px;
+  }
+  .table-view .product-card .pack {
+    grid-area: pack;
+    margin: 0;
+    font-size: 11px;
+  }
+  .table-view .product-card .qty-controls {
+    grid-area: qty;
+    margin: 5px 0 0 0;
+    display: flex;
+    gap: 10px;
+  }
+}

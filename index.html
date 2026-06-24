@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B2B Портал - Лакомства для здоровья</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="b2b-header">
+      <div class="container header-container">
+        <a href="index.html" class="header-logo">ЛАКОМСТВА B2B</a>
+        
+        <button type="button" class="menu-toggle" id="menu-toggle-btn" aria-label="Открыть меню">
+          <svg viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <form class="header-search">
+          <input type="text" placeholder="Поиск по артикулу..." />
+          <button type="button">Найти</button>
+        </form>
+
+        <div class="header-actions" id="header-actions-menu">
+          <a href="#" class="action-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Войти</span>
+          </a>
+          <a href="#" class="action-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              ></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+            </svg>
+            <span>Заказы</span>
+          </a>
+          <a href="#" class="action-item">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              ></path>
+            </svg>
+            <span>Избранное</span>
+          </a>
+          <a href="catalog.html" class="action-item ml-1">
+            <div class="position-relative">
+              <svg viewBox="0 0 24 24" class="mb-0">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              <span class="badge">12</span>
+            </div>
+            <span class="cart-total">15 400 ₽</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="banner-container">
+          <div
+            class="banner-item"
+            onclick="window.location.href = 'catalog.html'"
+          >
+            <div
+              class="banner-img"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&quot;);
+              "
+            ></div>
+            <div class="banner-overlay">
+              <h3>Каталог товаров</h3>
+              <div class="banner-desc">1+ млн позиций для вашего бизнеса</div>
+            </div>
+          </div>
+          <div
+            class="banner-item"
+            onclick="window.location.href = 'for-whom.html'"
+          >
+            <div
+              class="banner-img"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&quot;);
+              "
+            ></div>
+            <div class="banner-overlay">
+              <h3>Для кого</h3>
+              <div class="banner-desc">Решения для ритейла и маркетплейсов</div>
+            </div>
+          </div>
+          <div
+            class="banner-item"
+            onclick="window.location.href = 'wholesale.html'"
+          >
+            <div
+              class="banner-img"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&quot;);
+              "
+            ></div>
+            <div class="banner-overlay">
+              <h3>Оптовикам</h3>
+              <div class="banner-desc">Скидки, отсрочка, ЭДО</div>
+            </div>
+          </div>
+          <div
+            class="banner-item"
+            onclick="window.location.href = 'about.html'"
+          >
+            <div
+              class="banner-img"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&w=800&quot;);
+              "
+            ></div>
+            <div class="banner-overlay">
+              <h3>О компании</h3>
+              <div class="banner-desc">25 лет на рынке продуктов</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="text-center py-3">
+          <h1>Полезные сладости оптом от производителя</h1>
+          <p class="text-muted mb-4" style="font-size: 20px; max-width: 800px; margin: 0 auto;">
+            Прямые поставки для ритейла, маркетплейсов и дистрибьюторов.
+            Минимальный заказ от 15 000 руб.
+          </p>
+          <button class="btn" onclick="window.location.href = 'catalog.html'">
+            Перейти в оптовый каталог
+          </button>
+        </section>
+      </div>
+
+      <section class="bg-light">
+        <div class="container">
+          <h2 class="text-center d-block mb-4">
+            Категории товаров
+          </h2>
+          <div class="grid-4 mb-4">
+            <div
+              class="card text-center cursor-pointer"
+              onclick="window.location.href = 'catalog.html'"
+            >
+              <h3>Шоколад без сахара</h3>
+              <p class="text-primary fw-bold">
+                от 150 руб/шт
+              </p>
+            </div>
+            <div
+              class="card text-center cursor-pointer"
+              onclick="window.location.href = 'catalog.html'"
+            >
+              <h3>Пастила и мармелад</h3>
+              <p class="text-primary fw-bold">
+                от 90 руб/шт
+              </p>
+            </div>
+            <div
+              class="card text-center cursor-pointer"
+              onclick="window.location.href = 'catalog.html'"
+            >
+              <h3>Орехи и сухофрукты</h3>
+              <p class="text-primary fw-bold">
+                от 300 руб/кг
+              </p>
+            </div>
+            <div
+              class="card text-center cursor-pointer"
+              onclick="window.location.href = 'catalog.html'"
+            >
+              <h3>Подарочные наборы</h3>
+              <p class="text-primary fw-bold">
+                от 500 руб/шт
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div>
+              <h2>Станьте нашим партнером</h2>
+              <p class="mb-2" style="font-size: 18px">
+                Мы поставляем продукцию, которая отвечает тренду на осознанное
+                питание.
+              </p>
+              <ul class="mb-3" style="line-height: 2">
+                <li>
+                  <strong>Маржинальность:</strong> цены от прямого
+                  производителя.
+                </li>
+                <li>
+                  <strong>Удобство:</strong> отгрузка от 1 коробки, бесплатная
+                  доставка до ТК.
+                </li>
+                <li>
+                  <strong>Качество:</strong> натуральные составы, сертификаты
+                  HACCP.
+                </li>
+              </ul>
+              <button
+                class="btn btn-outline"
+                onclick="window.location.href = 'wholesale.html'"
+              >
+                Подробнее об условиях
+              </button>
+            </div>
+            <div class="form-block">
+              <h3 class="mt-0">Получить полный оптовый прайс-лист</h3>
+              <form class="b2b-form">
+                <input type="text" placeholder="Имя *" required />
+                <input type="tel" placeholder="Телефон *" required />
+                <input type="email" placeholder="E-mail *" required />
+                <button type="submit" class="btn w-100">
+                  Скачать прайс (.pdf)
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="container py-4"
+      >
+        <h2
+          class="text-center d-block mb-1"
+          style="
+            border: none;
+          "
+        >
+          Хиты продаж
+        </h2>
+        <p class="text-center text-muted mb-4">
+          Товары-локомотивы с максимальной скоростью продаж в рознице
+        </p>
+
+        <div class="grid-4 mb-4">
+          <div class="card product-card">
+            <div class="img-placeholder">Фото товара</div>
+            <div class="sku">Арт: CHOC-72</div>
+            <h4>Горький шоколад 72% со стевией, 100г</h4>
+            <div class="price">110 руб.</div>
+            <div class="pack">Квант: коробка (20 шт)</div>
+            <button
+              class="btn btn-outline btn-small w-100"
+              onclick="window.location.href = 'catalog.html'"
+            >
+              Заказать
+            </button>
+          </div>
+          <div class="card product-card">
+            <div class="img-placeholder">Фото товара</div>
+            <div class="sku">Арт: PAST-ASR</div>
+            <h4>Набор пастилы "Ассорти" без сахара, 500г</h4>
+            <div class="price">240 руб.</div>
+            <div class="pack">Квант: коробка (12 шт)</div>
+            <button
+              class="btn btn-outline btn-small w-100"
+              onclick="window.location.href = 'catalog.html'"
+            >
+              Заказать
+            </button>
+          </div>
+          <div class="card product-card">
+            <div class="img-placeholder">Фото товара</div>
+            <div class="sku">Арт: DRG-NUT</div>
+            <h4>Драже "Фундук в шоколаде", 150г</h4>
+            <div class="price">185 руб.</div>
+            <div class="pack">Квант: коробка (15 шт)</div>
+            <button
+              class="btn btn-outline btn-small w-100"
+              onclick="window.location.href = 'catalog.html'"
+            >
+              Заказать
+            </button>
+          </div>
+          <div class="card product-card">
+            <div class="img-placeholder">Фото товара</div>
+            <div class="sku">Арт: BAR-PRT</div>
+            <h4>Протеиновый батончик "Кокос", 50г</h4>
+            <div class="price">45 руб.</div>
+            <div class="pack">Квант: шоу-бокс (24 шт)</div>
+            <button
+              class="btn btn-outline btn-small w-100"
+              onclick="window.location.href = 'catalog.html'"
+            >
+              Заказать
+            </button>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button class="btn" onclick="window.location.href = 'catalog.html'">
+            Перейти в полный каталог
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container grid-2 align-center pb-4">
+        <div>
+          <h2 style="color: white;">Свяжитесь с нами</h2>
+          <div class="mt-3" style="font-size: 20px">
+            <div>📞 <a href="tel:+74950000000" class="text-primary" style="text-decoration: none;">+7 (495) 000-00-00</a></div>
+            <div class="mt-1">✉️ <a href="mailto:opt@lakomie.ru" class="text-primary" style="text-decoration: none;">opt@lakomie.ru</a></div>
+          </div>
+        </div>
+        <div>
+          <div class="form-block" style="background: #333; border: 1px solid #444; border-top: 4px solid var(--primary);">
+            <h3 class="mt-0" style="color: white;">Заказать обратный звонок</h3>
+            <form class="b2b-form">
+              <input
+                type="text"
+                placeholder="Имя *"
+                required
+                style="background: #444; color: white; border-color: #555"
+              />
+              <input
+                type="tel"
+                placeholder="Телефон *"
+                required
+                style="background: #444; color: white; border-color: #555"
+              />
+              <button type="submit" class="btn w-100">Перезвоните мне</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
