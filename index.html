@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>B2B Портал - Лакомства для здоровья</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" />
   </head>
   <body>
     <header class="b2b-header">
@@ -89,151 +90,128 @@
     </header>
 
     <main>
-      <div class="container"></div>
-      <section class="bg-light">
-        <div class="container">
-          <h2 class="text-center d-block mb-4">Категории товаров</h2>
-          <div class="grid-4 mb-4">
-            <div
-              class="card text-center cursor-pointer"
-              onclick="window.location.href = 'catalog.html'"
-            >
-              <h3>Шоколад без сахара</h3>
-              <p class="text-primary fw-bold">от 150 руб/шт</p>
-            </div>
-            <div
-              class="card text-center cursor-pointer"
-              onclick="window.location.href = 'catalog.html'"
-            >
-              <h3>Пастила и мармелад</h3>
-              <p class="text-primary fw-bold">от 90 руб/шт</p>
-            </div>
-            <div
-              class="card text-center cursor-pointer"
-              onclick="window.location.href = 'catalog.html'"
-            >
-              <h3>Орехи и сухофрукты</h3>
-              <p class="text-primary fw-bold">от 300 руб/кг</p>
-            </div>
-            <div
-              class="card text-center cursor-pointer"
-              onclick="window.location.href = 'catalog.html'"
-            >
-              <h3>Подарочные наборы</h3>
-              <p class="text-primary fw-bold">от 500 руб/шт</p>
-            </div>
-          </div>
-
-          <div class="grid-2">
-            <div>
-              <h2>Станьте нашим партнером</h2>
-              <p class="mb-2" style="font-size: 18px">
-                Мы поставляем продукцию, которая отвечает тренду на осознанное
-                питание.
-              </p>
-              <ul class="mb-3" style="line-height: 2">
-                <li>
-                  <strong>Маржинальность:</strong> цены от прямого
-                  производителя.
-                </li>
-                <li>
-                  <strong>Удобство:</strong> отгрузка от 1 коробки, бесплатная
-                  доставка до ТК.
-                </li>
-                <li>
-                  <strong>Качество:</strong> натуральные составы, сертификаты
-                  HACCP.
-                </li>
-              </ul>
-              <button
-                class="btn btn-outline"
-                onclick="window.location.href = 'wholesale.html'"
+      <section class="hero-section">
+        <div class="container hero-container">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <svg
+                viewBox="0 0 24 24"
+                class="icon-leaf"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                Подробнее об условиях
-              </button>
+                <path
+                  d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"
+                ></path>
+                <path
+                  d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"
+                ></path>
+              </svg>
+              Завод-производитель · 10+ лет на рынке
             </div>
-            <div class="form-block">
-              <h3 class="mt-0">Получить полный оптовый прайс-лист</h3>
-              <form class="b2b-form">
-                <input type="text" placeholder="Имя *" required />
-                <input type="tel" placeholder="Телефон *" required />
-                <input type="email" placeholder="E-mail *" required />
-                <button type="submit" class="btn w-100">
-                  Скачать прайс (.pdf)
-                </button>
-              </form>
+
+            <h1 class="hero-title">
+              Полезные сладости оптом<br />от производителя
+            </h1>
+
+            <p class="hero-subtitle">
+              Прямые поставки для ритейла, маркетплейсов и дистрибьюторов.
+              Высокая маржинальность, эко-составы и стабильные остатки на
+              складе. Минимальный заказ от 15 000 ₽.
+            </p>
+
+            <div class="hero-actions">
+              <a href="catalog.html" class="btn btn-primary-hero"
+                >Перейти в оптовый каталог &rarr;</a
+              >
+              <a href="wholesale.html" class="btn btn-secondary-hero"
+                >Условия для оптовиков</a
+              >
+            </div>
+
+            <div class="hero-features">
+              <div class="feature-item">
+                <div class="feature-icon-wrapper">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                    ></path>
+                  </svg>
+                </div>
+                <span>Натуральные<br />составы без сахара</span>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon-wrapper">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <span>Сертификаты<br />НАССР и декларации</span>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon-wrapper">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="1" y="3" width="15" height="13"></rect>
+                    <polygon
+                      points="16 8 20 8 23 11 23 16 16 16 16 8"
+                    ></polygon>
+                    <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                    <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                  </svg>
+                </div>
+                <span>Отгрузка от 1<br />коробки по РФ</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="container py-4">
-        <h2 class="text-center d-block mb-1" style="border: none">
-          Хиты продаж
-        </h2>
-        <p class="text-center text-muted mb-4">
-          Товары-локомотивы с максимальной скоростью продаж в рознице
-        </p>
+          <div class="hero-visual">
+            <div class="hero-image-wrapper">
+              <img
+                src="src/Banner_1.png"
+                alt="Сладости оптом"
+                class="hero-image"
+              />
 
-        <div class="grid-4 mb-4">
-          <div class="card product-card">
-            <div class="img-placeholder">Фото товара</div>
-            <div class="sku">Арт: CHOC-72</div>
-            <h4>Горький шоколад 72% со стевией, 100г</h4>
-            <div class="price">110 руб.</div>
-            <div class="pack">Квант: коробка (20 шт)</div>
-            <button
-              class="btn btn-outline btn-small w-100"
-              onclick="window.location.href = 'catalog.html'"
-            >
-              Заказать
-            </button>
+              <div class="hero-stats">
+                <div class="stat-box">
+                  <div class="stat-value">1500+</div>
+                  <div class="stat-label">оптовых партнеров</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-box">
+                  <div class="stat-value">250</div>
+                  <div class="stat-label">позиций (SKU)</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="card product-card">
-            <div class="img-placeholder">Фото товара</div>
-            <div class="sku">Арт: PAST-ASR</div>
-            <h4>Набор пастилы "Ассорти" без сахара, 500г</h4>
-            <div class="price">240 руб.</div>
-            <div class="pack">Квант: коробка (12 шт)</div>
-            <button
-              class="btn btn-outline btn-small w-100"
-              onclick="window.location.href = 'catalog.html'"
-            >
-              Заказать
-            </button>
-          </div>
-          <div class="card product-card">
-            <div class="img-placeholder">Фото товара</div>
-            <div class="sku">Арт: DRG-NUT</div>
-            <h4>Драже "Фундук в шоколаде", 150г</h4>
-            <div class="price">185 руб.</div>
-            <div class="pack">Квант: коробка (15 шт)</div>
-            <button
-              class="btn btn-outline btn-small w-100"
-              onclick="window.location.href = 'catalog.html'"
-            >
-              Заказать
-            </button>
-          </div>
-          <div class="card product-card">
-            <div class="img-placeholder">Фото товара</div>
-            <div class="sku">Арт: BAR-PRT</div>
-            <h4>Протеиновый батончик "Кокос", 50г</h4>
-            <div class="price">45 руб.</div>
-            <div class="pack">Квант: шоу-бокс (24 шт)</div>
-            <button
-              class="btn btn-outline btn-small w-100"
-              onclick="window.location.href = 'catalog.html'"
-            >
-              Заказать
-            </button>
-          </div>
-        </div>
-
-        <div class="text-center">
-          <button class="btn" onclick="window.location.href = 'catalog.html'">
-            Перейти в полный каталог
-          </button>
         </div>
       </section>
     </main>

@@ -190,4 +190,21 @@ document.addEventListener("DOMContentLoaded", function () {
       overlay.addEventListener("click", () => modal.classList.add("d-none"));
     }
   }
+
+  // --- УМНЫЙ ОТСТУП ДЛЯ ФИКСИРОВАННОЙ ШАПКИ ---
+
+  const header = document.querySelector(".b2b-header");
+
+  function updateHeaderHeight() {
+    if (header) {
+      const height = header.offsetHeight;
+      document.documentElement.style.setProperty(
+        "--header-height",
+        `${height}px`,
+      );
+    }
+  }
+
+  updateHeaderHeight();
+  window.addEventListener("resize", updateHeaderHeight);
 });

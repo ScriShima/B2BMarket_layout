@@ -20,7 +20,7 @@
   --spacing-md: 20px;
   --spacing-lg: 30px;
   --spacing-xl: 40px;
-  --container-width: 1200px;
+  --container-width: 1440px;
 }
 
 body {
@@ -30,7 +30,7 @@ body {
   color: var(--dark);
   line-height: 1.6;
   background: #f0f2f5;
-  padding-top: 80px;
+  padding-top: var(--header-height, 130px);
 }
 
 .container,
