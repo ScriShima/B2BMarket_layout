@@ -8,91 +8,89 @@
   </head>
   <body>
     <header class="b2b-header">
-      <div class="header-container">
-        <a href="index.html" class="header-logo">ЛАКОМСТВА B2B</a>
+      <div class="container header-container">
+        <div class="header-top">
+          <a href="index.html" class="logo-group">
+            <div class="logo-icon">Л</div>
+            <div class="logo-text">
+              <span class="logo-title">ЛАКОМСТВА</span>
+              <span class="logo-subtitle">B2B ПОРТАЛ</span>
+            </div>
+          </a>
 
-        <div class="navigation-container">
-          <a href="#" class="navigation-item">Каталог</a>
-          <a href="#" class="navigation-item">Для кого</a>
-          <a href="#" class="navigation-item">Оптовикам</a>
-          <a href="#" class="navigation-item">О компании</a>
+          <div class="search-group">
+            <svg class="search-icon" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Поиск по названию или артикулу..."
+            />
+          </div>
+
+          <div class="actions-group">
+            <a href="#" class="action-vertical">
+              <svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span>Войти</span>
+            </a>
+
+            <a href="#" class="action-vertical">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+              </svg>
+              <span>Заказы</span>
+            </a>
+
+            <a href="#" class="action-vertical">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
+              </svg>
+              <span>Избранное</span>
+            </a>
+
+            <a href="catalog.html" class="action-horizontal">
+              <svg viewBox="0 0 24 24">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              <div class="cart-text">
+                <span class="cart-label">Заявка</span>
+                <span class="cart-sum">0 ₽</span>
+              </div>
+            </a>
+          </div>
         </div>
 
-        <button
-          type="button"
-          class="menu-toggle"
-          id="menu-toggle-btn"
-          aria-label="Открыть меню"
-        >
-          <svg viewBox="0 0 24 24">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
+        <div class="header-divider"></div>
 
-        <form class="header-search">
-          <input type="text" placeholder="Поиск по артикулу или названию..." />
-          <button type="button">Найти</button>
-        </form>
-
-        <div class="header-actions" id="header-actions-menu">
-          <a href="#" class="action-item">
-            <svg viewBox="0 0 24 24">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-            <span>Войти</span>
-          </a>
-          <a href="#" class="action-item">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-              ></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-            </svg>
-            <span>Заказы</span>
-          </a>
-
-          <a href="catalog.html" class="action-item">
-            <div class="position-relative">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  <path
-                    d="M21.9844 10C21.9473 8.68893 21.8226 7.85305 21.4026 7.13974C20.8052 6.12523 19.7294 5.56066 17.5777 4.43152L15.5777 3.38197C13.8221 2.46066 12.9443 2 12 2C11.0557 2 10.1779 2.46066 8.42229 3.38197L6.42229 4.43152C4.27063 5.56066 3.19479 6.12523 2.5974 7.13974C2 8.15425 2 9.41667 2 11.9415V12.0585C2 14.5833 2 15.8458 2.5974 16.8603C3.19479 17.8748 4.27063 18.4393 6.42229 19.5685L8.42229 20.618C10.1779 21.5393 11.0557 22 12 22C12.9443 22 13.8221 21.5393 15.5777 20.618L17.5777 19.5685C19.7294 18.4393 20.8052 17.8748 21.4026 16.8603C21.8226 16.1469 21.9473 15.3111 21.9844 14"
-                    stroke="#1C274C"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                  ></path>
-                  <path
-                    d="M21 7.5L17 9.5M12 12L3 7.5M12 12V21.5M12 12C12 12 14.7426 10.6287 16.5 9.75C16.6953 9.65237 17 9.5 17 9.5M17 9.5V13M17 9.5L7.5 4.5"
-                    stroke="#1C274C"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                  ></path>
-                </g>
-              </svg>
-              <span class="badge">12</span>
-            </div>
-            <span class="cart-total">15 400 ₽</span>
-          </a>
+        <div class="header-bottom">
+          <nav class="main-nav">
+            <a href="#">Каталог</a>
+            <a href="#">Для кого</a>
+            <a href="#">Оптовикам</a>
+            <a href="#">О компании</a>
+          </nav>
         </div>
       </div>
     </header>
 
     <main>
-      <div class="container">
+      <div class="container"></div>
+      <!-- <div class="container">
         <section class="banner-container">
           <div
             class="banner-item"
@@ -169,7 +167,7 @@
             Перейти в оптовый каталог
           </button>
         </section>
-      </div>
+      </div> -->
 
       <section class="bg-light">
         <div class="container">

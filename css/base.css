@@ -1,9 +1,13 @@
 :root {
-  --primary: #2e7d32;
+  --primary: #216b3c;
   --primary-hover: #1b5e20;
-  --text: #1f2d24;
+  --secondary: #233929;
+  --accent: #f2c36a;
+  --text: #797368;
+  --text-accent: #202020;
   --dark: #333333;
-  --light-bg: #f5f7fa;
+  --light-bg: #fcfaf4;
+  --dark-bg: #f3f0e5;
   --white: #ffffff;
   --border: #e0e0e0;
   --text-muted: #666666;

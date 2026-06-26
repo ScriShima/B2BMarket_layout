@@ -12,176 +12,187 @@
 }
 
 .header-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
-  gap: 24px;
-  padding: 0 20px;
-  /* max-width: 1920px; Ограничиваем ширину, чтобы не разъезжалось на больших мониторах */
-  margin: 0 auto;
+  padding: 20px 0;
+  gap: 30px;
 }
 
-.header-logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: var(--primary);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-/* ========================================== */
-/* 2. НАВИГАЦИЯ                               */
-/* ========================================== */
-.navigation-container {
+.logo-group {
   display: flex;
   align-items: center;
-  gap: 24px;
-}
-
-.navigation-item {
-  color: var(--dark);
-  font-size: 15px;
+  gap: 12px;
   text-decoration: none;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: color 0.2s ease;
 }
 
-.navigation-item:hover {
-  color: var(--primary);
-}
-
-/* Кнопка мобильного меню (по умолчанию скрыта) */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--dark);
-  cursor: pointer;
-  padding: 8px;
-}
-.menu-toggle svg {
-  width: 28px;
-  height: 28px;
-  stroke: currentColor;
-  stroke-width: 2;
-  fill: none;
-}
-
-/* ========================================== */
-/* 3. СТРОКА ПОИСКА                           */
-/* ========================================== */
-.header-search {
-  flex-grow: 1;
+.logo-icon {
+  width: 44px;
+  height: 44px;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 10px;
   display: flex;
-  max-width: 500px; /* Ограничиваем, чтобы не съедала всё место */
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
 }
 
-.header-search input {
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+
+.logo-subtitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 1px;
+}
+
+.search-group {
+  flex-grow: 1;
+  max-width: 600px;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  stroke: var(--text);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.search-input {
   width: 100%;
-  padding: 10px 20px;
-  border: 2px solid var(--primary);
-  border-radius: 16px 0 0 16px; /* Форма пилюли */
+  padding: 14px 20px 14px 50px;
+  background-color: var(--light-bg);
+  border: 1px solid var(--border);
+  border-radius: 50px;
   outline: none;
   font-size: 14px;
+  color: var(--text);
 }
 
-.header-search button {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 0 24px;
-  border-radius: 0 16px 16px 0; /* Форма пилюли */
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 14px;
-  transition: 0.3s;
+.search-input::placeholder {
+  color: var(--text);
 }
 
-.header-search button:hover {
-  background: var(--primary-hover);
-}
-
-/* ========================================== */
-/* 4. ИКОНКИ ДЕЙСТВИЙ И КОРЗИНА (ОЧИЩЕНО)     */
-/* ========================================== */
-.header-actions {
+.actions-group {
   display: flex;
-  align-items: flex-end; /* Прижимаем все кнопки к нижней линии */
-  gap: 24px;
+  align-items: center;
+  gap: 25px;
 }
 
-.action-item {
+.action-vertical {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  gap: 6px; /* ВАЖНО: Это заменяет все margin-bottom! Жесткий отступ между иконкой и текстом */
+  gap: 6px;
   text-decoration: none;
-  color: var(--dark);
-  cursor: pointer;
+  color: var(--text);
+  font-size: 13px;
   transition: 0.2s;
 }
 
-.action-item:hover {
-  color: var(--primary);
-}
-
-/* Жестко фиксируем квадраты для иконок, чтобы они не растягивались и не сплющивались */
-.action-item > svg,
-.action-item .position-relative {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0; /* Запрещаем браузеру сжимать иконки */
-  display: block;
-}
-
-/* Стилизация самих линий SVG */
-.action-item > svg {
+.action-vertical svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--text-accent);
   fill: none;
-  stroke: currentColor;
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-/* Внутренний SVG корзины */
-.action-item .position-relative svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* Текст под иконками */
-.action-item span:not(.badge) {
-  font-size: 13px;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-/* Особый стиль для суммы корзины */
-.cart-total {
-  font-weight: bold;
-  color: var(--primary);
-  font-size: 13px;
-}
-
-/* Идеальный круглый бейдж */
-.badge {
-  position: absolute;
-  top: -6px;
-  right: -8px;
-  width: 18px;
-  height: 18px;
-  background: #e53935;
-  color: white;
-  font-size: 10px;
-  font-weight: bold;
-  border-radius: 50%;
+.action-horizontal {
   display: flex;
   align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.action-horizontal svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--text-accent);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cart-text {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 0;
+  gap: 2px;
+}
+
+.cart-label {
+  font-size: 12px;
+  color: var(--text);
   line-height: 1;
+}
+
+.cart-sum {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* ========================================== */
+/* РАЗДЕЛИТЕЛЬ                                */
+/* ========================================== */
+.header-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border);
+}
+
+/* ========================================== */
+/* НИЖНИЙ РЯД (НАВИГАЦИЯ)                     */
+/* ========================================== */
+
+.header-bottom {
+  padding: 16px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+  transition: color 0.2s;
 }
