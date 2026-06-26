@@ -189,3 +189,491 @@
   height: 35px;
   background-color: var(--border);
 }
+
+/* ========================================== */
+/* КАТЕГОРИИ ТОВАРОВ                          */
+/* ========================================== */
+
+.categories-section {
+  padding: 60px 0 80px;
+  background-color: var(--light-bg);
+}
+
+/* --- ШАПКА СЕКЦИИ --- */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.section-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #2c2724;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.section-link {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding-bottom: 4px;
+}
+
+.section-link:hover {
+  color: var(--primary-hover);
+}
+
+/* --- СЕТКА --- */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* Строго 4 колонки одинаковой ширины */
+  gap: 24px;
+}
+
+/* --- КАРТОЧКА --- */
+.category-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  overflow: hidden; /* Обрезает картинку по скругленным углам карточки */
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-6px); /* Карточка слегка "всплывает" */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); /* Усиливаем тень */
+}
+
+/* --- ИЗОБРАЖЕНИЕ КАТЕГОРИИ --- */
+.category-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Задает идеальные пропорции прямоугольника для фото */
+  overflow: hidden;
+  background-color: #f5f5f5; /* Светло-серый фон, пока грузится картинка */
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Картинка заполняет блок без искажений */
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover .category-image {
+  transform: scale(1.04); /* Легкий эффект приближения (зум) при наведении */
+}
+
+/* --- ТЕКСТОВАЯ ЧАСТЬ КАРТОЧКИ --- */
+.category-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.category-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2c2724;
+  margin: 0;
+}
+
+.category-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ========================================== */
+/* ХИТЫ ПРОДАЖ                                */
+/* ========================================== */
+
+.bestsellers-section {
+  padding: 40px 0 100px;
+  background-color: var(--dark-bg); /* Фон остается бежевым от body/section */
+}
+
+/* --- ЦЕНТРАЛЬНЫЙ ЗАГОЛОВОК --- */
+.section-header-center {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header-center .section-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #2c2724;
+  margin: 0 0 10px 0;
+}
+
+.section-header-center .section-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* --- СЕТКА ТОВАРОВ --- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+/* --- КАРТОЧКА ТОВАРА --- */
+.product-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08); /* Легкая тень при наведении */
+}
+
+/* Изображение и бейджи */
+.product-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Квадратный формат фото */
+  background-color: #f5f5f5;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  z-index: 2;
+}
+
+.product-badge {
+  background-color: #317b4c; /* Темно-зеленый цвет как на референсе */
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 50px;
+}
+
+/* Текстовый контент */
+.product-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Растягиваем контент, чтобы кнопки выровнялись по низу */
+}
+
+.product-sku {
+  display: inline-block;
+  background-color: #f2efe9; /* Светло-бежевый фон артикула */
+  color: #797368;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  align-self: flex-start; /* Чтобы плашка не растягивалась на всю ширину */
+}
+
+.product-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2c2724;
+  line-height: 1.4;
+  margin: 0 0 16px 0;
+  flex-grow: 1; /* Отталкивает цену и кнопки вниз, если названия разной длины */
+}
+
+/* Цена */
+.product-price-row {
+  display: flex;
+  align-items: baseline; /* Выравнивание текста по базовой линии */
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.price-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.price-unit {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Информация о кванте (коробке) */
+.product-pack-info {
+  background-color: #fdfaf3; /* Очень светлый теплый оттенок */
+  color: #8c7e6b; /* Приглушенный коричневый */
+  font-size: 11px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+/* --- КНОПКИ ВНИЗУ КАРТОЧКИ --- */
+.product-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 90px; /* Фиксированная ширина контрола количества */
+  flex-shrink: 0;
+}
+
+.qty-btn {
+  background: none;
+  border: none;
+  width: 28px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--dark);
+  transition: background 0.2s;
+}
+
+.qty-btn:hover {
+  background-color: #f0f2f5;
+}
+
+.qty-input {
+  width: 100%;
+  height: 36px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  padding: 0;
+  outline: none;
+  background: transparent;
+}
+
+.btn-add-to-cart {
+  flex-grow: 1; /* Занимает все оставшееся место справа */
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-add-to-cart:hover {
+  background-color: var(--primary-hover);
+}
+
+/* --- КНОПКА ПОЛНОГО КАТАЛОГА ВНИЗУ --- */
+.bestsellers-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-catalog {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.btn-catalog:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ========================================== */
+/* СЕКЦИЯ ПАРТНЕРСТВА                         */
+/* ========================================== */
+.partnership-section {
+  padding: 60px 0 120px;
+  background-color: var(--light-bg);
+}
+
+.partnership-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: stretch;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--border);
+}
+
+/* Левая часть */
+.partnership-title {
+  font-size: 40px;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  color: #2c2724;
+}
+
+.partnership-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Убираем justify-content: center, теперь всё будет прижато к верху */
+}
+
+.partnership-desc {
+  font-size: 17px;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.partnership-features {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.feature-row {
+  display: flex;
+  gap: 16px;
+}
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  background: #f0f7f2; /* Светло-зеленый фон под иконку */
+  color: var(--primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.feature-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+.feature-row h4 {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  color: #2c2724;
+}
+.feature-row p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Правая часть (Форма) */
+.partnership-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fdfdfd; /* Чуть сероватый фон для контраста внутри карточки */
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+.form-heading {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+.form-subheading {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+/* Элементы формы */
+.b2b-form-compact input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--dark-bg);
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.b2b-form-compact input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+.btn-download {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.2s;
+}
+.btn-download svg {
+  width: 18px;
+  height: 18px;
+}
+.btn-download:hover {
+  background: var(--primary-hover);
+}
