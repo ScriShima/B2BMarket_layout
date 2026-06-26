@@ -1,10 +1,172 @@
-footer {
-  background: var(--dark);
-  color: #ccc;
-  padding: 60px 0;
+/* ========================================== */
+/* ФУТЕР (ТЕМНАЯ ТЕМА)                        */
+/* ========================================== */
+.b2b-footer {
+  background-color: var(
+    --secondary
+  ); /* Темно-зеленый фон из твоих переменных */
+  padding: 60px 0 30px;
   margin-top: 60px;
+  color: var(--white);
 }
-footer a {
-  color: var(--primary);
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 450px; /* Левая часть гибкая, правая (форма) фиксированная */
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+/* --- ЛОГОТИП И ИНФОРМАЦИЯ --- */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
+  margin-bottom: 24px;
+}
+.footer-logo-icon {
+  width: 36px;
+  height: 36px;
+  background-color: var(--accent); /* Желтый фон буквы Л */
+  color: var(--secondary); /* Темная буква Л */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 20px;
+}
+.footer-logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.footer-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7); /* Приглушенный белый текст */
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+/* --- СПИСОК КОНТАКТОВ --- */
+.footer-contacts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 35px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer-contacts li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.footer-contacts svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--accent); /* Желтые иконки */
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.footer-contacts a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-contacts a:hover {
+  color: var(--accent);
+}
+
+/* --- НАВИГАЦИЯ В ФУТЕРЕ --- */
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.footer-nav a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-nav a:hover {
+  color: var(--white);
+}
+
+/* --- ФОРМА ОБРАТНОЙ СВЯЗИ --- */
+.footer-form-block {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.04
+  ); /* Очень прозрачный белый для эффекта стекла */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+}
+.footer-form-block h3 {
+  margin: 0 0 24px 0;
+  font-size: 18px;
+  color: var(--white);
+  font-weight: 600;
+}
+.footer-form-block input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.08); /* Чуть светлее фона карточки */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: var(--white);
+  font-size: 14px;
+  margin-bottom: 16px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.footer-form-block input:focus {
+  border-color: var(--accent);
+}
+.footer-form-block input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-accent {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  color: var(--secondary); /* Темный текст на желтой кнопке */
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-accent:hover {
+  background: #f4d086; /* Чуть светлее при наведении */
+}
+
+/* --- НИЖНЯЯ ЧАСТЬ (КОПИРАЙТ) --- */
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.footer-bottom {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
 }

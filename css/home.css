@@ -1,0 +1,13 @@
+/* ========================================== */
+/* ГЛАВНЫЙ ЭКРАН                              */
+/* ========================================== */
+
+.hero-section {
+  background-color: var(--dark-bg);
+  padding: 80px 0 100px;
+  overflow: visible;
+}
+
+.hero-container {
+  display: grid;
+}
