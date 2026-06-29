@@ -109,7 +109,7 @@
 }
 
 .tier-card {
-  background-color: var(--white);
+  background-color: var(--add-bg);
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) * 2);
   padding: 24px;
