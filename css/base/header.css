@@ -2,7 +2,7 @@
 /* 1. БАЗОВАЯ ШАПКА                           */
 /* ========================================== */
 .b2b-header {
-  background: var(--white);
+  background: var(--add-bg);
   position: fixed;
   top: 0;
   left: 0;
