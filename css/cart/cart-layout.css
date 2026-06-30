@@ -1,34 +1,43 @@
-/* cart-layout.css */
-.cart-page {
-  background-color: var(--light-bg);
+/* ========================================== */
+/* БАЗОВЫЙ ЛЕЙАУТ КОРЗИНЫ                     */
+/* ========================================== */
+.cart {
+  background-color: var(--color-bg-light);
   padding-bottom: 80px;
 }
 
-.cart-header {
+.cart__header {
   padding: 48px 0 32px 0;
 }
 
-.cart-header .page-title {
-  font-size: 36px;
+.cart__title {
+  font-size: clamp(28px, 4vw, 36px);
   font-weight: 800;
-  color: var(--text-accent);
+  color: var(--color-text-dark);
   margin: 0 0 12px 0;
   line-height: 1.2;
 }
 
-.cart-header .page-description {
+.cart__description {
   font-size: 16px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
   margin: 0;
 }
 
-.cart-main-section {
+.cart__main {
   padding-bottom: 56px;
 }
 
-.cart-grid {
+.cart__grid {
   display: grid;
-  grid-template-columns: 1fr 360px; /* Левая часть гибкая, правая фиксированная */
+  grid-template-columns: 1fr 360px;
   gap: 32px;
-  align-items: start; /* Важно, чтобы правый сайдбар мог быть sticky */
+  align-items: start;
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 992px) {
+  .cart__grid {
+    grid-template-columns: 1fr;
+  }
 }

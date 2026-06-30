@@ -1,58 +1,65 @@
-/* cart-help.css */
-.cart-help-section {
+/* ========================================== */
+/* БЛОК ПОМОЩИ В КОРЗИНЕ                      */
+/* ========================================== */
+.help-section {
   padding-bottom: 56px;
 }
 
-.cart-help-banner {
-  background-color: var(--white);
-  border: 1px solid var(--border);
-  border-radius: calc(var(--radius) * 2.5);
+/* Переиспользуем стили баннера, которые делали для каталога */
+.help-banner {
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
   padding: 24px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
+  flex-wrap: wrap;
 }
 
-.cart-help-content h3 {
+.help-banner__content h3 {
   margin: 0 0 6px 0;
-  font-size: 18px;
+  font-size: clamp(18px, 3vw, 22px);
   font-weight: 800;
-  color: var(--text-accent);
+  color: var(--color-text-dark);
 }
 
-.cart-help-content p {
+.help-banner__content p {
   margin: 0;
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
 }
 
-.cart-help-form {
+.help-banner__form {
   display: flex;
   gap: 12px;
   min-width: 380px;
+  flex-grow: 1;
 }
 
-.cart-help-form input {
+.help-banner__input {
   flex: 1;
   padding: 12px 16px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background-color: var(--light-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-light);
   outline: none;
   font-size: 14px;
+  transition: border-color var(--transition-fast);
 }
 
-.cart-help-form input:focus {
-  border-color: var(--primary);
+.help-banner__input:focus {
+  border-color: var(--color-primary);
 }
 
-.cart-help-form .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 10px;
-  padding: 12px 20px;
-  font-size: 14px;
-  font-weight: 700;
+@media (max-width: 768px) {
+  .help-banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .help-banner__form {
+    min-width: 100%;
+    flex-direction: column;
+  }
 }
