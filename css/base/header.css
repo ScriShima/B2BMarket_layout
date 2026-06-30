@@ -1,24 +1,22 @@
 /* ========================================== */
-/* 1. БАЗОВАЯ ШАПКА                           */
+/* ШАПКА                                 */
 /* ========================================== */
-.b2b-header {
-  background: var(--add-bg);
+.header {
+  background: var(--color-bg-white);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-sm);
 }
 
-.header-container {
-  margin: 0 auto;
-  padding: 0 20px;
+.header__container {
   display: flex;
   flex-direction: column;
 }
 
-.header-top {
+.header__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,18 +24,18 @@
   gap: 30px;
 }
 
-.logo-group {
+/* Логотип */
+.logo {
   display: flex;
   align-items: center;
   gap: 12px;
   text-decoration: none;
 }
-
-.logo-icon {
+.logo__icon {
   width: 44px;
   height: 44px;
-  background-color: var(--primary);
-  color: var(--white);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -45,153 +43,166 @@
   font-weight: bold;
   font-size: 24px;
 }
-
-.logo-text {
+.logo__text {
   display: flex;
   flex-direction: column;
 }
-
-.logo-title {
+.logo__title {
   font-weight: bold;
   font-size: 20px;
-  color: var(--primary);
+  color: var(--color-primary);
   letter-spacing: 0.5px;
   line-height: 1.1;
 }
-
-.logo-subtitle {
+.logo__subtitle {
   font-size: 11px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--color-text-main);
   letter-spacing: 1px;
 }
 
-.search-group {
+/* Поиск */
+.search {
   flex-grow: 1;
   max-width: 600px;
   position: relative;
 }
-
-.search-icon {
+.search__icon {
   position: absolute;
   left: 18px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  stroke: var(--text);
+  stroke: var(--color-text-main);
   fill: none;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
-.search-input {
+.search__input {
   width: 100%;
   padding: 14px 20px 14px 50px;
-  background-color: var(--light-bg);
-  border: 1px solid var(--border);
-  border-radius: 50px;
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-round);
   outline: none;
   font-size: 14px;
-  color: var(--text);
+  color: var(--color-text-main);
+  transition: border-color var(--transition-fast);
+}
+.search__input:focus {
+  border-color: var(--color-primary);
 }
 
-.search-input::placeholder {
-  color: var(--text);
-}
-
-.actions-group {
+/* Иконки действий */
+.actions {
   display: flex;
   align-items: center;
   gap: 25px;
 }
-
-.action-vertical {
+.actions__item {
   display: flex;
+  text-decoration: none;
+  color: var(--color-text-main);
+  transition: color var(--transition-fast);
+}
+.actions__item:hover {
+  color: var(--color-primary);
+}
+.actions__item--vertical {
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  text-decoration: none;
-  color: var(--text);
   font-size: 13px;
-  transition: 0.2s;
 }
-
-.action-vertical svg {
+.actions__item--vertical svg {
   width: 24px;
   height: 24px;
-  stroke: var(--text-accent);
+  stroke: currentColor;
   fill: none;
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
-.action-horizontal {
-  display: flex;
+.actions__item--horizontal {
   align-items: center;
   gap: 12px;
-  text-decoration: none;
   margin-left: 10px;
 }
-
-.action-horizontal svg {
+.actions__item--horizontal svg {
   width: 28px;
   height: 28px;
-  stroke: var(--text-accent);
+  stroke: currentColor;
   fill: none;
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
-.cart-text {
+.cart-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 2px;
 }
-
-.cart-label {
+.cart-info__label {
   font-size: 12px;
-  color: var(--text);
   line-height: 1;
 }
-
-.cart-sum {
+.cart-info__sum {
   font-size: 16px;
   font-weight: 800;
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
-/* ========================================== */
-/* РАЗДЕЛИТЕЛЬ                                */
-/* ========================================== */
-.header-divider {
+.header__divider {
   width: 100%;
   height: 1px;
-  background-color: var(--border);
+  background-color: var(--color-border);
 }
 
-/* ========================================== */
-/* НИЖНИЙ РЯД (НАВИГАЦИЯ)                     */
-/* ========================================== */
-
-.header-bottom {
+/* Навигация */
+.header__bottom {
   padding: 16px 0;
 }
-
-.main-nav {
+.nav {
   display: flex;
   align-items: center;
   gap: 32px;
 }
-
-.main-nav a {
+.nav__link {
   text-decoration: none;
   font-weight: 700;
   font-size: 15px;
-  color: var(--text);
-  transition: color 0.2s;
+  color: var(--color-text-main);
+}
+.nav__link:hover {
+  color: var(--color-primary);
+}
+
+/* Адаптивность шапки */
+@media (max-width: 992px) {
+  .header__top {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .search {
+    order: 3;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .actions {
+    gap: 15px;
+  }
+  .actions__item--vertical span,
+  .cart-info {
+    display: none;
+  }
+  .nav {
+    overflow-x: auto;
+    padding-bottom: 5px;
+    white-space: nowrap;
+  }
 }
