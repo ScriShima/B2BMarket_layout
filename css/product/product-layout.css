@@ -1,41 +1,48 @@
-/* product-layout.css */
-.product-page {
-  background-color: var(--light-bg);
+/* ========================================== */
+/* БАЗОВЫЙ ЛЕЙАУТ СТРАНИЦЫ ТОВАРА             */
+/* ========================================== */
+.product {
+  background-color: var(--color-bg-light);
   padding-bottom: 80px;
 }
 
 .breadcrumbs {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   padding: 24px 0 32px 0;
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
 }
 
-.breadcrumbs a {
-  color: var(--text-muted);
+.breadcrumbs__link {
+  color: var(--color-text-main);
   text-decoration: none;
-  transition: var(--transition);
+  transition: color var(--transition-fast);
 }
 
-.breadcrumbs a:hover {
-  color: var(--primary);
+.breadcrumbs__link:hover {
+  color: var(--color-primary);
 }
 
-.breadcrumbs .current {
-  color: var(--text-accent);
+.breadcrumbs__current {
+  color: var(--color-text-dark);
 }
 
-.breadcrumbs .separator {
+.breadcrumbs__separator {
   display: flex;
   align-items: center;
   opacity: 0.5;
 }
+.breadcrumbs__separator svg {
+  width: 12px;
+  height: 12px;
+}
 
 .section-title {
-  font-size: 24px;
+  font-size: clamp(20px, 4vw, 24px);
   font-weight: 800;
-  color: var(--text-accent);
+  color: var(--color-text-dark);
   margin: 0 0 24px 0;
 }

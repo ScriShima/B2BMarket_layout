@@ -33,50 +33,49 @@ document.addEventListener("DOMContentLoaded", function () {
   const itemsPerPage = 12;
   let currentView = localStorage.getItem("catalog-view") || "grid";
 
-  const container = document.getElementById("catalog-products");
   const productsList = document.getElementById("products-list");
   const paginationContainer = document.getElementById("pagination-container");
 
   // Обновляем счетчик товаров
   document.getElementById("items-count").textContent = products.length;
 
-  // 3. Генерация HTML карточки
+  // 3. Генерация HTML карточки (Используем новые БЭМ-классы)
   function createProductRow(product) {
-    // Рандомные теги для вида
     const isVegan = product.id % 3 === 0;
     const isHighProtein = product.id % 5 === 0;
 
-    let tagsHtml = '<span class="tag">Без сахара</span>';
-    if (isVegan) tagsHtml += '<span class="tag dark">Веган</span>';
+    let tagsHtml = '<span class="product-badge">Без сахара</span>';
+    if (isVegan) tagsHtml += '<span class="product-badge">Веган</span>';
     if (isHighProtein)
-      tagsHtml += '<span class="tag dark">Высокий протеин</span>';
+      tagsHtml += '<span class="product-badge">Высокий протеин</span>';
 
     return `
       <div class="product-card">
-        <div class="card-image-box" style="background-image: url('${product.image}');">
-          <div class="card-tags">${tagsHtml}</div>
+        <div class="product-card__img-wrapper">
+          <div class="product-card__badges">${tagsHtml}</div>
+          <img src="${product.image}" alt="${product.name}" class="product-card__img">
         </div>
         
-        <div class="card-sku">Арт: ${product.sku}</div>
+        <div class="product-card__sku">Арт: ${product.sku}</div>
         
-        <h4 class="card-title">${product.name}, 100 г</h4>
+        <h4 class="product-card__title">${product.name}, 100 г</h4>
         
-        <div class="card-price-row">
-          <span class="card-price-val">${product.price} ₽</span>
-          <span class="card-price-unit">/ шт</span>
-        </div>
-        
-        <div class="card-pack-info">
+        <div class="product-card__pack">
           Квант: коробка (${product.pack} шт) = ${product.price * product.pack} ₽
         </div>
+
+        <div class="product-card__price-row">
+          <span class="product-card__price-val">${product.price} ₽</span>
+          <span class="product-card__price-unit">/ шт</span>
+        </div>
         
-        <div class="card-actions">
-          <div class="counter">
-            <button type="button" class="btn-minus">−</button>
-            <input type="number" class="qty-input" value="1" min="1" readonly>
-            <button type="button" class="btn-plus">+</button>
+        <div class="product-card__actions">
+          <div class="quantity">
+            <button type="button" class="quantity__btn quantity__btn--minus">−</button>
+            <input type="number" class="quantity__input" value="1" min="1" readonly>
+            <button type="button" class="quantity__btn quantity__btn--plus">+</button>
           </div>
-          <button type="button" class="btn-submit" data-id="${product.id}">В заявку</button>
+          <button type="button" class="btn btn--primary btn--add" data-id="${product.id}">В заявку</button>
         </div>
       </div>
     `;
@@ -93,16 +92,16 @@ document.addEventListener("DOMContentLoaded", function () {
     attachBuyEvents();
   }
 
-  // 4. Пагинация
+  // 4. Пагинация (обновлены классы)
   function renderPagination() {
     const totalPages = Math.ceil(products.length / itemsPerPage);
     let html = "";
     for (let i = 1; i <= totalPages; i++) {
-      html += `<button class="page-btn ${i === currentPage ? "active" : ""}" data-page="${i}">${i}</button>`;
+      html += `<button class="pagination__btn ${i === currentPage ? "pagination__btn--active" : ""}" data-page="${i}">${i}</button>`;
     }
     paginationContainer.innerHTML = html;
 
-    document.querySelectorAll(".page-btn").forEach((btn) => {
+    document.querySelectorAll(".pagination__btn").forEach((btn) => {
       btn.addEventListener("click", function () {
         currentPage = parseInt(this.getAttribute("data-page"));
         renderCatalog();
@@ -111,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 5. Переключение вида (Сетка / Таблица)
+  // 5. Переключение вида (Сетка / Таблица) - меняем классы у #products-list напрямую
   const btnGrid = document.getElementById("btn-grid");
   const btnTable = document.getElementById("btn-table");
 
@@ -120,15 +119,15 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("catalog-view", view);
 
     if (view === "table") {
-      container.classList.remove("grid-view");
-      container.classList.add("table-view");
-      btnTable.classList.add("active");
-      btnGrid.classList.remove("active");
+      productsList.classList.remove("products--grid");
+      productsList.classList.add("products--list");
+      btnTable.classList.add("view-toggles__btn--active");
+      btnGrid.classList.remove("view-toggles__btn--active");
     } else {
-      container.classList.remove("table-view");
-      container.classList.add("grid-view");
-      btnGrid.classList.add("active");
-      btnTable.classList.remove("active");
+      productsList.classList.remove("products--list");
+      productsList.classList.add("products--grid");
+      btnGrid.classList.add("view-toggles__btn--active");
+      btnTable.classList.remove("view-toggles__btn--active");
     }
   }
 
@@ -140,19 +139,21 @@ document.addEventListener("DOMContentLoaded", function () {
   applyView(currentView);
   renderCatalog();
 
-  // 6. Логика счетчиков и кнопок
+  // 6. Логика счетчиков и кнопок (исправлены селекторы и добавлены stopPropagation)
   function attachBuyEvents() {
     // Работа плюса и минуса
-    document.querySelectorAll(".qty-counter").forEach((counter) => {
-      const btnMinus = counter.querySelector(".btn-minus");
-      const btnPlus = counter.querySelector(".btn-plus");
-      const input = counter.querySelector(".qty-input");
+    document.querySelectorAll(".quantity").forEach((counter) => {
+      const btnMinus = counter.querySelector(".quantity__btn--minus");
+      const btnPlus = counter.querySelector(".quantity__btn--plus");
+      const input = counter.querySelector(".quantity__input");
 
-      btnPlus.addEventListener("click", () => {
+      btnPlus.addEventListener("click", (e) => {
+        e.stopPropagation(); // Чтобы клик не открывал карточку
         input.value = parseInt(input.value) + 1;
       });
 
-      btnMinus.addEventListener("click", () => {
+      btnMinus.addEventListener("click", (e) => {
+        e.stopPropagation();
         let val = parseInt(input.value);
         if (val > 1) {
           input.value = val - 1;
@@ -161,16 +162,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Клик по кнопке "В заявку"
-    document.querySelectorAll(".btn-add").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const qty =
-          this.closest(".card-footer").querySelector(".qty-input").value;
+    document.querySelectorAll(".btn--add").forEach((btn) => {
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation(); // Чтобы клик не открывал карточку
+
+        const qty = this.closest(".product-card__actions").querySelector(
+          ".quantity__input",
+        ).value;
         const id = this.getAttribute("data-id");
 
-        // Визуальный эффект при добавлении
+        // Визуальный эффект при добавлении (теперь используем CSS-переменную)
         const originalText = this.textContent;
         this.textContent = "Добавлено ✓";
-        this.style.background = "#1b5e20"; // Более темный зеленый
+        this.style.background = "var(--color-primary-hover)";
 
         setTimeout(() => {
           this.textContent = originalText;
@@ -180,22 +184,19 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`Товар ID: ${id}, Количество: ${qty}`);
       });
     });
-  }
 
-  document.querySelectorAll(".product-card").forEach((card) => {
-    card.style.cursor = "pointer"; // Меняем курсор на "руку"
+    // Открытие карточки
+    document.querySelectorAll(".product-card").forEach((card) => {
+      card.style.cursor = "pointer";
 
-    card.addEventListener("click", function (e) {
-      // Проверяем, не был ли клик внутри блока с кнопками
-      if (e.target.closest(".card-actions")) {
-        return; // Если кликнули на плюс, минус или "В заявку" — ничего не делаем
-      }
+      card.addEventListener("click", function (e) {
+        // Проверяем, не был ли клик внутри блока с кнопками
+        if (e.target.closest(".product-card__actions")) {
+          return;
+        }
 
-      // В реальном проекте тут будет динамический URL, например:
-      // window.location.href = `product.html?id=${this.querySelector('.btn-submit').dataset.id}`;
-
-      // Для макета просто переходим на нашу новую страницу
-      window.location.href = "product.html";
+        window.location.href = "product.html";
+      });
     });
-  });
+  }
 });

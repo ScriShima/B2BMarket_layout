@@ -1,88 +1,94 @@
-/* product-description.css */
-.product-description-section {
+/* ========================================== */
+/* ОПИСАНИЕ И ХАРАКТЕРИСТИКИ                  */
+/* ========================================== */
+.product-details {
   margin-bottom: 60px;
-  max-width: 800px; /* Ограничиваем ширину текста для читаемости */
+  max-width: 800px;
 }
 
-.tabs-nav {
+.tabs {
   display: flex;
   gap: 32px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--color-border);
   margin-bottom: 24px;
+  overflow-x: auto; /* Для мобильных экранов */
 }
-
-.tab-btn {
+.tabs__btn {
   background: none;
   border: none;
   font-size: 15px;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--color-text-main);
   padding: 0 0 12px 0;
   cursor: pointer;
   position: relative;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
 }
-
-.tab-btn.active {
-  color: var(--text-accent);
+.tabs__btn:hover {
+  color: var(--color-primary);
 }
-.tab-btn.active::after {
+.tabs__btn--active {
+  color: var(--color-text-dark);
+}
+.tabs__btn--active::after {
   content: "";
   position: absolute;
   bottom: -1px;
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--text-accent);
+  background-color: var(--color-primary);
 }
 
-.tab-content {
+.tabs__content {
   font-size: 15px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
   line-height: 1.6;
   margin-bottom: 32px;
 }
-
-.features-list {
+.tabs__list {
   padding-left: 20px;
   margin-top: 16px;
 }
-.features-list li {
+.tabs__list li {
   margin-bottom: 8px;
 }
-.features-list strong {
-  color: var(--text-accent);
+.tabs__list strong {
+  color: var(--color-text-dark);
 }
 
 /* Нутриенты */
-.nutrition-grid {
+.nutrition {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 16px;
   margin-bottom: 12px;
 }
-
-.nutrition-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: calc(var(--radius) * 1.5);
+.nutrition__card {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  transition: box-shadow var(--transition-fast);
 }
-
-.nut-label {
+.nutrition__card:hover {
+  box-shadow: var(--shadow-sm);
+}
+.nutrition__label {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
 }
-.nut-val {
+.nutrition__val {
   font-size: 16px;
   font-weight: 800;
-  color: var(--text-accent);
+  color: var(--color-text-dark);
 }
-
-.nutrition-note {
+.nutrition__note {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
   margin: 0;
 }
