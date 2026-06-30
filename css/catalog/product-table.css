@@ -1,11 +1,13 @@
-/* product-table.css */
-.table-view #products-list {
+/* ========================================== */
+/* ВИД: ТАБЛИЦА                               */
+/* ========================================== */
+.products--list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.table-view .product-card {
+.products--list .product-card {
   display: grid;
   grid-template-areas:
     "img sku pack price actions"
@@ -13,81 +15,124 @@
   grid-template-columns: 80px 1fr 220px 120px 220px;
   align-items: center;
   gap: 4px 20px;
-  background: var(--white);
+  background: var(--color-bg-white);
   padding: 16px;
-  border-radius: calc(var(--radius) * 2); /* Скругление таблицы */
-  border: 1px solid var(--border);
-  transition: var(--transition);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  transition: var(--transition-normal);
 }
 
-.table-view .product-card:hover {
+.products--list .product-card:hover {
   box-shadow: var(--shadow-sm);
-  border-color: #d1d9d4;
+  border-color: var(--color-primary);
 }
 
-.table-view .card-image-box {
+.products--list .product-card__img-wrapper {
   grid-area: img;
   width: 80px;
   height: 80px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 12px; /* Скругление миниатюры */
+  background-color: var(--color-img-placeholder);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
 }
 
-.table-view .card-tags {
-  display: none;
+.products--list .product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.table-view .card-sku {
+.products--list .product-card__badges {
+  display: none; /* В таблице бейджи скрываем */
+}
+
+.products--list .product-card__sku {
   grid-area: sku;
   align-self: end;
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
   width: max-content;
 }
 
-.table-view .card-title {
+.products--list .product-card__title {
   grid-area: title;
   align-self: start;
   font-size: 15px;
   font-weight: 600;
-  color: var(--text-accent);
+  color: var(--color-text-dark);
   margin: 0;
 }
 
-.table-view .card-pack-info {
+.products--list .product-card__pack {
   grid-area: pack;
   font-size: 13px;
-  color: var(--text-muted);
-  background: #fdfaf3;
+  color: var(--color-text-main);
+  background: var(--color-pack-bg);
   padding: 10px;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
+  margin: 0;
 }
 
-.table-view .card-price-row {
+.products--list .product-card__price-row {
   grid-area: price;
   display: flex;
   flex-direction: column;
+  margin: 0;
 }
 
-.table-view .card-price-val {
+.products--list .product-card__price-val {
   font-size: 18px;
   font-weight: 800;
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
-.table-view .card-price-unit {
+.products--list .product-card__price-unit {
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
 }
 
-.table-view .card-actions {
+.products--list .product-card__actions {
   grid-area: actions;
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
-.table-view .btn-submit {
-  flex-grow: 1;
+/* --- АДАПТИВНОСТЬ ТАБЛИЦЫ --- */
+@media (max-width: 1200px) {
+  .products--list .product-card {
+    grid-template-areas:
+      "img title title title"
+      "img sku pack price"
+      "actions actions actions actions";
+    grid-template-columns: 80px auto auto auto;
+    gap: 10px 20px;
+  }
+  .products--list .product-card__actions {
+    margin-top: 10px;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  /* На мобильных устройствах таблица превращается обратно в карточки-сетки для читаемости */
+  .products--list .product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+  }
+  .products--list .product-card__img-wrapper {
+    width: 100%;
+    aspect-ratio: 1/1;
+    height: auto;
+  }
+  .products--list .product-card__price-row {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .products--list .product-card__price-val {
+    font-size: 22px;
+  }
 }

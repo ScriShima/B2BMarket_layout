@@ -1,4 +1,6 @@
-/* pagination.css */
+/* ========================================== */
+/* ПАГИНАЦИЯ                                  */
+/* ========================================== */
 .pagination {
   display: flex;
   justify-content: center;
@@ -7,29 +9,30 @@
   margin-top: 40px;
 }
 
-.page-btn {
+.pagination__btn {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
-  border: 1px solid var(--border);
-  background-color: var(--white);
-  border-radius: 12px; /* Скругление пагинации */
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-white);
+  border-radius: var(--radius-sm);
   font-size: 14px;
   font-weight: 700;
-  color: var(--text-accent);
+  color: var(--color-text-dark);
   cursor: pointer;
-  transition: var(--transition);
+  transition: var(--transition-fast);
+  text-decoration: none;
 }
 
-.page-btn:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+.pagination__btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
-.page-btn.active {
-  background-color: var(--primary);
-  border-color: var(--primary);
-  color: var(--white);
+.pagination__btn--active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
 }

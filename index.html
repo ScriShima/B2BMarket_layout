@@ -10,31 +10,35 @@
     <link rel="stylesheet" href="css/home/home.css" />
   </head>
   <body>
-    <header class="b2b-header">
-      <div class="container header-container">
-        <div class="header-top">
-          <a href="index.html" class="logo-group">
-            <div class="logo-icon">Л</div>
-            <div class="logo-text">
-              <span class="logo-title">ЛАКОМСТВА</span>
-              <span class="logo-subtitle">B2B ПОРТАЛ</span>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__top">
+          <!-- Логотип -->
+          <a href="index.html" class="logo">
+            <div class="logo__icon">Л</div>
+            <div class="logo__text">
+              <span class="logo__title">ЛАКОМСТВА</span>
+              <span class="logo__subtitle">B2B ПОРТАЛ</span>
             </div>
           </a>
 
-          <div class="search-group">
-            <svg class="search-icon" viewBox="0 0 24 24">
+          <!-- Поиск -->
+          <div class="search">
+            <svg class="search__icon" viewBox="0 0 24 24">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
             <input
               type="text"
-              class="search-input"
+              class="search__input"
               placeholder="Поиск по названию или артикулу..."
             />
           </div>
 
-          <div class="actions-group">
-            <a href="#" class="action-vertical">
+          <!-- Действия -->
+          <div class="actions">
+            <a href="#" class="actions__item actions__item--vertical">
               <svg viewBox="0 0 24 24">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
@@ -42,7 +46,7 @@
               <span>Войти</span>
             </a>
 
-            <a href="#" class="action-vertical">
+            <a href="#" class="actions__item actions__item--vertical">
               <svg viewBox="0 0 24 24">
                 <path
                   d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
@@ -53,7 +57,7 @@
               <span>Заказы</span>
             </a>
 
-            <a href="#" class="action-vertical">
+            <a href="#" class="actions__item actions__item--vertical">
               <svg viewBox="0 0 24 24">
                 <path
                   d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
@@ -62,7 +66,7 @@
               <span>Избранное</span>
             </a>
 
-            <a href="cart.html" class="action-horizontal">
+            <a href="cart.html" class="actions__item actions__item--horizontal">
               <svg viewBox="0 0 24 24">
                 <circle cx="9" cy="21" r="1"></circle>
                 <circle cx="20" cy="21" r="1"></circle>
@@ -70,35 +74,35 @@
                   d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
                 ></path>
               </svg>
-              <div class="cart-text">
-                <span class="cart-label">Заявка</span>
-                <span class="cart-sum">0 ₽</span>
+              <div class="cart-info">
+                <span class="cart-info__label">Заявка</span>
+                <span class="cart-info__sum">0 ₽</span>
               </div>
             </a>
           </div>
         </div>
 
-        <div class="header-divider"></div>
+        <div class="header__divider"></div>
 
-        <div class="header-bottom">
-          <nav class="main-nav">
-            <a href="catalog.html">Каталог</a>
-            <a href="#">Для кого</a>
-            <a href="wholesale.html">Оптовикам</a>
-            <a href="about.html">О компании</a>
+        <div class="header__bottom">
+          <nav class="nav">
+            <a href="catalog.html" class="nav__link">Каталог</a>
+            <a href="#" class="nav__link">Для кого</a>
+            <a href="wholesale.html" class="nav__link">Оптовикам</a>
+            <a href="about.html" class="nav__link">О компании</a>
           </nav>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="hero-section">
-        <div class="container hero-container">
-          <div class="hero-content">
-            <div class="hero-badge">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero__container">
+          <div class="hero__content">
+            <div class="hero__badge">
               <svg
                 viewBox="0 0 24 24"
-                class="icon-leaf"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
@@ -115,28 +119,28 @@
               Завод-производитель · 10+ лет на рынке
             </div>
 
-            <h1 class="hero-title">
+            <h1 class="hero__title">
               Полезные сладости оптом<br />от производителя
             </h1>
 
-            <p class="hero-subtitle">
+            <p class="hero__subtitle">
               Прямые поставки для ритейла, маркетплейсов и дистрибьюторов.
               Высокая маржинальность, эко-составы и стабильные остатки на
               складе. Минимальный заказ от 15 000 ₽.
             </p>
 
-            <div class="hero-actions">
-              <a href="catalog.html" class="btn btn-primary-hero"
+            <div class="hero__actions">
+              <a href="catalog.html" class="btn btn--primary"
                 >Перейти в оптовый каталог &rarr;</a
               >
-              <a href="wholesale.html" class="btn btn-secondary-hero"
+              <a href="wholesale.html" class="btn btn--secondary"
                 >Условия для оптовиков</a
               >
             </div>
 
-            <div class="hero-features">
-              <div class="feature-item">
-                <div class="feature-icon-wrapper">
+            <div class="features-list">
+              <div class="features-list__item">
+                <div class="features-list__icon">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -152,9 +156,8 @@
                 </div>
                 <span>Натуральные<br />составы без сахара</span>
               </div>
-
-              <div class="feature-item">
-                <div class="feature-icon-wrapper">
+              <div class="features-list__item">
+                <div class="features-list__icon">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -169,9 +172,8 @@
                 </div>
                 <span>Сертификаты<br />НАССР и декларации</span>
               </div>
-
-              <div class="feature-item">
-                <div class="feature-icon-wrapper">
+              <div class="features-list__item">
+                <div class="features-list__icon">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -193,23 +195,22 @@
             </div>
           </div>
 
-          <div class="hero-visual">
-            <div class="hero-image-wrapper">
+          <div class="hero__visual">
+            <div class="hero__image-wrapper">
               <img
                 src="src/Banner_1.png"
                 alt="Сладости оптом"
-                class="hero-image"
+                class="hero__image"
               />
-
-              <div class="hero-stats">
-                <div class="stat-box">
-                  <div class="stat-value">1500+</div>
-                  <div class="stat-label">оптовых партнеров</div>
+              <div class="stats-card">
+                <div class="stats-card__box">
+                  <div class="stats-card__value">1500+</div>
+                  <div class="stats-card__label">оптовых партнеров</div>
                 </div>
-                <div class="stat-divider"></div>
-                <div class="stat-box">
-                  <div class="stat-value">250</div>
-                  <div class="stat-label">позиций (SKU)</div>
+                <div class="stats-card__divider"></div>
+                <div class="stats-card__box">
+                  <div class="stats-card__value">250</div>
+                  <div class="stats-card__label">позиций (SKU)</div>
                 </div>
               </div>
             </div>
@@ -217,281 +218,271 @@
         </div>
       </section>
 
-      <section class="categories-section">
+      <!-- CATEGORIES -->
+      <section class="categories">
         <div class="container">
           <div class="section-header">
-            <div class="section-title-group">
-              <h2 class="section-title">Категории товаров</h2>
-              <p class="section-subtitle">
+            <div>
+              <h2 class="section-header__title">Категории товаров</h2>
+              <p class="section-header__subtitle">
                 Полный ассортимент полезных сладостей под ваш формат бизнеса
               </p>
             </div>
-            <a href="catalog.html" class="section-link">Весь каталог &rarr;</a>
+            <a href="catalog.html" class="section-header__link"
+              >Весь каталог &rarr;</a
+            >
           </div>
 
-          <div class="categories-grid">
+          <div class="grid-4">
             <a href="catalog.html" class="category-card">
-              <div class="category-image-wrapper">
+              <div class="category-card__img-wrapper">
                 <img
                   src="src/Chocolate.jpg"
                   alt="Шоколад без сахара"
-                  class="category-image"
+                  class="category-card__img"
                 />
               </div>
-              <div class="category-content">
-                <h3 class="category-title">Шоколад без сахара</h3>
-                <span class="category-price">от 150 ₽/шт</span>
+              <div class="category-card__content">
+                <h3 class="category-card__title">Шоколад без сахара</h3>
+                <span class="category-card__price">от 150 ₽/шт</span>
               </div>
             </a>
-
             <a href="catalog.html" class="category-card">
-              <div class="category-image-wrapper">
+              <div class="category-card__img-wrapper">
                 <img
                   src="src/marmalade.jpg"
                   alt="Пастила и мармелад"
-                  class="category-image"
+                  class="category-card__img"
                 />
               </div>
-              <div class="category-content">
-                <h3 class="category-title">Пастила и мармелад</h3>
-                <span class="category-price">от 90 ₽/шт</span>
+              <div class="category-card__content">
+                <h3 class="category-card__title">Пастила и мармелад</h3>
+                <span class="category-card__price">от 90 ₽/шт</span>
               </div>
             </a>
-
             <a href="catalog.html" class="category-card">
-              <div class="category-image-wrapper">
+              <div class="category-card__img-wrapper">
                 <img
                   src="src/nuts.jpg"
                   alt="Орехи и сухофрукты"
-                  class="category-image"
+                  class="category-card__img"
                 />
               </div>
-              <div class="category-content">
-                <h3 class="category-title">Орехи и сухофрукты</h3>
-                <span class="category-price">от 300 ₽/кг</span>
+              <div class="category-card__content">
+                <h3 class="category-card__title">Орехи и сухофрукты</h3>
+                <span class="category-card__price">от 300 ₽/кг</span>
               </div>
             </a>
-
             <a href="catalog.html" class="category-card">
-              <div class="category-image-wrapper">
+              <div class="category-card__img-wrapper">
                 <img
                   src="src/sweet_gift.jpg"
                   alt="Подарочные наборы"
-                  class="category-image"
+                  class="category-card__img"
                 />
               </div>
-              <div class="category-content">
-                <h3 class="category-title">Подарочные наборы</h3>
-                <span class="category-price">от 500 ₽/шт</span>
+              <div class="category-card__content">
+                <h3 class="category-card__title">Подарочные наборы</h3>
+                <span class="category-card__price">от 500 ₽/шт</span>
               </div>
             </a>
           </div>
         </div>
       </section>
 
-      <section class="bestsellers-section">
+      <!-- BESTSELLERS -->
+      <section class="bestsellers">
         <div class="container">
-          <!-- Заголовок секции (по центру) -->
-          <div class="section-header-center">
-            <h2 class="section-title">Хиты продаж</h2>
-            <p class="section-subtitle">
+          <div class="section-header section-header--center">
+            <h2 class="section-header__title">Хиты продаж</h2>
+            <p class="section-header__subtitle">
               Товары-локомотивы с максимальной скоростью продаж в рознице
             </p>
           </div>
 
-          <!-- Сетка товаров -->
-          <div class="products-grid">
-            <!-- Карточка 1 -->
+          <div class="grid-4">
+            <!-- Товар 1 -->
             <div class="product-card">
-              <div class="product-image-wrapper">
-                <div class="product-badges">
+              <div class="product-card__img-wrapper">
+                <div class="product-card__badges">
                   <span class="product-badge">Без сахара</span>
                   <span class="product-badge">Веган</span>
                 </div>
-                <!-- Картинка 1 -->
                 <img
                   src="src/Chocolate.jpg"
                   alt="Горький шоколад"
-                  class="product-image"
+                  class="product-card__img"
                 />
               </div>
-
-              <div class="product-content">
-                <div class="product-sku">Арт: CHOC-72</div>
-                <h4 class="product-title">
+              <div class="product-card__content">
+                <div class="product-card__sku">Арт: CHOC-72</div>
+                <h4 class="product-card__title">
                   Горький шоколад 72% со стевией, 100 г
                 </h4>
-
-                <div class="product-price-row">
+                <div class="product-card__price-row">
                   <span class="price-value">110 ₽</span>
                   <span class="price-unit">/ шт</span>
                 </div>
-
-                <div class="product-pack-info">
+                <div class="product-card__pack">
                   Квант: коробка (20 шт) = 2 200 ₽
                 </div>
-
-                <div class="product-actions">
-                  <div class="quantity-selector">
-                    <button type="button" class="qty-btn">&minus;</button>
-                    <input type="text" class="qty-input" value="1" readonly />
-                    <button type="button" class="qty-btn">&plus;</button>
+                <div class="product-card__actions">
+                  <div class="quantity">
+                    <button type="button" class="quantity__btn">&minus;</button>
+                    <input
+                      type="text"
+                      class="quantity__input"
+                      value="1"
+                      readonly
+                    />
+                    <button type="button" class="quantity__btn">&plus;</button>
                   </div>
-                  <button type="button" class="btn-add-to-cart">
-                    В заявку
-                  </button>
+                  <button type="button" class="btn btn-cart">В заявку</button>
                 </div>
               </div>
             </div>
 
-            <!-- Карточка 2 -->
+            <!-- Товар 2 -->
             <div class="product-card">
-              <div class="product-image-wrapper">
-                <div class="product-badges">
+              <div class="product-card__img-wrapper">
+                <div class="product-card__badges">
                   <span class="product-badge">Без сахара</span>
                 </div>
-                <!-- Картинка 2 -->
                 <img
                   src="src/marmalade.jpg"
                   alt="Набор пастилы"
-                  class="product-image"
+                  class="product-card__img"
                 />
               </div>
-
-              <div class="product-content">
-                <div class="product-sku">Арт: PAST-ASR</div>
-                <h4 class="product-title">
+              <div class="product-card__content">
+                <div class="product-card__sku">Арт: PAST-ASR</div>
+                <h4 class="product-card__title">
                   Набор пастилы «Ассорти» без сахара, 500 г
                 </h4>
-
-                <div class="product-price-row">
+                <div class="product-card__price-row">
                   <span class="price-value">240 ₽</span>
                   <span class="price-unit">/ шт</span>
                 </div>
-
-                <div class="product-pack-info">
+                <div class="product-card__pack">
                   Квант: коробка (12 шт) = 2 880 ₽
                 </div>
-
-                <div class="product-actions">
-                  <div class="quantity-selector">
-                    <button type="button" class="qty-btn">&minus;</button>
-                    <input type="text" class="qty-input" value="1" readonly />
-                    <button type="button" class="qty-btn">&plus;</button>
+                <div class="product-card__actions">
+                  <div class="quantity">
+                    <button type="button" class="quantity__btn">&minus;</button>
+                    <input
+                      type="text"
+                      class="quantity__input"
+                      value="1"
+                      readonly
+                    />
+                    <button type="button" class="quantity__btn">&plus;</button>
                   </div>
-                  <button type="button" class="btn-add-to-cart">
-                    В заявку
-                  </button>
+                  <button type="button" class="btn btn-cart">В заявку</button>
                 </div>
               </div>
             </div>
 
-            <!-- Карточка 3 -->
+            <!-- Товар 3 -->
             <div class="product-card">
-              <div class="product-image-wrapper">
-                <div class="product-badges">
-                  <!-- Карточка без бейджей на референсе -->
-                </div>
-                <!-- Картинка 3 -->
+              <div class="product-card__img-wrapper">
                 <img
                   src="src/nuts.jpg"
                   alt="Драже Фундук"
-                  class="product-image"
+                  class="product-card__img"
                 />
               </div>
-
-              <div class="product-content">
-                <div class="product-sku">Арт: DRG-NUT</div>
-                <h4 class="product-title">Драже «Фундук в шоколаде», 150 г</h4>
-
-                <div class="product-price-row">
+              <div class="product-card__content">
+                <div class="product-card__sku">Арт: DRG-NUT</div>
+                <h4 class="product-card__title">
+                  Драже «Фундук в шоколаде», 150 г
+                </h4>
+                <div class="product-card__price-row">
                   <span class="price-value">185 ₽</span>
                   <span class="price-unit">/ шт</span>
                 </div>
-
-                <div class="product-pack-info">
+                <div class="product-card__pack">
                   Квант: коробка (15 шт) = 2 775 ₽
                 </div>
-
-                <div class="product-actions">
-                  <div class="quantity-selector">
-                    <button type="button" class="qty-btn">&minus;</button>
-                    <input type="text" class="qty-input" value="1" readonly />
-                    <button type="button" class="qty-btn">&plus;</button>
+                <div class="product-card__actions">
+                  <div class="quantity">
+                    <button type="button" class="quantity__btn">&minus;</button>
+                    <input
+                      type="text"
+                      class="quantity__input"
+                      value="1"
+                      readonly
+                    />
+                    <button type="button" class="quantity__btn">&plus;</button>
                   </div>
-                  <button type="button" class="btn-add-to-cart">
-                    В заявку
-                  </button>
+                  <button type="button" class="btn btn-cart">В заявку</button>
                 </div>
               </div>
             </div>
 
-            <!-- Карточка 4 -->
+            <!-- Товар 4 -->
             <div class="product-card">
-              <div class="product-image-wrapper">
-                <div class="product-badges">
+              <div class="product-card__img-wrapper">
+                <div class="product-card__badges">
                   <span class="product-badge">Высокий протеин</span>
                   <span class="product-badge">Без сахара</span>
                 </div>
-                <!-- Картинка 4 -->
                 <img
                   src="src/sweet_gift.jpg"
                   alt="Протеиновый батончик"
-                  class="product-image"
+                  class="product-card__img"
                 />
               </div>
-
-              <div class="product-content">
-                <div class="product-sku">Арт: BAR-PRT</div>
-                <h4 class="product-title">
+              <div class="product-card__content">
+                <div class="product-card__sku">Арт: BAR-PRT</div>
+                <h4 class="product-card__title">
                   Протеиновый батончик «Кокос», 50 г
                 </h4>
-
-                <div class="product-price-row">
+                <div class="product-card__price-row">
                   <span class="price-value">45 ₽</span>
                   <span class="price-unit">/ шт</span>
                 </div>
-
-                <div class="product-pack-info">
+                <div class="product-card__pack">
                   Квант: шоу-бокс (24 шт) = 1 080 ₽
                 </div>
-
-                <div class="product-actions">
-                  <div class="quantity-selector">
-                    <button type="button" class="qty-btn">&minus;</button>
-                    <input type="text" class="qty-input" value="1" readonly />
-                    <button type="button" class="qty-btn">&plus;</button>
+                <div class="product-card__actions">
+                  <div class="quantity">
+                    <button type="button" class="quantity__btn">&minus;</button>
+                    <input
+                      type="text"
+                      class="quantity__input"
+                      value="1"
+                      readonly
+                    />
+                    <button type="button" class="quantity__btn">&plus;</button>
                   </div>
-                  <button type="button" class="btn-add-to-cart">
-                    В заявку
-                  </button>
+                  <button type="button" class="btn btn-cart">В заявку</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Кнопка перехода в каталог -->
-          <div class="bestsellers-footer">
-            <a href="catalog.html" class="btn-catalog"
+          <div class="bestsellers__footer">
+            <a href="catalog.html" class="btn btn--primary"
               >Перейти в полный каталог &rarr;</a
             >
           </div>
         </div>
       </section>
 
-      <section class="partnership-section">
+      <!-- PARTNERSHIP -->
+      <section class="partnership">
         <div class="container">
-          <div class="partnership-card">
-            <div class="partnership-info">
-              <h2 class="partnership-title">Станьте нашим партнёром</h2>
-              <p class="partnership-desc">
+          <div class="partnership__card">
+            <div>
+              <h2 class="partnership__title">Станьте нашим партнёром</h2>
+              <p class="partnership__desc">
                 Мы поставляем продукцию, которая отвечает тренду на осознанное
                 питание и стабильно продаётся.
               </p>
 
-              <div class="partnership-features">
+              <div class="partnership__features">
                 <div class="feature-row">
-                  <div class="feature-icon">
+                  <div class="feature-row__icon">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -501,13 +492,13 @@
                       <path d="M23 6l-9.5 9.5-5-5L1 18"></path>
                     </svg>
                   </div>
-                  <div>
+                  <div class="feature-row__content">
                     <h4>Маржинальность</h4>
                     <p>Цены напрямую от производителя без посредников.</p>
                   </div>
                 </div>
                 <div class="feature-row">
-                  <div class="feature-icon">
+                  <div class="feature-row__icon">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -517,13 +508,13 @@
                       <rect x="3" y="3" width="18" height="18" rx="2"></rect>
                     </svg>
                   </div>
-                  <div>
+                  <div class="feature-row__content">
                     <h4>Удобство</h4>
                     <p>Отгрузка от 1 коробки, бесплатная доставка до ТК.</p>
                   </div>
                 </div>
                 <div class="feature-row">
-                  <div class="feature-icon">
+                  <div class="feature-row__icon">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -535,7 +526,7 @@
                       ></path>
                     </svg>
                   </div>
-                  <div>
+                  <div class="feature-row__content">
                     <h4>Качество</h4>
                     <p>Натуральные составы и полный пакет сертификатов.</p>
                   </div>
@@ -543,17 +534,48 @@
               </div>
             </div>
 
-            <div class="partnership-form-wrapper">
-              <h3 class="form-heading">Получить полный оптовый прайс-лист</h3>
-              <p class="form-subheading">
+            <div class="partnership__form-wrapper">
+              <h3 class="partnership__form-heading">
+                Получить полный оптовый прайс-лист
+              </h3>
+              <p class="partnership__form-subheading">
                 Excel с ценами и остатками на складе придёт на вашу почту.
               </p>
 
-              <form class="b2b-form-compact">
-                <input type="text" placeholder="Имя *" required />
-                <input type="tel" placeholder="Телефон *" required />
-                <input type="email" placeholder="E-mail *" required />
-                <button type="submit" class="btn-download">
+              <form class="partnership__form">
+                <input
+                  type="text"
+                  class="form-compact__input"
+                  placeholder="Имя *"
+                  required
+                />
+                <input
+                  type="tel"
+                  class="form-compact__input"
+                  placeholder="Телефон *"
+                  required
+                />
+                <input
+                  type="email"
+                  class="form-compact__input"
+                  placeholder="E-mail *"
+                  required
+                />
+                <button type="submit" class="btn btn--primary btn--full">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
                   Скачать прайс (.pdf)
                 </button>
               </form>
@@ -563,37 +585,42 @@
       </section>
     </main>
 
-    <footer class="b2b-footer">
+    <!-- FOOTER -->
+    <footer class="footer">
       <div class="container">
-        <div class="footer-top">
-          <div class="footer-info">
-            <a href="index.html" class="footer-logo">
-              <div class="footer-logo-icon">Л</div>
-              <div class="footer-logo-text">ЛАКОСТВА B2B</div>
+        <div class="footer__top">
+          <div>
+            <a href="index.html" class="footer__logo">
+              <div class="footer__logo-icon">Л</div>
+              <div class="footer__logo-text">ЛАКОСТВА B2B</div>
             </a>
-            <p class="footer-desc">
+            <p class="footer__desc">
               Завод полезных сладостей "Конфаэль". Прямые поставки продукции без
               сахара для ритейла, маркетплейсов и корпоративных клиентов.
             </p>
-            <ul class="footer-contacts">
-              <li>
+            <ul class="contacts">
+              <li class="contacts__item">
                 <svg viewBox="0 0 24 24">
                   <path
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                   ></path>
                 </svg>
-                <a href="tel:+74950000000">+7 (495) 000-00-00</a>
+                <a href="tel:+74950000000" class="contacts__link"
+                  >+7 (495) 000-00-00</a
+                >
               </li>
-              <li>
+              <li class="contacts__item">
                 <svg viewBox="0 0 24 24">
                   <path
                     d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
                   ></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-                <a href="mailto:opt@lakomie.ru">opt@lakomie.ru</a>
+                <a href="mailto:opt@lakomie.ru" class="contacts__link"
+                  >opt@lakomie.ru</a
+                >
               </li>
-              <li>
+              <li class="contacts__item">
                 <svg viewBox="0 0 24 24">
                   <path
                     d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
@@ -604,21 +631,31 @@
               </li>
             </ul>
 
-            <nav class="footer-nav">
-              <a href="catalog.html">Каталог</a>
-              <a href="#">Для кого</a>
-              <a href="wholesale.html">Оптовикам</a>
-              <a href="about.html">О компании</a>
+            <nav class="footer__nav">
+              <a href="catalog.html" class="footer__nav-link">Каталог</a>
+              <a href="#" class="footer__nav-link">Для кого</a>
+              <a href="wholesale.html" class="footer__nav-link">Оптовикам</a>
+              <a href="about.html" class="footer__nav-link">О компании</a>
             </nav>
           </div>
 
-          <div class="footer-form-wrapper">
-            <div class="footer-form-block">
-              <h3>Заказать обратный звонок</h3>
-              <form class="b2b-form">
-                <input type="text" placeholder="Ваше имя *" required />
-                <input type="tel" placeholder="Телефон *" required />
-                <button type="submit" class="btn-accent">
+          <div class="footer__form-wrapper">
+            <div class="feedback-form">
+              <h3 class="feedback-form__title">Заказать обратный звонок</h3>
+              <form>
+                <input
+                  type="text"
+                  class="form-input"
+                  placeholder="Ваше имя *"
+                  required
+                />
+                <input
+                  type="tel"
+                  class="form-input"
+                  placeholder="Телефон *"
+                  required
+                />
+                <button type="submit" class="btn btn--accent btn--full">
                   Перезвоните мне
                 </button>
               </form>
@@ -626,9 +663,9 @@
           </div>
         </div>
 
-        <div class="footer-divider"></div>
+        <div class="footer__divider"></div>
 
-        <div class="footer-bottom">
+        <div class="footer__bottom">
           © 2026 Лакомства B2B. Все права защищены. Цены указаны без НДС и носят
           справочный характер.
         </div>

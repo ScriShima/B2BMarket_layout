@@ -1,124 +1,127 @@
-/* catalog-layout.css */
-.catalog-page {
-  background-color: var(--light-bg);
+/* ========================================== */
+/* ЛЕЙАУТ КАТАЛОГА                            */
+/* ========================================== */
+.catalog {
+  background-color: var(--color-bg-light);
   padding-bottom: var(--spacing-xl);
 }
 
 .page-header {
-  padding: 60px 0 60px 0;
-  background-color: var(--dark-bg);
+  padding: 60px 0;
+  background-color: var(--color-bg-dark);
 }
 
-/* Скриншот 2: Уменьшаем отступы между заголовком и текстом */
-.page-title {
-  font-size: 40px;
+.page-header__title {
+  font-size: clamp(32px, 5vw, 40px);
   font-weight: 800;
-  color: var(--text-accent);
-  margin-top: 0;
-  margin-bottom: 12px;
+  color: var(--color-text-dark);
+  margin: 0 0 12px 0;
   line-height: 1.2;
 }
 
-.page-description {
+.page-header__desc {
   font-size: 18px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
   max-width: 800px;
   line-height: 1.6;
-  margin-top: 0;
+  margin: 0;
 }
 
-.catalog-layout {
-  margin: 60px 0 60px 0;
+.catalog__wrapper {
+  margin: 60px 0;
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: var(--spacing-xl);
   align-items: start;
 }
 
-/* Скриншот 1: Сайдбар с фильтрами */
-.catalog-sidebar {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: calc(var(--radius) * 2.5); /* Сильное скругление */
+/* --- САЙДБАР С ФИЛЬТРАМИ --- */
+.sidebar {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
   padding: 24px;
 }
 
-.filter-group {
+.filter {
   margin-bottom: 24px;
 }
-
-.filter-group:last-child {
+.filter:last-child {
   margin-bottom: 0;
 }
 
-.filter-title {
+.filter__title {
   font-size: 13px;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--color-text-main);
   font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 16px;
+  margin: 0 0 16px 0;
   padding-bottom: 12px;
   letter-spacing: 0.5px;
-  border-bottom: 1px solid var(--border); /* Сепаратор */
+  border-bottom: 1px solid var(--color-border);
   display: block;
 }
 
-.filter-checkbox {
+.filter__label {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 14px;
-  color: var(--text-accent);
-  transition: var(--transition);
+  color: var(--color-text-dark);
+  transition: color var(--transition-fast);
 }
 
-.filter-checkbox:hover {
-  color: var(--primary);
+.filter__label:hover {
+  color: var(--color-primary);
 }
 
-.filter-checkbox input[type="checkbox"] {
+.filter__checkbox {
   width: 18px;
   height: 18px;
-  accent-color: var(--primary);
+  accent-color: var(--color-primary);
   cursor: pointer;
   border-radius: 4px;
 }
 
-/* Скриншот 3: Верхняя панель */
-.catalog-top-bar {
+/* --- ВЕРХНЯЯ ПАНЕЛЬ --- */
+.toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--spacing-lg);
   padding-bottom: var(--spacing-sm);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-.items-count-wrapper {
+.toolbar__count {
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
+}
+.toolbar__count strong {
+  color: var(--color-text-dark);
+  font-weight: 700;
 }
 
-.catalog-controls {
+.toolbar__controls {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* Скриншот 3: Кнопки сетка/таблица в одном блоке */
 .view-toggles {
   display: inline-flex;
-  background-color: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 15px; /* Общее скругление контейнера */
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   padding: 4px;
   gap: 2px;
 }
 
-.view-btn {
+.view-toggles__btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,97 +129,103 @@
   height: 34px;
   border: none;
   background: transparent;
-  border-radius: 10px;
-  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-main);
   cursor: pointer;
-  transition: var(--transition);
+  transition: var(--transition-fast);
 }
 
-.view-btn:hover {
-  color: var(--primary);
+.view-toggles__btn:hover {
+  color: var(--color-primary);
 }
 
-.view-btn.active {
-  background: var(--primary);
-  color: var(--white);
+.view-toggles__btn--active {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
 }
 
 .sort-select {
   padding: 10px 16px;
-  border: 1px solid var(--border);
-  border-radius: 10px; /* Скругление */
-  background-color: var(--white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-white);
   font-size: 14px;
-  color: var(--text-accent);
+  color: var(--color-text-dark);
   cursor: pointer;
   outline: none;
   min-width: 180px;
+  transition: border-color var(--transition-fast);
 }
 
 .sort-select:focus {
-  border-color: var(--primary);
+  border-color: var(--color-primary);
 }
 
-/* Скриншот 5: Баннер "Нужна помощь" */
+/* --- БАННЕР ПОМОЩИ --- */
 .help-banner {
   margin-top: 60px;
-  background-color: var(--dark-bg);
-  border-radius: calc(var(--radius) * 3); /* Сильное скругление */
+  background-color: var(--color-bg-dark);
+  border-radius: var(--radius-xl);
   padding: 32px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: var(--spacing-lg);
+  flex-wrap: wrap;
 }
 
-.help-content h3 {
+.help-banner__content h3 {
   margin: 0 0 8px 0;
-  font-size: 24px;
+  font-size: clamp(20px, 3vw, 24px);
   font-weight: 800;
-  color: var(--text-accent);
+  color: var(--color-text-dark);
 }
 
-.help-content p {
+.help-banner__content p {
   margin: 0;
   font-size: 15px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
+  max-width: 500px;
 }
 
-.help-form {
+.help-banner__form {
   display: flex;
   gap: 12px;
-  min-width: 420px;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  max-width: 420px;
 }
 
-.help-form input {
+.help-banner__input {
   flex: 1;
+  min-width: 200px;
   padding: 12px 20px;
-  border: 1px solid var(--border);
-  border-radius: 12px; /* Скругление инпута */
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
   outline: none;
   font-size: 14px;
+  transition: border-color var(--transition-fast);
 }
 
-.help-form input:focus {
-  border-color: var(--primary);
+.help-banner__input:focus {
+  border-color: var(--color-primary);
 }
 
-/* Зеленая кнопка из референса CTA */
-.help-form .btn-primary {
-  background-color: var(--primary);
-  color: var(--white);
-  border: none;
-  border-radius: 12px; /* Скругление кнопки */
-  padding: 12px 24px;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.help-form .btn-primary:hover {
-  background-color: var(--primary-hover);
+/* --- АДАПТИВНОСТЬ ЛЕЙАУТА --- */
+@media (max-width: 992px) {
+  .catalog__wrapper {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .help-banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .help-banner__form {
+    max-width: 100%;
+  }
 }
