@@ -1,0 +1,35 @@
+/* pagination.css */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.page-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  background-color: var(--white);
+  border-radius: 12px; /* Скругление пагинации */
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-accent);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.page-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.page-btn.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}

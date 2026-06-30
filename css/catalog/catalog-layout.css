@@ -1,0 +1,222 @@
+/* catalog-layout.css */
+.catalog-page {
+  background-color: var(--light-bg);
+  padding-bottom: var(--spacing-xl);
+}
+
+.page-header {
+  padding: 60px 0 60px 0;
+  background-color: var(--dark-bg);
+}
+
+/* Скриншот 2: Уменьшаем отступы между заголовком и текстом */
+.page-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--text-accent);
+  margin-top: 0;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.page-description {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 800px;
+  line-height: 1.6;
+  margin-top: 0;
+}
+
+.catalog-layout {
+  margin: 60px 0 60px 0;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+/* Скриншот 1: Сайдбар с фильтрами */
+.catalog-sidebar {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 2.5); /* Сильное скругление */
+  padding: 24px;
+}
+
+.filter-group {
+  margin-bottom: 24px;
+}
+
+.filter-group:last-child {
+  margin-bottom: 0;
+}
+
+.filter-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border); /* Сепаратор */
+  display: block;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-accent);
+  transition: var(--transition);
+}
+
+.filter-checkbox:hover {
+  color: var(--primary);
+}
+
+.filter-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Скриншот 3: Верхняя панель */
+.catalog-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border);
+}
+
+.items-count-wrapper {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.catalog-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Скриншот 3: Кнопки сетка/таблица в одном блоке */
+.view-toggles {
+  display: inline-flex;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 15px; /* Общее скругление контейнера */
+  padding: 4px;
+  gap: 2px;
+}
+
+.view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.view-btn:hover {
+  color: var(--primary);
+}
+
+.view-btn.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.sort-select {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px; /* Скругление */
+  background-color: var(--white);
+  font-size: 14px;
+  color: var(--text-accent);
+  cursor: pointer;
+  outline: none;
+  min-width: 180px;
+}
+
+.sort-select:focus {
+  border-color: var(--primary);
+}
+
+/* Скриншот 5: Баннер "Нужна помощь" */
+.help-banner {
+  margin-top: 60px;
+  background-color: var(--dark-bg);
+  border-radius: calc(var(--radius) * 3); /* Сильное скругление */
+  padding: 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.help-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-accent);
+}
+
+.help-content p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.help-form {
+  display: flex;
+  gap: 12px;
+  min-width: 420px;
+}
+
+.help-form input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px; /* Скругление инпута */
+  outline: none;
+  font-size: 14px;
+}
+
+.help-form input:focus {
+  border-color: var(--primary);
+}
+
+/* Зеленая кнопка из референса CTA */
+.help-form .btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 12px; /* Скругление кнопки */
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.help-form .btn-primary:hover {
+  background-color: var(--primary-hover);
+}

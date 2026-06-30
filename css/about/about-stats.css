@@ -1,0 +1,31 @@
+/* about-stats.css */
+.about-stats {
+  padding: 0 0 40px 0;
+}
+
+.stats-wrapper {
+  background-color: var(--add-bg);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) * 3);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 15px;
+  color: var(--text-muted);
+}

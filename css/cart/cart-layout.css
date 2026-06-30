@@ -1,0 +1,34 @@
+/* cart-layout.css */
+.cart-page {
+  background-color: var(--light-bg);
+  padding-bottom: 80px;
+}
+
+.cart-header {
+  padding: 48px 0 32px 0;
+}
+
+.cart-header .page-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text-accent);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.cart-header .page-description {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.cart-main-section {
+  padding-bottom: 56px;
+}
+
+.cart-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px; /* Левая часть гибкая, правая фиксированная */
+  gap: 32px;
+  align-items: start; /* Важно, чтобы правый сайдбар мог быть sticky */
+}

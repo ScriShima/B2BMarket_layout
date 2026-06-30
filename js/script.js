@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // 1. ГЕНЕРАЦИЯ МОК-ДАННЫХ (50 товаров)
+  // 1. Мок-данные
   const categories = ["chocolate", "pastila", "nuts"];
   const categoryNames = {
     chocolate: "Шоколад",
@@ -7,9 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
     nuts: "Драже/Орехи",
   };
   const images = [
-    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=100&q=80",
-    "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=100&q=80",
-    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=100&q=80",
+    "src/Chocolate.jpg",
+    "src/marmalade.jpg",
+    "src/nuts.jpg",
+    "src/sweet_gift.jpg",
   ];
 
   const products = Array.from({ length: 50 }, (_, i) => {
@@ -19,57 +20,63 @@ document.addEventListener("DOMContentLoaded", function () {
     return {
       id: i + 1,
       sku: `ART-${1000 + i}`,
-      name: `${categoryNames[cat]} "B2B Premium" ${i + 1}`,
+      name: `${categoryNames[cat]} "B2B Premium"`,
       price: price,
       pack: pack,
-      totalPackPrice: price * pack,
       category: cat,
       image: images[i % 3],
     };
   });
 
-  // 2. СОСТОЯНИЕ
+  // 2. Состояние
   let currentPage = 1;
   const itemsPerPage = 12;
-  // По умолчанию ставим grid-view
   let currentView = localStorage.getItem("catalog-view") || "grid";
 
   const container = document.getElementById("catalog-products");
   const productsList = document.getElementById("products-list");
   const paginationContainer = document.getElementById("pagination-container");
-  const tableHeader = document.getElementById("table-header");
 
-  // 3. ОТРИСОВКА
+  // Обновляем счетчик товаров
+  document.getElementById("items-count").textContent = products.length;
+
+  // 3. Генерация HTML карточки
   function createProductRow(product) {
+    // Рандомные теги для вида
+    const isVegan = product.id % 3 === 0;
+    const isHighProtein = product.id % 5 === 0;
+
+    let tagsHtml = '<span class="tag">Без сахара</span>';
+    if (isVegan) tagsHtml += '<span class="tag dark">Веган</span>';
+    if (isHighProtein)
+      tagsHtml += '<span class="tag dark">Высокий протеин</span>';
+
     return `
-     <div class="card product-card">
-        <div class="img-placeholder" style="background-image: url('${product.image}');"></div>
-        <div class="sku">${product.sku}</div>
-        
-        <div class="price-row">
-          <span class="price">${product.price} ₽</span>
-          <span class="opt-label d-none-in-table">
-            Опт 
-           <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 17V11" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
-              <circle cx="1" cy="1" r="1" transform="matrix(1 0 0 -1 11 9)" fill="#1C274C"></circle>
-              <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"></path>
-          </svg>
-          </span>
+      <div class="product-card">
+        <div class="card-image-box" style="background-image: url('${product.image}');">
+          <div class="card-tags">${tagsHtml}</div>
         </div>
         
-        <h4 class="product-name">${product.name}</h4>
+        <div class="card-sku">Арт: ${product.sku}</div>
         
-        <div class="pack d-none-in-grid">В кор. ${product.pack} шт.</div>
+        <h4 class="card-title">${product.name}, 100 г</h4>
         
-        <div class="card-footer">
-          <button class="btn-buy" data-id="${product.id}">В корзину</button>
-          
-          <div class="qty-counter d-none">
-            <button class="btn-minus">−</button>
-            <input type="number" class="qty-input" value="1" min="1" readonly />
-            <button class="btn-plus">+</button>
+        <div class="card-price-row">
+          <span class="card-price-val">${product.price} ₽</span>
+          <span class="card-price-unit">/ шт</span>
+        </div>
+        
+        <div class="card-pack-info">
+          Квант: коробка (${product.pack} шт) = ${product.price * product.pack} ₽
+        </div>
+        
+        <div class="card-actions">
+          <div class="counter">
+            <button type="button" class="btn-minus">−</button>
+            <input type="number" class="qty-input" value="1" min="1" readonly>
+            <button type="button" class="btn-plus">+</button>
           </div>
+          <button type="button" class="btn-submit" data-id="${product.id}">В заявку</button>
         </div>
       </div>
     `;
@@ -86,11 +93,12 @@ document.addEventListener("DOMContentLoaded", function () {
     attachBuyEvents();
   }
 
+  // 4. Пагинация
   function renderPagination() {
     const totalPages = Math.ceil(products.length / itemsPerPage);
     let html = "";
     for (let i = 1; i <= totalPages; i++) {
-      html += `<button class="btn btn-outline btn-small page-btn ${i === currentPage ? "active" : ""}" data-page="${i}">${i}</button>`;
+      html += `<button class="page-btn ${i === currentPage ? "active" : ""}" data-page="${i}">${i}</button>`;
     }
     paginationContainer.innerHTML = html;
 
@@ -103,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 4. ПЕРЕКЛЮЧЕНИЕ ВИДА (Исправлено под grid-view)
+  // 5. Переключение вида (Сетка / Таблица)
   const btnGrid = document.getElementById("btn-grid");
   const btnTable = document.getElementById("btn-table");
 
@@ -114,13 +122,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (view === "table") {
       container.classList.remove("grid-view");
       container.classList.add("table-view");
-      if (tableHeader) tableHeader.style.display = "grid";
       btnTable.classList.add("active");
       btnGrid.classList.remove("active");
     } else {
       container.classList.remove("table-view");
       container.classList.add("grid-view");
-      if (tableHeader) tableHeader.style.display = "none";
       btnGrid.classList.add("active");
       btnTable.classList.remove("active");
     }
@@ -131,21 +137,12 @@ document.addEventListener("DOMContentLoaded", function () {
     btnTable.addEventListener("click", () => applyView("table"));
   }
 
-  // Инициализация вида
   applyView(currentView);
   renderCatalog();
 
+  // 6. Логика счетчиков и кнопок
   function attachBuyEvents() {
-    // 1. Клик по кнопке "В корзину"
-    document.querySelectorAll(".btn-buy").forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const footer = this.closest(".card-footer");
-        this.classList.add("d-none");
-        footer.querySelector(".qty-counter").classList.remove("d-none");
-      });
-    });
-
-    // 2. Работа плюса и минуса
+    // Работа плюса и минуса
     document.querySelectorAll(".qty-counter").forEach((counter) => {
       const btnMinus = counter.querySelector(".btn-minus");
       const btnPlus = counter.querySelector(".btn-plus");
@@ -159,52 +156,46 @@ document.addEventListener("DOMContentLoaded", function () {
         let val = parseInt(input.value);
         if (val > 1) {
           input.value = val - 1;
-        } else {
-          counter.classList.add("d-none");
-          counter
-            .closest(".card-footer")
-            .querySelector(".btn-buy")
-            .classList.remove("d-none");
-          input.value = 1;
         }
       });
     });
 
-    // 3. Логика МОДАЛЬНОГО ОКНА "Условия опта"
-    const modal = document.getElementById("opt-modal");
-    if (modal) {
-      const closeBtn = document.getElementById("modal-close-btn");
-      const overlay = modal.querySelector(".modal-overlay");
+    // Клик по кнопке "В заявку"
+    document.querySelectorAll(".btn-add").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const qty =
+          this.closest(".card-footer").querySelector(".qty-input").value;
+        const id = this.getAttribute("data-id");
 
-      // Открытие: ищем все бейджики "Опт" на странице
-      document.querySelectorAll(".opt-label").forEach((label) => {
-        label.addEventListener("click", () => {
-          modal.classList.remove("d-none");
-        });
+        // Визуальный эффект при добавлении
+        const originalText = this.textContent;
+        this.textContent = "Добавлено ✓";
+        this.style.background = "#1b5e20"; // Более темный зеленый
+
+        setTimeout(() => {
+          this.textContent = originalText;
+          this.style.background = ""; // Возвращаем класс по умолчанию
+        }, 1500);
+
+        console.log(`Товар ID: ${id}, Количество: ${qty}`);
       });
-
-      // Закрытие по крестику
-      closeBtn.addEventListener("click", () => modal.classList.add("d-none"));
-
-      // Закрытие по клику на темный фон вокруг окна
-      overlay.addEventListener("click", () => modal.classList.add("d-none"));
-    }
+    });
   }
 
-  // --- УМНЫЙ ОТСТУП ДЛЯ ФИКСИРОВАННОЙ ШАПКИ ---
+  document.querySelectorAll(".product-card").forEach((card) => {
+    card.style.cursor = "pointer"; // Меняем курсор на "руку"
 
-  const header = document.querySelector(".b2b-header");
+    card.addEventListener("click", function (e) {
+      // Проверяем, не был ли клик внутри блока с кнопками
+      if (e.target.closest(".card-actions")) {
+        return; // Если кликнули на плюс, минус или "В заявку" — ничего не делаем
+      }
 
-  function updateHeaderHeight() {
-    if (header) {
-      const height = header.offsetHeight;
-      document.documentElement.style.setProperty(
-        "--header-height",
-        `${height}px`,
-      );
-    }
-  }
+      // В реальном проекте тут будет динамический URL, например:
+      // window.location.href = `product.html?id=${this.querySelector('.btn-submit').dataset.id}`;
 
-  updateHeaderHeight();
-  window.addEventListener("resize", updateHeaderHeight);
+      // Для макета просто переходим на нашу новую страницу
+      window.location.href = "product.html";
+    });
+  });
 });

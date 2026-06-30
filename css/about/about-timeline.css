@@ -1,0 +1,45 @@
+/* about-timeline.css */
+.about-timeline {
+  padding: 80px 0;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.timeline-item {
+  position: relative;
+  border-top: 2px solid color-mix(in srgb, var(--primary) 30%, transparent);
+  padding-top: 24px;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: -11px;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-year {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.timeline-text {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}

@@ -1,0 +1,52 @@
+/* about-hero.css */
+.about-hero {
+  padding: 60px 0 40px 0;
+  background: var(--dark-bg);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #e8e8dc;
+  border: 1px solid #a3c4b1;
+  color: var(--primary);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.about-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--text-accent);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.about-description {
+  font-size: 18px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.hero-image-block {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: calc(var(--radius) * 3);
+  border: 1px solid var(--border);
+  background-color: var(--white);
+}

@@ -1,0 +1,93 @@
+/* product-table.css */
+.table-view #products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.table-view .product-card {
+  display: grid;
+  grid-template-areas:
+    "img sku pack price actions"
+    "img title pack price actions";
+  grid-template-columns: 80px 1fr 220px 120px 220px;
+  align-items: center;
+  gap: 4px 20px;
+  background: var(--white);
+  padding: 16px;
+  border-radius: calc(var(--radius) * 2); /* Скругление таблицы */
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.table-view .product-card:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: #d1d9d4;
+}
+
+.table-view .card-image-box {
+  grid-area: img;
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px; /* Скругление миниатюры */
+}
+
+.table-view .card-tags {
+  display: none;
+}
+
+.table-view .card-sku {
+  grid-area: sku;
+  align-self: end;
+  font-size: 12px;
+  color: var(--text-muted);
+  width: max-content;
+}
+
+.table-view .card-title {
+  grid-area: title;
+  align-self: start;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-accent);
+  margin: 0;
+}
+
+.table-view .card-pack-info {
+  grid-area: pack;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: #fdfaf3;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.table-view .card-price-row {
+  grid-area: price;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-view .card-price-val {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.table-view .card-price-unit {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.table-view .card-actions {
+  grid-area: actions;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.table-view .btn-submit {
+  flex-grow: 1;
+}
