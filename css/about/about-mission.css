@@ -1,20 +1,25 @@
-/* about-mission.css */
-.about-mission {
+.mission-about {
   padding: 40px 0 80px 0;
 }
 
-.mission-grid {
+.mission-about__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
 }
 
-.mission-image-block {
+.mission-about__img-block {
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: calc(var(--radius) * 3);
-  border: 1px solid var(--border);
-  background-color: var(--white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-white);
+}
+
+@media (max-width: 768px) {
+  .mission-about__grid {
+    grid-template-columns: 1fr;
+  }
 }

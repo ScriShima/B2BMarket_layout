@@ -1,12 +1,11 @@
-/* about-quality.css */
-.about-quality {
-  background-color: var(--light-bg);
+.quality-about {
+  background-color: var(--color-bg-light);
   padding: 80px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.quality-grid {
+.quality-about__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
@@ -14,39 +13,31 @@
 }
 
 .quality-card {
-  background-color: var(--add-bg);
-  border: 1px solid var(--border);
-  border-radius: calc(var(--radius) * 2.5);
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   padding: 32px;
-  transition: var(--transition);
+  transition: box-shadow var(--transition-fast);
 }
 
 .quality-card:hover {
   box-shadow: var(--shadow-sm);
 }
 
-.quality-icon {
+.quality-card__icon {
   width: 48px;
   height: 48px;
-  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
-  color: var(--primary);
-  border-radius: 12px;
+  background-color: rgba(33, 107, 60, 0.1);
+  color: var(--color-primary);
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-.quality-card-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-accent);
-  margin: 0 0 8px 0;
-}
-
-.quality-card-text {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin: 0;
+@media (max-width: 992px) {
+  .quality-about__grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,10 +1,9 @@
-/* about-hero.css */
-.about-hero {
+.hero-about {
   padding: 60px 0 40px 0;
-  background: var(--dark-bg);
+  background: var(--color-bg-dark);
 }
 
-.hero-grid {
+.hero-about__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
@@ -15,38 +14,44 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: #e8e8dc;
-  border: 1px solid #a3c4b1;
-  color: var(--primary);
+  background-color: var(--color-badge-bg);
+  border: 1px solid var(--color-badge-border);
+  color: var(--color-primary);
   padding: 6px 14px;
-  border-radius: 50px;
+  border-radius: var(--radius-round);
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 24px;
 }
 
-.about-title {
-  font-size: 48px;
+.about-hero__title {
+  font-size: clamp(36px, 5vw, 48px);
   font-weight: 800;
-  color: var(--text-accent);
+  color: var(--color-text-dark);
   line-height: 1.1;
   letter-spacing: -1px;
   margin-top: 0;
   margin-bottom: 16px;
 }
 
-.about-description {
+.about-hero__desc {
   font-size: 18px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
   line-height: 1.6;
   margin: 0;
 }
 
-.hero-image-block {
+.about-hero__img-block {
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: calc(var(--radius) * 3);
-  border: 1px solid var(--border);
-  background-color: var(--white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-white);
+}
+
+@media (max-width: 992px) {
+  .hero-about__grid {
+    grid-template-columns: 1fr;
+  }
 }

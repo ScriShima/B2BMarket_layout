@@ -1,14 +1,15 @@
-/* about-layout.css */
-.about-page {
-  background-color: var(--dark-bg);
+/* ========================================== */
+/* ЛЕЙАУТ СТРАНИЦЫ "О КОМПАНИИ" (БЭМ)         */
+/* ========================================== */
+.about {
+  background-color: var(--color-bg-dark);
   padding-bottom: 80px;
 }
 
-/* Общие элементы типографики */
 .section-title {
-  font-size: 32px;
+  font-size: clamp(28px, 4vw, 32px);
   font-weight: 800;
-  color: var(--text-accent);
+  color: var(--color-text-dark);
   margin-top: 0;
   margin-bottom: 24px;
   line-height: 1.2;
@@ -17,7 +18,7 @@
 
 .section-text {
   font-size: 16px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
   line-height: 1.6;
   margin: 0;
 }
