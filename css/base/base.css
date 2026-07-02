@@ -18,7 +18,7 @@
   --color-text-footer: rgba(255, 255, 255, 0.7);
 
   /* Фоны */
-  --color-bg-body: #f0f2f5;
+  --color-bg-body: #fefdfa;
   --color-bg-light: #fcfaf4;
   --color-bg-dark: #f3f0e5;
   --color-bg-white: #ffffff;
@@ -58,7 +58,7 @@
   --spacing-xl: 40px;
 
   --container-width: 1440px;
-  --header-height: 165px; /* Запас под шапку */
+  --header-height: 0px; /* Запас под шапку */
 
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
@@ -76,11 +76,10 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 0;
+  padding-top: var(--header-offset, 0px);
   color: var(--color-text-dark);
   line-height: 1.6;
   background-color: var(--color-bg-body);
-  padding-top: var(--header-height);
 }
 
 img {
@@ -116,7 +115,7 @@ input:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 16px 32px;
+  padding: 10px 32px;
   border-radius: var(--radius-sm);
   text-decoration: none;
   font-weight: 700;
@@ -142,7 +141,7 @@ input:focus-visible {
 }
 
 .btn--secondary {
-  background-color: var(--color-bg-white);
+  background-color: var(--color-bg-body);
   color: var(--color-text-dark);
   box-shadow: var(--shadow-md);
 }

@@ -1,35 +1,33 @@
-.steps-section {
+.steps {
   padding: 60px 0;
-  background-color: var(--light-bg);
+  background-color: var(--color-bg-light);
 }
 
-.steps-section h2 {
+.steps__title {
   font-size: 30px;
   font-weight: 800;
-  margin-top: 0;
-  justify-content: flex-start;
-  color: var(--text-accent);
-  line-height: 1;
+  margin-bottom: 32px;
+  color: var(--color-text-dark);
 }
 
-.steps-grid {
+.steps__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--spacing-lg);
 }
 
-.step-item {
+.step-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--spacing-sm);
 }
 
-.step-number {
+.step-card__number {
   width: 48px;
   height: 48px;
-  background-color: var(--primary);
-  color: var(--white);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -39,16 +37,16 @@
   box-shadow: var(--shadow-sm);
 }
 
-.step-item h3 {
+.step-card__title {
   font-size: 16px;
   font-weight: 700;
-  color: var(--text-accent);
+  color: var(--color-text-dark);
   margin: 0;
 }
 
-.step-item p {
+.step-card__text {
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--color-text-main);
   margin: 0;
   line-height: 1.5;
 }

@@ -62,6 +62,16 @@
   z-index: 2;
 }
 
+.product-badge {
+  background-color: var(--color-badge-dark);
+  color: var(--color-text-inverse);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-round);
+  display: inline-block;
+}
+
 /* --- ИНФОРМАЦИЯ О ТОВАРЕ --- */
 .product-info__header {
   display: flex;

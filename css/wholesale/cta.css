@@ -1,30 +1,30 @@
-.cta-section {
+.cta {
   padding: var(--spacing-xl) 0 60px 0;
-  background: var(--dark-bg);
+  background: var(--color-bg-dark);
 }
 
 .cta-card {
-  background-color: var(--add-bg);
-  border: 1px solid var(--border);
-  border-radius: calc(var(--radius) * 3);
-  padding: var(--spacing-xl);
+  background-color: var(--color-bg-body);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 48px;
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--spacing-xl);
   align-items: center;
   box-shadow: var(--shadow-md);
 }
 
-.cta-text h2 {
+.cta-card__title {
   font-size: 30px;
   font-weight: 800;
   margin-bottom: var(--spacing-sm);
-  color: var(--text-accent);
+  color: var(--color-text-dark);
 }
 
-.cta-text p {
-  color: var(--text);
+.cta-card__text {
+  color: var(--color-text-main);
   line-height: 1.5;
-  max-width: 400px;
   margin: 0;
 }
 
@@ -34,46 +34,23 @@
   gap: var(--spacing-sm);
 }
 
-.cta-form input {
+.cta-form__input {
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background-color: var(--dark-bg);
-  columns: var(--dark);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-light);
   font-size: 14px;
   outline: none;
-  transition: var(--transition);
-  box-sizing: border-box;
+  transition: border-color var(--transition-fast);
 }
 
-.cta-form input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+.cta-form__input:focus {
+  border-color: var(--color-primary);
 }
 
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: var(--primary);
-  color: var(--white);
-  padding: 12px 24px;
-  border-radius: var(--radius);
-  border: none;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.btn-primaty:hover {
-  background-color: var(--primary-hover);
-}
-
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .cta-card {
-    grid-template-columns: 1fr 1fr;
-    padding: 48px;
+    grid-template-columns: 1fr;
   }
 }

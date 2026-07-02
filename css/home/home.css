@@ -252,6 +252,7 @@
 /* ========================================== */
 .bestsellers {
   padding: 40px 0 100px;
+  background-color: var(--color-bg-dark);
 }
 .bestsellers__footer {
   display: flex;
@@ -418,9 +419,9 @@
   background-color: var(--color-bg-light);
 }
 .partnership__card {
-  background: var(--color-bg-white);
+  background: var(--color-bg-body);
   border-radius: var(--radius-xl);
-  padding: 60px;
+  padding: 30px;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 80px;
@@ -478,9 +479,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: var(--color-bg-light);
+  background: var(--color-bg-body);
   padding: 30px;
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border);
 }
 .partnership__form-heading {
@@ -499,7 +501,7 @@
   margin-bottom: 12px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  background: var(--color-bg-dark);
+  background: var(--color-bg-light);
   font-size: 14px;
   transition: border-color var(--transition-fast);
 }
@@ -537,6 +539,7 @@
     grid-template-columns: 1fr;
     gap: 40px;
     padding: 40px;
+    box-shadow: var(--shadow-md);
   }
 }
 

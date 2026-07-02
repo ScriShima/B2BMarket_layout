@@ -10,8 +10,8 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   height: 42px;
-  width: 96px;
-  padding: 0 4px;
+  width: 80px;
+  padding: 0 2px;
 }
 
 .quantity__btn {
@@ -58,6 +58,16 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 24px;
+}
+
+.product-badge {
+  background-color: var(--color-badge-dark);
+  color: var(--color-text-inverse);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-round);
+  display: inline-block;
 }
 
 .products--grid .product-card {
@@ -150,9 +160,17 @@
 }
 
 .products--grid .product-card__actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr; /* Счетчик слева, кнопка занимает остальное место */
   gap: 8px;
   align-items: center;
+}
+
+.products--grid .btn--add {
+  padding: 10px 16px;
+  font-size: 14px;
+  height: 42px; /* Высота равна высоте счетчика */
+  width: 100%;
 }
 
 /* Адаптивность сетки */

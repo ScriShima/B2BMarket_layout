@@ -135,13 +135,20 @@
   transition: var(--transition-fast);
 }
 
-.view-toggles__btn:hover {
+.view-toggles__btn:hover:not(.view-toggles__btn--active) {
   color: var(--color-primary);
+  background-color: var(--color-bg-body);
 }
 
 .view-toggles__btn--active {
   background: var(--color-primary);
   color: var(--color-text-inverse);
+}
+
+.view-toggles__btn--active:hover {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  cursor: default;
 }
 
 .sort-select {

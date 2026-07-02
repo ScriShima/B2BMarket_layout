@@ -2,7 +2,7 @@
 /* ШАПКА                                 */
 /* ========================================== */
 .header {
-  background: var(--color-bg-white);
+  background: var(--color-bg-body);
   position: fixed;
   top: 0;
   left: 0;

@@ -37,9 +37,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const paginationContainer = document.getElementById("pagination-container");
 
   // Обновляем счетчик товаров
-  document.getElementById("items-count").textContent = products.length;
+  const itemsCountEl = document.getElementById("items-count");
+  if (itemsCountEl) itemsCountEl.textContent = products.length;
 
-  // 3. Генерация HTML карточки (Используем новые БЭМ-классы)
+  // 3. Динамический отступ хедера
+  function updateHeaderOffset() {
+    const header = document.querySelector(".header");
+    if (header) {
+      const headerHeight = header.offsetHeight;
+      document.documentElement.style.setProperty(
+        "--header-offset",
+        `${headerHeight}px`,
+      );
+    }
+  }
+
+  updateHeaderOffset();
+  window.addEventListener("resize", updateHeaderOffset);
+
+  // 4. Генерация HTML карточки
   function createProductRow(product) {
     const isVegan = product.id % 3 === 0;
     const isHighProtein = product.id % 5 === 0;
@@ -82,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function renderCatalog() {
+    if (!productsList) return;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const paginatedProducts = products.slice(startIndex, endIndex);
@@ -92,8 +109,9 @@ document.addEventListener("DOMContentLoaded", function () {
     attachBuyEvents();
   }
 
-  // 4. Пагинация (обновлены классы)
+  // 5. Пагинация
   function renderPagination() {
+    if (!paginationContainer) return;
     const totalPages = Math.ceil(products.length / itemsPerPage);
     let html = "";
     for (let i = 1; i <= totalPages; i++) {
@@ -110,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 5. Переключение вида (Сетка / Таблица) - меняем классы у #products-list напрямую
+  // 6. Переключение вида
   const btnGrid = document.getElementById("btn-grid");
   const btnTable = document.getElementById("btn-table");
 
@@ -121,13 +139,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (view === "table") {
       productsList.classList.remove("products--grid");
       productsList.classList.add("products--list");
-      btnTable.classList.add("view-toggles__btn--active");
-      btnGrid.classList.remove("view-toggles__btn--active");
+      if (btnTable) btnTable.classList.add("view-toggles__btn--active");
+      if (btnGrid) btnGrid.classList.remove("view-toggles__btn--active");
     } else {
       productsList.classList.remove("products--list");
       productsList.classList.add("products--grid");
-      btnGrid.classList.add("view-toggles__btn--active");
-      btnTable.classList.remove("view-toggles__btn--active");
+      if (btnGrid) btnGrid.classList.add("view-toggles__btn--active");
+      if (btnTable) btnTable.classList.remove("view-toggles__btn--active");
     }
   }
 
@@ -136,19 +154,20 @@ document.addEventListener("DOMContentLoaded", function () {
     btnTable.addEventListener("click", () => applyView("table"));
   }
 
-  applyView(currentView);
-  renderCatalog();
+  if (productsList) {
+    applyView(currentView);
+    renderCatalog();
+  }
 
-  // 6. Логика счетчиков и кнопок (исправлены селекторы и добавлены stopPropagation)
+  // 7. Логика счетчиков и кнопок
   function attachBuyEvents() {
-    // Работа плюса и минуса
     document.querySelectorAll(".quantity").forEach((counter) => {
       const btnMinus = counter.querySelector(".quantity__btn--minus");
       const btnPlus = counter.querySelector(".quantity__btn--plus");
       const input = counter.querySelector(".quantity__input");
 
       btnPlus.addEventListener("click", (e) => {
-        e.stopPropagation(); // Чтобы клик не открывал карточку
+        e.stopPropagation();
         input.value = parseInt(input.value) + 1;
       });
 
@@ -161,40 +180,29 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Клик по кнопке "В заявку"
     document.querySelectorAll(".btn--add").forEach((btn) => {
       btn.addEventListener("click", function (e) {
-        e.stopPropagation(); // Чтобы клик не открывал карточку
-
+        e.stopPropagation();
         const qty = this.closest(".product-card__actions").querySelector(
           ".quantity__input",
         ).value;
         const id = this.getAttribute("data-id");
 
-        // Визуальный эффект при добавлении (теперь используем CSS-переменную)
         const originalText = this.textContent;
         this.textContent = "Добавлено ✓";
         this.style.background = "var(--color-primary-hover)";
 
         setTimeout(() => {
           this.textContent = originalText;
-          this.style.background = ""; // Возвращаем класс по умолчанию
+          this.style.background = "";
         }, 1500);
-
-        console.log(`Товар ID: ${id}, Количество: ${qty}`);
       });
     });
 
-    // Открытие карточки
     document.querySelectorAll(".product-card").forEach((card) => {
       card.style.cursor = "pointer";
-
       card.addEventListener("click", function (e) {
-        // Проверяем, не был ли клик внутри блока с кнопками
-        if (e.target.closest(".product-card__actions")) {
-          return;
-        }
-
+        if (e.target.closest(".product-card__actions")) return;
         window.location.href = "product.html";
       });
     });
