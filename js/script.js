@@ -207,4 +207,59 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // 8. Переключение тем (добавлено)
+  const themeSelect = document.getElementById("theme-select");
+  const htmlElement = document.documentElement;
+
+  // Получаем сохраненную тему из памяти браузера (или default)
+  const savedTheme = localStorage.getItem("b2b-theme") || "default";
+
+  // Применяем тему при загрузке любой страницы
+  if (savedTheme !== "default") {
+    htmlElement.setAttribute("data-theme", savedTheme);
+  }
+
+  // Проверяем, есть ли селект на текущей странице
+  if (themeSelect) {
+    themeSelect.value = savedTheme; // Синхронизируем значение селекта с текущей темой
+
+    themeSelect.addEventListener("change", (e) => {
+      const selectedTheme = e.target.value;
+
+      if (selectedTheme === "default") {
+        htmlElement.removeAttribute("data-theme");
+      } else {
+        htmlElement.setAttribute("data-theme", selectedTheme);
+      }
+
+      // Сохраняем выбор, чтобы тема переносилась на другие экраны
+      localStorage.setItem("b2b-theme", selectedTheme);
+    });
+  }
+
+  const header = document.querySelector(".header");
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    // Если мы на самом верху, убираем тень и классы скрытия
+    if (window.scrollY === 0) {
+      header.classList.remove("header--hidden");
+      header.classList.remove("header--scrolled");
+      return;
+    }
+
+    // Если проскроллили вниз больше чем на высоту шапки
+    if (window.scrollY > lastScrollY && window.scrollY > 150) {
+      // Скролл вниз - скрываем
+      header.classList.add("header--hidden");
+      header.classList.add("header--scrolled");
+    } else if (window.scrollY < lastScrollY) {
+      // Скролл вверх - показываем
+      header.classList.remove("header--hidden");
+      header.classList.add("header--scrolled");
+    }
+
+    lastScrollY = window.scrollY;
+  });
 });

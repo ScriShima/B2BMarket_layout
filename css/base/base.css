@@ -1,8 +1,348 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
 /* ========================================== */
 /* ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ (ДИЗАЙН-СИСТЕМА)     */
 /* ========================================== */
+
+:root[data-theme="citrus"] {
+  /* Brand */
+  --color-primary: #61a50e;
+  --color-primary-hover: #21a60d;
+  --color-primary-light: #d9ebc1;
+  --color-primary-soft: #eef6e1;
+
+  --color-secondary: #0da631; /* Изумрудный */
+
+  --color-accent: #a6950d; /* Горчичный */
+  --color-accent-hover: #8a7c0a;
+
+  /* Typography */
+  --color-text-main: #424a38;
+  --color-text-dark: #182112;
+  --color-text-accent: #21a60d;
+  --color-text-muted: #748066;
+  --color-text-inverse: #ffffff;
+  --color-text-footer: rgba(255, 255, 255, 0.75);
+
+  /* Backgrounds */
+  --color-bg-body: #fbfcf7;
+  --color-bg-light: #f4f7eb;
+  --color-bg-dark: #e9eedb;
+  --color-bg-white: #ffffff;
+
+  /* Borders */
+  --color-border: #dbe3c8;
+  --color-border-light: #ebf0df;
+
+  /* Components */
+  --color-badge-bg: #f7f5e1; /* Легкий желтоватый бейдж */
+  --color-badge-border: #ded79a;
+  --color-badge-dark: #a6950d;
+
+  --color-sku-bg: #f9faec;
+  --color-pack-bg: #ffffff;
+  --color-pack-text: #748066;
+  --color-feature-bg: #f4f7ec;
+  --color-img-placeholder: #f5f7f0;
+
+  /* States */
+  --color-success: #21a60d;
+  --color-warning: #a1a60d; /* Салатово-желтый */
+  --color-error: #c94a3f;
+}
+
+:root[data-theme="plum"] {
+  /* Brand */
+  --color-primary: #61a50e;
+  --color-primary-hover: #4e870b;
+  --color-primary-light: #e6f0d8;
+  --color-primary-soft: #f2f7ec;
+
+  --color-secondary: #331e2c; /* Темная слива */
+
+  --color-accent: #a60d76; /* Фуксия */
+  --color-accent-hover: #850b5e;
+
+  /* Typography */
+  --color-text-main: #4a3c46;
+  --color-text-dark: #29331e; /* Темный лес из палитры */
+  --color-text-accent: #a60d76;
+  --color-text-muted: #82757e;
+  --color-text-inverse: #ffffff;
+  --color-text-footer: rgba(255, 255, 255, 0.75);
+
+  /* Backgrounds */
+  --color-bg-body: #fcf9fb;
+  --color-bg-light: #f5ebf2;
+  --color-bg-dark: #e8d8e3;
+  --color-bg-white: #ffffff;
+
+  /* Borders */
+  --color-border: #e0ced9;
+  --color-border-light: #ede1e8;
+
+  /* Components */
+  --color-badge-bg: #f7e6f2;
+  --color-badge-border: #dfa8cf;
+  --color-badge-dark: #a60d76;
+
+  --color-sku-bg: #fcf5fa;
+  --color-pack-bg: #ffffff;
+  --color-pack-text: #82757e;
+  --color-feature-bg: #fbf7fa;
+  --color-img-placeholder: #f9f0f6;
+
+  /* States */
+  --color-success: #61a50e;
+  --color-warning: #e8b54a;
+  --color-error: #a60d76;
+}
+
+:root[data-theme="berry"] {
+  /* Brand */
+  --color-primary: #61a50e;
+  --color-primary-hover: #4e870b;
+  --color-primary-light: #e6f0d8;
+  --color-primary-soft: #f2f7ec;
+
+  --color-secondary: #3b5121; /* Оливковый */
+
+  --color-accent: #a60d39; /* Насыщенный ягодный */
+  --color-accent-hover: #8a0b2f;
+
+  /* Typography */
+  --color-text-main: #544a4d;
+  --color-text-dark: #2b1d22;
+  --color-text-accent: #a60d39;
+  --color-text-muted: #8f8286;
+  --color-text-inverse: #ffffff;
+  --color-text-footer: rgba(255, 255, 255, 0.75);
+
+  /* Backgrounds */
+  --color-bg-body: #fffafb; /* Бело-розовый легкий тон */
+  --color-bg-light: #f7ebef;
+  --color-bg-dark: #ebdce2;
+  --color-bg-white: #ffffff;
+
+  /* Borders */
+  --color-border: #e6d1d8;
+  --color-border-light: #f2e4e8;
+
+  /* Components */
+  --color-badge-bg: #fcedf1;
+  --color-badge-border: #e6bac7;
+  --color-badge-dark: #a60d39;
+
+  --color-sku-bg: #fff5f7;
+  --color-pack-bg: #ffffff;
+  --color-pack-text: #8f8286;
+  --color-feature-bg: #fffafb;
+  --color-img-placeholder: #fcf2f5;
+
+  /* States */
+  --color-success: #61a50e;
+  --color-warning: #a69b0d; /* Горчичный */
+  --color-error: #a60d39;
+}
+
+:root[data-theme="forest"] {
+  /* Brand */
+  --color-primary: #61a50e;
+  --color-primary-hover: #4e7320;
+  --color-primary-light: #dce6cc;
+  --color-primary-soft: #eff5e6;
+
+  --color-secondary: #31401f; /* Глубокий зеленый для футера/хедлайнов */
+
+  --color-accent: #4e7320;
+  --color-accent-hover: #31401f;
+
+  /* Typography */
+  --color-text-main: #30332d; /* Темный серо-зеленый (Charcoal) */
+  --color-text-dark: #2c3323;
+  --color-text-accent: #4e7320;
+  --color-text-muted: #727a69;
+  --color-text-inverse: #ffffff;
+  --color-text-footer: rgba(255, 255, 255, 0.75);
+
+  /* Backgrounds */
+  --color-bg-body: #f8faf5; /* Бело-зеленый "воздушный" фон */
+  --color-bg-light: #eff5e6;
+  --color-bg-dark: #e1ebd1;
+  --color-bg-white: #ffffff;
+
+  /* Borders */
+  --color-border: #d2debe;
+  --color-border-light: #e5ecd6;
+
+  /* Components */
+  --color-badge-bg: #eff5e6;
+  --color-badge-border: #bacc9b;
+  --color-badge-dark: #4e7320;
+
+  --color-sku-bg: #f3f7ea;
+  --color-pack-bg: #ffffff;
+  --color-pack-text: #727a69;
+  --color-feature-bg: #f0f5e8;
+  --color-img-placeholder: #f4f7f0;
+
+  /* States */
+  --color-success: #61a50e;
+  --color-warning: #a69b0d;
+  --color-error: #c94a3f;
+}
+
+:root[data-theme="natural"] {
+  /* Brand */
+  --color-primary: #61a50e;
+  --color-primary-hover: #4e870b;
+  --color-primary-light: #d9ebc1;
+  --color-primary-soft: #eef6e1;
+
+  --color-secondary: #355b08;
+
+  --color-accent: #e8b54a;
+  --color-accent-hover: #d39e2f;
+
+  /* Typography */
+  --color-text-main: #24311c;
+  --color-text-dark: #182112;
+  --color-text-accent: #355b08;
+  --color-text-muted: #66735a;
+  --color-text-inverse: #ffffff;
+  --color-text-footer: rgba(255, 255, 255, 0.75);
+
+  /* Backgrounds */
+  --color-bg-body: #f7fbf0;
+  --color-bg-light: #eef6e1;
+  --color-bg-dark: #e2edd1;
+  --color-bg-white: #ffffff;
+
+  /* Borders */
+  --color-border: #dde8cc;
+  --color-border-light: #edf3e3;
+
+  /* Components */
+  --color-badge-bg: #eef6e1;
+  --color-badge-border: #bfd89b;
+  --color-badge-dark: #4e870b;
+
+  --color-sku-bg: #f4f8ec;
+
+  --color-pack-bg: #ffffff;
+  --color-pack-text: #66735a;
+
+  --color-feature-bg: #f2f8e9;
+
+  --color-img-placeholder: #f4f7ef;
+
+  /* States */
+  --color-success: #61a50e;
+  --color-warning: #e8b54a;
+  --color-error: #c94a3f;
+}
+
+:root[data-theme="organic"] {
+  /* Brand */
+  --color-primary: #61a50e;
+  --color-primary-hover: #4c830b;
+  --color-primary-light: #dcebc8;
+  --color-primary-soft: #f0f6e8;
+
+  --color-secondary: #6b4e2e;
+
+  --color-accent: #c68a3d;
+  --color-accent-hover: #a96f2d;
+
+  /* Typography */
+  --color-text-main: #30281f;
+  --color-text-dark: #1e1812;
+  --color-text-accent: #5e4327;
+  --color-text-muted: #74685a;
+  --color-text-inverse: #ffffff;
+  --color-text-footer: rgba(255, 255, 255, 0.75);
+
+  /* Backgrounds */
+  --color-bg-body: #fcf9f3;
+  --color-bg-light: #f5f0e6;
+  --color-bg-dark: #ece3d4;
+  --color-bg-white: #ffffff;
+
+  /* Borders */
+  --color-border: #e6dac5;
+  --color-border-light: #f1e8da;
+
+  /* Components */
+  --color-badge-bg: #f3ecd9;
+  --color-badge-border: #d9be8a;
+  --color-badge-dark: #8a642f;
+
+  --color-sku-bg: #f8f3ea;
+
+  --color-pack-bg: #ffffff;
+  --color-pack-text: #7c6b57;
+
+  --color-feature-bg: #f6f1e8;
+
+  --color-img-placeholder: #f7f3ed;
+
+  /* States */
+  --color-success: #61a50e;
+  --color-warning: #d79a37;
+  --color-error: #c75a4d;
+}
+
+:root[data-theme="minimal"] {
+  /* Brand */
+  --color-primary: #61a50e;
+  --color-primary-hover: #4f860c;
+  --color-primary-light: #e4f0d4;
+  --color-primary-soft: #f3f7ed;
+
+  --color-secondary: #364032;
+
+  --color-accent: #8db255;
+  --color-accent-hover: #759744;
+
+  /* Typography */
+  --color-text-main: #222222;
+  --color-text-dark: #111111;
+  --color-text-accent: #364032;
+  --color-text-muted: #707070;
+  --color-text-inverse: #ffffff;
+  --color-text-footer: rgba(255, 255, 255, 0.75);
+
+  /* Backgrounds */
+  --color-bg-body: #fafaf8;
+  --color-bg-light: #f3f5ef;
+  --color-bg-dark: #e7ede2;
+  --color-bg-white: #ffffff;
+
+  /* Borders */
+  --color-border: #e3e8de;
+  --color-border-light: #eff3eb;
+
+  /* Components */
+  --color-badge-bg: #eef4e7;
+  --color-badge-border: #c8d9b5;
+  --color-badge-dark: #4f860c;
+
+  --color-sku-bg: #f7f8f4;
+
+  --color-pack-bg: #ffffff;
+  --color-pack-text: #777777;
+
+  --color-feature-bg: #f6f8f3;
+
+  --color-img-placeholder: #f3f5f1;
+
+  /* States */
+  --color-success: #61a50e;
+  --color-warning: #c9a43a;
+  --color-error: #d15555;
+}
+
 :root {
-  /* Базовые цвета */
   --color-primary: #216b3c;
   --color-primary-hover: #1b5e20;
   --color-secondary: #233929;
@@ -32,7 +372,6 @@
   --color-pack-text: #8c7e6b;
   --color-feature-bg: #f0f7f2;
   --color-img-placeholder: #f5f5f5;
-
   /* Границы и тени */
   --color-border: #e4e0d9;
   --color-border-light: rgba(255, 255, 255, 0.1);
@@ -65,6 +404,37 @@
 }
 
 /* ========================================== */
+/* СТИЛИ ПЕРЕКЛЮЧАТЕЛЯ ТЕМ                    */
+/* ========================================== */
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  margin-right: 15px; /* Отступ от иконки "Войти" */
+}
+
+.theme-switcher__select {
+  padding: 8px 16px;
+  border-radius: var(
+    --radius-round
+  ); /* Используем твою переменную для скруглений */
+  border: 1px solid var(--color-border); /* Берем цвет рамки из твоей дизайн-системы */
+  background-color: var(
+    --color-bg-light
+  ); /* Фоновый цвет из твоих переменных */
+  color: var(--color-text-main);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.theme-switcher__select:focus {
+  border-color: var(--color-primary);
+}
+
+/* ========================================== */
 /* БАЗОВЫЕ СТИЛИ                              */
 /* ========================================== */
 *,
@@ -74,7 +444,7 @@
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Manrope", sans-serif;
   margin: 0;
   padding-top: var(--header-offset, 0px);
   color: var(--color-text-dark);

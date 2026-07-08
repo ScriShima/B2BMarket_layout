@@ -1,20 +1,21 @@
 /* ========================================== */
-/* ФУТЕР                          */
+/* ФУТЕР (Fat Footer B2B)                     */
 /* ========================================== */
 .footer {
   background-color: var(--color-secondary);
-  padding: 60px 0 30px;
+  padding: 80px 0 30px;
   color: var(--color-text-inverse);
+  border-top: 1px solid var(--color-border);
 }
 
-.footer__top {
+.footer__main {
   display: grid;
-  grid-template-columns: 1fr 450px;
+  grid-template-columns: 280px 1fr 340px;
   gap: 60px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-/* Логотип */
+/* Блок 1: Бренд и контакты */
 .footer__logo {
   display: flex;
   align-items: center;
@@ -35,24 +36,23 @@
   font-size: 20px;
 }
 .footer__logo-text {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 900;
   color: var(--color-text-inverse);
+  letter-spacing: 0.5px;
 }
 
 .footer__desc {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
   color: var(--color-text-footer);
-  max-width: 500px;
   margin-bottom: 30px;
 }
 
-/* Контакты */
 .contacts {
   list-style: none;
   padding: 0;
-  margin: 0 0 35px 0;
+  margin: 0 0 24px 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -62,95 +62,243 @@
   align-items: center;
   gap: 12px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-inverse);
 }
 .contacts__item svg {
   width: 18px;
   height: 18px;
   stroke: var(--color-accent);
   fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
   flex-shrink: 0;
 }
 .contacts__link {
   color: inherit;
   text-decoration: none;
+  transition: color var(--transition-fast);
 }
 .contacts__link:hover {
   color: var(--color-accent);
 }
+.font-bold {
+  font-weight: 700;
+}
 
-/* Навигация */
-.footer__nav {
+/* Соцсети / Мессенджеры */
+.footer__socials {
   display: flex;
-  flex-wrap: wrap;
+  gap: 12px;
+}
+.social-link {
+  width: 36px;
+  height: 36px;
+  background: var(--color-border-light);
+  border: 1px solid var(--color-border-form);
+  border-radius: var(--radius-sm);
+  display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: center;
+  color: var(--color-text-inverse);
+  transition: all var(--transition-fast);
+}
+.social-link:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+/* Блок 2: Расширенная навигация */
+.footer__nav-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.footer__nav-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-inverse);
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.footer__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .footer__nav-link {
   color: var(--color-text-footer);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
+  transition: color var(--transition-fast);
 }
 .footer__nav-link:hover {
-  color: var(--color-text-inverse);
+  color: var(--color-accent);
+}
+.nav__link-badge-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.nav-badge {
+  background: var(--color-accent);
+  color: var(--color-secondary);
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
-/* Форма обратной связи */
-.feedback-form {
+/* Блок 3: Подписка (Вместо обратного звонка) */
+.subscribe-card {
   background: var(--color-border-light);
   border: 1px solid var(--color-border-form);
   border-radius: var(--radius-md);
   padding: 30px;
 }
-.feedback-form__title {
-  margin: 0 0 24px 0;
+.subscribe-card__title {
+  margin: 0 0 10px 0;
   font-size: 18px;
   color: var(--color-text-inverse);
-  font-weight: 600;
+  font-weight: 700;
 }
-.form-input {
+.subscribe-card__desc {
+  font-size: 13px;
+  color: var(--color-text-footer);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.subscribe-form {
+  display: flex;
+  position: relative;
+}
+.subscribe-form__input {
   width: 100%;
-  padding: 14px 16px;
+  padding: 14px 50px 14px 16px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--color-border-form);
   border-radius: var(--radius-sm);
   color: var(--color-text-inverse);
   font-size: 14px;
-  margin-bottom: 16px;
   outline: none;
-  box-sizing: border-box;
   transition: border-color var(--transition-fast);
 }
-.form-input:focus {
+.subscribe-form__input:focus {
   border-color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.12);
 }
-.form-input::placeholder {
+.subscribe-form__input::placeholder {
   color: rgba(255, 255, 255, 0.4);
 }
-.btn--full {
-  width: 100%;
+.subscribe-form__btn {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  bottom: 6px;
+  width: 40px;
+  background-color: var(--color-accent);
+  color: var(--color-secondary);
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.subscribe-form__btn:hover {
+  background-color: var(--color-accent-hover);
 }
 
+/* Нижний бар */
 .footer__divider {
   width: 100%;
   height: 1px;
   background-color: var(--color-border-light);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 .footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer__copyright {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.6;
+}
+
+/* Бейджи доверия */
+.footer__trust {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-footer);
+  font-size: 12px;
+  font-weight: 600;
+}
+.trust-badge svg {
+  color: var(--color-border-form);
 }
 
 /* Адаптивность футера */
-@media (max-width: 992px) {
-  .footer__top {
+@media (max-width: 1100px) {
+  .footer__main {
+    grid-template-columns: 250px 1fr;
+  }
+  .footer__subscribe {
+    grid-column: 1 / -1;
+  }
+  .subscribe-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 24px;
+  }
+  .subscribe-card > * {
+    margin: 0;
+  }
+  .subscribe-card__desc {
+    max-width: 300px;
+  }
+  .subscribe-form {
+    flex-grow: 1;
+  }
+}
+@media (max-width: 768px) {
+  .footer__main {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+  .footer__nav-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .subscribe-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer__trust {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .footer__nav-group {
+    grid-template-columns: 1fr;
   }
 }
