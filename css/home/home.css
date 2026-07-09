@@ -511,6 +511,694 @@
 }
 
 /* ========================================== */
+/* UI CONFIGURATOR (Скрытая панель)           */
+/* ========================================== */
+.ui-configurator {
+  position: fixed;
+  top: 50%;
+  right: -320px;
+  transform: translateY(-50%);
+  width: 300px;
+  background: var(--color-bg-body);
+  border: 1px solid var(--color-border);
+  border-radius: 16px 0 0 16px;
+  box-shadow: -5px 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  padding: 24px;
+}
+.ui-configurator.is-open {
+  right: 0;
+}
+.ui-configurator__header {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+.ui-configurator__header h3 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  color: var(--color-text-dark);
+}
+.ui-configurator__hint {
+  font-size: 11px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+.ui-configurator__group {
+  margin-bottom: 16px;
+}
+.ui-configurator__group label {
+  display: block;
+  font-size: 12px;
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.config-select {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-light);
+  color: var(--color-text-dark);
+  font-size: 14px;
+  outline: none;
+}
+
+/* ========================================== */
+/* ЛОГИКА БАННЕРОВ (4 режима)                 */
+/* ========================================== */
+.promo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.promo-badge {
+  background: var(--color-accent);
+  color: var(--color-secondary);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+/* Отключаем все баннеры в режиме Статично */
+#hero-visual[data-banner-mode="static"] .promo-container {
+  display: none;
+}
+
+/* ------------------------------------------- */
+/* РЕЖИМ 5: Модальная витрина (Аккордеон)      */
+/* ------------------------------------------- */
+#hero-visual[data-banner-mode="modal"] .promo-modal-trigger {
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25); /* Легкое затемнение базового фото */
+  border-radius: var(--radius-xl);
+}
+#hero-visual[data-banner-mode="modal"] .promo-modal-trigger button {
+  padding: 16px 32px;
+  font-size: 16px;
+  box-shadow: 0 10px 30px rgba(97, 165, 14, 0.4);
+  transition: transform 0.3s;
+}
+#hero-visual[data-banner-mode="modal"] .promo-modal-trigger button:hover {
+  transform: scale(1.05);
+}
+
+/* Оверлей поверх всего сайта */
+.promo-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 20, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+.promo-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.promo-modal__close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: none;
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.promo-modal__close:hover {
+  transform: rotate(90deg);
+}
+.promo-modal__close svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Контейнер Аккордеона (Сделали шире и пропорциональнее) */
+.promo-modal__container {
+  width: 95%;
+  max-width: 1500px;
+  height: 70vh;
+  min-height: 500px;
+}
+.promo-accordion {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 12px;
+}
+
+/* Карточки аккордеона */
+.promo-accordion__item {
+  flex: 1; /* В свернутом виде - это узкая полоска */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: flex 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.promo-accordion__item.active {
+  flex: 12; /* В развернутом виде занимает максимум пространства (Широкий экран) */
+  cursor: default;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Картинка на весь фон карточки */
+.promo-accordion__img-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.promo-accordion__img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.7s ease;
+}
+/* Легкий зум для неактивных полосок, чтобы при раскрытии был эффект отдаления */
+.promo-accordion__item:not(.active) .promo-accordion__img-wrapper img {
+  transform: scale(1.15);
+}
+
+/* Затемнение для неактивных полосок */
+.promo-accordion__item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: background 0.7s;
+}
+.promo-accordion__item.active::after {
+  background: rgba(0, 0, 0, 0);
+}
+
+/* Плашка с текстом (Эффект Glassmorphism) */
+.promo-accordion__content {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  width: 420px;
+  max-width: 90%;
+  background: rgba(255, 255, 255, 0.55); /* Белый полупрозрачный фон */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px); /* Размытие заднего фона */
+  padding: 35px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 2;
+}
+/* Плашка плавно выплывает только на активной карточке */
+.promo-accordion__item.active .promo-accordion__content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.promo-accordion__content h3 {
+  font-size: 30px;
+  margin: 12px 0;
+  color: #111;
+  line-height: 1.1;
+}
+.promo-accordion__content p {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+.promo-accordion__profit {
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Все элементы скрыты по умолчанию (добавили .promo-large) */
+.promo-split,
+.promo-floating,
+.promo-thumbnails,
+.promo-large,
+.promo-modal-trigger {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  pointer-events: auto;
+}
+
+/* Режим 1: Floating (Карточка) */
+#hero-visual[data-banner-mode="floating"] .promo-floating {
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  top: 30px;
+  right: -30px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.promo-floating__img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.promo-floating__info h4 {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  color: #111;
+}
+.promo-floating__info p {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Режим 2: Split (Слайдер) */
+#hero-visual[data-banner-mode="split"] .promo-split {
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.promo-split__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+}
+.promo-split__content {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(5px);
+}
+.promo-split__content h3 {
+  margin: 8px 0;
+  font-size: 20px;
+  color: #000;
+}
+.promo-split__content p {
+  margin: 0;
+  font-size: 13px;
+  color: #444;
+}
+
+/* Режим 3: Thumbnails (Миниатюры) */
+#hero-visual[data-banner-mode="thumbnails"] .promo-thumbnails {
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.promo-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: var(--shadow-md);
+}
+.promo-thumb.active {
+  border-color: var(--color-primary);
+  transform: scale(1.05);
+}
+.promo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Режим 4: Крупноформатная витрина */
+#hero-visual[data-banner-mode="large"] .promo-large {
+  opacity: 1;
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.promo-large__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+}
+.promo-large__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  display: flex;
+  align-items: flex-end;
+  padding: 40px; /* Сдвинули полоски повыше над плашкой со статистикой */
+}
+.promo-large__pagination {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+.promo-large__dot {
+  flex-grow: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.promo-large__dot.active {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* В режиме large сдвигаем плашку статистики, чтобы не мешала картинке */
+#hero-visual[data-banner-mode="large"] .stats-card {
+  bottom: -30px;
+  left: 20px;
+  right: 20px;
+  justify-content: center;
+}
+
+/* ========================================== */
+/* КАТЕГОРИИ: РЕЖИМ ПРЕМИУМ-BENTO             */
+/* ========================================== */
+
+/* Скрываем новые элементы в базовом режиме */
+.category-card__sku-count,
+.category-card__arrow {
+  display: none;
+}
+
+/* --- Включаем Bento Grid --- */
+#categories-section[data-category-mode="bento"] .grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 280px);
+  gap: 24px;
+}
+
+/* Расположение карточек */
+#categories-section[data-category-mode="bento"] .category-card:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2; /* Большой флагман слева */
+}
+#categories-section[data-category-mode="bento"] .category-card:nth-child(2) {
+  grid-column: span 2;
+  grid-row: span 1; /* Широкий блок сверху справа */
+}
+#categories-section[data-category-mode="bento"] .category-card:nth-child(3),
+#categories-section[data-category-mode="bento"] .category-card:nth-child(4) {
+  grid-column: span 1;
+  grid-row: span 1; /* Квадраты снизу справа */
+}
+
+/* Стили карточек для Bento */
+#categories-section[data-category-mode="bento"] .category-card {
+  position: relative;
+  display: block;
+  min-height: 100%;
+}
+#categories-section[data-category-mode="bento"] .category-card__img-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+
+/* Градиент поверх фото для читаемости текста */
+#categories-section[data-category-mode="bento"] .category-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Текст поверх картинки */
+#categories-section[data-category-mode="bento"] .category-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  padding: 30px;
+  gap: 8px;
+}
+#categories-section[data-category-mode="bento"] .category-card__title {
+  color: #ffffff;
+  font-size: 24px;
+  margin: 4px 0 8px 0;
+}
+#categories-section[data-category-mode="bento"] .category-card__price {
+  color: var(--color-accent);
+  font-size: 15px;
+}
+
+/* Показываем счетчик SKU */
+#categories-section[data-category-mode="bento"] .category-card__sku-count {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Анимация стрелочки */
+#categories-section[data-category-mode="bento"] .category-card__arrow {
+  display: flex;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  width: 44px;
+  height: 44px;
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  font-weight: bold;
+  transform: translateX(-15px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+#categories-section[data-category-mode="bento"]
+  .category-card:hover
+  .category-card__arrow {
+  transform: translateX(0);
+  opacity: 1;
+  background: var(--color-primary-hover);
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 992px) {
+  #categories-section[data-category-mode="bento"] .grid-4 {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  #categories-section[data-category-mode="bento"] .category-card:nth-child(n) {
+    grid-column: span 1;
+    grid-row: span 1;
+    height: 260px;
+  }
+}
+
+/* ========================================== */
+/* ХИТЫ ПРОДАЖ: РЕЖИМ ПРЕМИУМ-КАРУСЕЛЬ        */
+/* ========================================== */
+
+/* Прячем кнопку быстрого просмотра в базовом режиме */
+.product-card__quick-view {
+  display: none;
+}
+
+/* Превращаем сетку в горизонтальную карусель */
+#bestsellers-section[data-bestseller-mode="carousel"] .grid-4 {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 24px;
+  padding-bottom: 30px; /* Место под тень и красивый скроллбар */
+  scroll-snap-type: x mandatory;
+
+  /* Возвращаем скроллбар для мышек, но делаем его в стиле бренда */
+  scrollbar-width: thin; /* Для Firefox */
+  scrollbar-color: var(--color-primary) var(--color-border);
+}
+
+/* Стилизация скроллбара для Chrome, Safari, Edge */
+#bestsellers-section[data-bestseller-mode="carousel"]
+  .grid-4::-webkit-scrollbar {
+  height: 8px; /* Тонкая и аккуратная полоска */
+}
+#bestsellers-section[data-bestseller-mode="carousel"]
+  .grid-4::-webkit-scrollbar-track {
+  background: var(--color-bg-white);
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+}
+#bestsellers-section[data-bestseller-mode="carousel"]
+  .grid-4::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 4px;
+}
+#bestsellers-section[data-bestseller-mode="carousel"]
+  .grid-4::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Обновленный дизайн карточки */
+#bestsellers-section[data-bestseller-mode="carousel"] .product-card {
+  flex: 0 0 auto;
+  width: 290px; /* Фиксированная ширина */
+  scroll-snap-align: start;
+
+  /* ВОЗВРАЩАЕМ ФОН И ТЕНЬ, чтобы карточка читалась как единый блок */
+  background-color: var(--color-bg-white);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: var(--radius-lg);
+
+  transition:
+    box-shadow var(--transition-normal),
+    transform var(--transition-normal);
+  position: relative; /* Важно для контроля слоев */
+  z-index: 1;
+}
+
+/* При наведении приподнимаем карточку над остальными */
+#bestsellers-section[data-bestseller-mode="carousel"] .product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  z-index: 2;
+}
+
+/* Подложка картинки (возвращаем скругления только сверху) */
+#bestsellers-section[data-bestseller-mode="carousel"]
+  .product-card__img-wrapper {
+  background-color: var(--color-img-placeholder);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  margin-bottom: 0;
+}
+
+/* Возвращаем внутренние отступы тексту */
+#bestsellers-section[data-bestseller-mode="carousel"] .product-card__content {
+  padding: 20px;
+}
+
+/* Анимация иконки "Быстрый просмотр" */
+#bestsellers-section[data-bestseller-mode="carousel"]
+  .product-card__quick-view {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  background: var(--color-bg-white);
+  color: var(--color-primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: var(--shadow-md);
+  z-index: 5;
+  pointer-events: none; /* Глазик не перекрывает клики по карточке */
+}
+
+#bestsellers-section[data-bestseller-mode="carousel"]
+  .product-card:hover
+  .product-card__quick-view {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* ========================================== */
 /* АДАПТИВНОСТЬ (МЕДИАЗАПРОСЫ)                */
 /* ========================================== */
 @media (max-width: 1200px) {

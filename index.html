@@ -128,7 +128,7 @@
             <a href="about.html" class="nav__link">О производстве</a>
           </nav>
 
-          <div class="theme-switcher">
+          <!-- <div class="theme-switcher">
             <select id="theme-select" class="theme-switcher__select">
               <option value="default">Default</option>
               <option value="natural">Natural</option>
@@ -139,7 +139,7 @@
               <option value="forest">Forest</option>
               <option value="citrus">Citrus</option>
             </select>
-          </div>
+          </div> -->
         </div>
       </div>
     </header>
@@ -244,13 +244,58 @@
             </div>
           </div>
 
-          <div class="hero__visual">
+          <div class="hero__visual" id="hero-visual" data-banner-mode="modal">
             <div class="hero__image-wrapper">
+              <!-- Базовое статичное фото -->
               <img
                 src="src/Banner_1.png"
                 alt="Сладости оптом"
                 class="hero__image"
               />
+
+              <!-- КОНТЕЙНЕР БАННЕРОВ -->
+              <div class="promo-container">
+                <div class="promo-split">
+                  <img
+                    src="src/Marmalade_banner.png"
+                    alt="Новинка Мармелад"
+                    class="promo-split__img"
+                  />
+                  <div class="promo-split__content">
+                    <span class="promo-badge">Новинка</span>
+                    <h3>Таежная малина</h3>
+                    <p>Специализированный продукт</p>
+                  </div>
+                </div>
+
+                <div class="promo-floating">
+                  <span class="promo-badge">Хит</span>
+                  <img
+                    src="src/Marmalade_banner.png"
+                    alt="Мармелад"
+                    class="promo-floating__img"
+                  />
+                  <div class="promo-floating__info">
+                    <h4>Таежная малина</h4>
+                    <p>Маржинальность 60%</p>
+                  </div>
+                </div>
+
+                <div class="promo-thumbnails"></div>
+
+                <div class="promo-large">
+                  <img src="" alt="Крупный баннер" class="promo-large__img" />
+                  <div class="promo-large__overlay">
+                    <div class="promo-large__pagination"></div>
+                  </div>
+                </div>
+                <div class="promo-modal-trigger">
+                  <button class="btn btn--primary" id="open-promo-modal">
+                    🔥 Смотреть 4 спецпредложения
+                  </button>
+                </div>
+              </div>
+
               <div class="stats-card">
                 <div class="stats-card__box">
                   <div class="stats-card__value">1500+</div>
@@ -268,7 +313,11 @@
       </section>
 
       <!-- CATEGORIES -->
-      <section class="categories">
+      <section
+        class="categories"
+        id="categories-section"
+        data-category-mode="grid"
+      >
         <div class="container">
           <div class="section-header">
             <div>
@@ -283,6 +332,7 @@
           </div>
 
           <div class="grid-4">
+            <!-- Категория 1 -->
             <a href="catalog.html" class="category-card">
               <div class="category-card__img-wrapper">
                 <img
@@ -292,10 +342,14 @@
                 />
               </div>
               <div class="category-card__content">
+                <span class="category-card__sku-count">24 SKU</span>
                 <h3 class="category-card__title">Шоколад без сахара</h3>
                 <span class="category-card__price">от 150 ₽/шт</span>
               </div>
+              <div class="category-card__arrow">&rarr;</div>
             </a>
+
+            <!-- Категория 2 -->
             <a href="catalog.html" class="category-card">
               <div class="category-card__img-wrapper">
                 <img
@@ -305,10 +359,14 @@
                 />
               </div>
               <div class="category-card__content">
+                <span class="category-card__sku-count">18 SKU</span>
                 <h3 class="category-card__title">Пастила и мармелад</h3>
                 <span class="category-card__price">от 90 ₽/шт</span>
               </div>
+              <div class="category-card__arrow">&rarr;</div>
             </a>
+
+            <!-- Категория 3 -->
             <a href="catalog.html" class="category-card">
               <div class="category-card__img-wrapper">
                 <img
@@ -318,10 +376,14 @@
                 />
               </div>
               <div class="category-card__content">
+                <span class="category-card__sku-count">12 SKU</span>
                 <h3 class="category-card__title">Орехи и сухофрукты</h3>
                 <span class="category-card__price">от 300 ₽/кг</span>
               </div>
+              <div class="category-card__arrow">&rarr;</div>
             </a>
+
+            <!-- Категория 4 -->
             <a href="catalog.html" class="category-card">
               <div class="category-card__img-wrapper">
                 <img
@@ -331,16 +393,22 @@
                 />
               </div>
               <div class="category-card__content">
+                <span class="category-card__sku-count">8 SKU</span>
                 <h3 class="category-card__title">Подарочные наборы</h3>
                 <span class="category-card__price">от 500 ₽/шт</span>
               </div>
+              <div class="category-card__arrow">&rarr;</div>
             </a>
           </div>
         </div>
       </section>
 
       <!-- BESTSELLERS -->
-      <section class="bestsellers">
+      <section
+        class="bestsellers"
+        id="bestsellers-section"
+        data-bestseller-mode="grid"
+      >
         <div class="container">
           <div class="section-header section-header--center">
             <h2 class="section-header__title">Хиты продаж</h2>
@@ -362,6 +430,21 @@
                   alt="Горький шоколад"
                   class="product-card__img"
                 />
+                <div class="product-card__quick-view">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </div>
               </div>
               <div class="product-card__content">
                 <div class="product-card__sku">Арт: CHOC-72</div>
@@ -402,6 +485,21 @@
                   alt="Набор пастилы"
                   class="product-card__img"
                 />
+                <div class="product-card__quick-view">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </div>
               </div>
               <div class="product-card__content">
                 <div class="product-card__sku">Арт: PAST-ASR</div>
@@ -439,6 +537,21 @@
                   alt="Драже Фундук"
                   class="product-card__img"
                 />
+                <div class="product-card__quick-view">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </div>
               </div>
               <div class="product-card__content">
                 <div class="product-card__sku">Арт: DRG-NUT</div>
@@ -480,6 +593,21 @@
                   alt="Протеиновый батончик"
                   class="product-card__img"
                 />
+                <div class="product-card__quick-view">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </div>
               </div>
               <div class="product-card__content">
                 <div class="product-card__sku">Арт: BAR-PRT</div>
@@ -508,6 +636,62 @@
                 </div>
               </div>
             </div>
+
+            <!-- товар 5 -->
+            <!-- <div class="product-card">
+              <div class="product-card__img-wrapper">
+                <div class="product-card__badges">
+                  <span class="product-badge">Без сахара</span>
+                  <span class="product-badge">Веган</span>
+                </div>
+                <img
+                  src="src/Chocolate.jpg"
+                  alt="Горький шоколад"
+                  class="product-card__img"
+                />
+                <div class="product-card__quick-view">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                    ></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </div>
+              </div>
+              <div class="product-card__content">
+                <div class="product-card__sku">Арт: CHOC-72</div>
+                <h4 class="product-card__title">
+                  Горький шоколад 72% со стевией, 100 г
+                </h4>
+                <div class="product-card__price-row">
+                  <span class="price-value">110 ₽</span>
+                  <span class="price-unit">/ шт</span>
+                </div>
+                <div class="product-card__pack">
+                  Квант: коробка (20 шт) = 2 200 ₽
+                </div>
+                <div class="product-card__actions">
+                  <div class="quantity">
+                    <button type="button" class="quantity__btn">&minus;</button>
+                    <input
+                      type="text"
+                      class="quantity__input"
+                      value="1"
+                      readonly
+                    />
+                    <button type="button" class="quantity__btn">&plus;</button>
+                  </div>
+                  <button type="button" class="btn btn-cart">В заявку</button>
+                </div>
+              </div>
+            </div> -->
           </div>
 
           <div class="bestsellers__footer">
@@ -633,6 +817,23 @@
         </div>
       </section>
     </main>
+
+    <div class="promo-modal" id="promo-modal">
+      <button class="promo-modal__close" id="close-promo-modal">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="promo-modal__container">
+        <div class="promo-accordion" id="promo-accordion"></div>
+      </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -868,5 +1069,58 @@
         });
       });
     </script>
+
+    <!-- UI KIT CONFIGURATOR -->
+    <div class="ui-configurator" id="ui-configurator">
+      <div class="ui-configurator__header">
+        <h3>Настройки макета</h3>
+        <span class="ui-configurator__hint">Нажми Ctrl + B</span>
+      </div>
+
+      <div class="ui-configurator__body">
+        <div class="ui-configurator__group">
+          <label>Тема оформления:</label>
+          <select id="theme-select" class="config-select">
+            <option value="default">Default</option>
+            <option value="natural">Natural</option>
+            <option value="organic">Organic</option>
+            <option value="minimal">Nordic minimal</option>
+            <option value="plum">Plum</option>
+            <option value="berry">Berry</option>
+            <option value="forest">Forest</option>
+            <option value="citrus">Citrus</option>
+          </select>
+        </div>
+
+        <div class="ui-configurator__group">
+          <label>Формат баннеров:</label>
+          <select id="banner-mode-select" class="config-select">
+            <option value="static">Статично (Оригинал)</option>
+            <option value="large">Крупноформатная витрина</option>
+            <option value="floating" selected>Плавающая карточка</option>
+            <option value="split">Сплит-слайдер</option>
+            <option value="thumbnails">Миниатюры</option>
+            <option value="modal" selected>
+              Модальная витрина (Интерактив)
+            </option>
+          </select>
+        </div>
+
+        <div class="ui-configurator__group">
+          <label>Формат категорий:</label>
+          <select id="category-mode-select" class="config-select">
+            <option value="grid" selected>Базовая сетка (Оригинал)</option>
+            <option value="bento">Премиум-Bento (Журнальная)</option>
+          </select>
+        </div>
+        <div class="ui-configurator__group">
+          <label>Формат хитов продаж:</label>
+          <select id="bestseller-mode-select" class="config-select">
+            <option value="grid" selected>Базовая сетка (Оригинал)</option>
+            <option value="carousel">Премиум-карусель (Свайп)</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

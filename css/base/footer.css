@@ -153,20 +153,23 @@
 
 /* Блок 3: Подписка (Вместо обратного звонка) */
 .subscribe-card {
-  background: var(--color-border-light);
-  border: 1px solid var(--color-border-form);
+  background: rgba(255, 255, 255, 0.05); /* Полупрозрачный белый фон */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Для поддержки в Safari */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая светлая рамка для объема */
   border-radius: var(--radius-md);
   padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Мягкая тень под карточкой */
 }
 .subscribe-card__title {
   margin: 0 0 10px 0;
   font-size: 18px;
-  color: var(--color-text-inverse);
+  color: #ffffff; /* Принудительно белый для идеального контраста */
   font-weight: 700;
 }
 .subscribe-card__desc {
   font-size: 13px;
-  color: var(--color-text-footer);
+  color: rgba(255, 255, 255, 0.7); /* Слегка приглушенный белый */
   margin-bottom: 24px;
   line-height: 1.5;
 }
@@ -177,17 +180,18 @@
 .subscribe-form__input {
   width: 100%;
   padding: 14px 50px 14px 16px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--color-border-form);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-sm);
-  color: var(--color-text-inverse);
+  color: #ffffff;
   font-size: 14px;
   outline: none;
-  transition: border-color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 .subscribe-form__input:focus {
   border-color: var(--color-accent);
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
 }
 .subscribe-form__input::placeholder {
   color: rgba(255, 255, 255, 0.4);
@@ -206,10 +210,13 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background var(--transition-fast);
+  transition:
+    transform var(--transition-fast),
+    background var(--transition-fast);
 }
 .subscribe-form__btn:hover {
   background-color: var(--color-accent-hover);
+  transform: scale(1.05);
 }
 
 /* Нижний бар */
