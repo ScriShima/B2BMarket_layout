@@ -1199,6 +1199,77 @@
 }
 
 /* ========================================== */
+/* РЕЖИМ КАТЕГОРИЙ: 3D-КАРУСЕЛЬ (COVERFLOW)   */
+/* ========================================== */
+
+#categories-section[data-category-mode="coverflow"] .grid-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 420px; /* Фиксируем высоту */
+  perspective: 1200px; /* Глубина 3D-сцены */
+  overflow: hidden;
+  gap: 0; /* Отключаем стандартные отступы сетки */
+}
+
+/* Общие стили карточки в режиме карусели */
+#categories-section[data-category-mode="coverflow"] .category-card {
+  position: absolute;
+  width: 320px; /* Базовая ширина карточки */
+  height: auto;
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.5s ease;
+  opacity: 0; /* Скрываем все по умолчанию */
+  z-index: 1;
+  pointer-events: none; /* Отключаем клики у скрытых */
+}
+
+/* 1. АКТИВНАЯ КАРТОЧКА (По центру) */
+#categories-section[data-category-mode="coverflow"]
+  .category-card.cover-active {
+  opacity: 1;
+  transform: translateX(0) scale(1.1); /* Немного увеличиваем центральную */
+  z-index: 3;
+  pointer-events: auto; /* Включаем клик по ссылке */
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* 2. ЛЕВАЯ КАРТОЧКА */
+#categories-section[data-category-mode="coverflow"] .category-card.cover-prev {
+  opacity: 0.5;
+  transform: translateX(-135%) scale(0.85); /* Уводим влево и уменьшаем */
+  z-index: 2;
+  pointer-events: auto;
+  cursor: pointer; /* Показываем, что можно кликнуть для прокрутки */
+}
+
+/* 3. ПРАВАЯ КАРТОЧКА */
+#categories-section[data-category-mode="coverflow"] .category-card.cover-next {
+  opacity: 0.5;
+  transform: translateX(145%) scale(0.85); /* Уводим вправо и уменьшаем */
+  z-index: 2;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Ховер на боковые карточки */
+#categories-section[data-category-mode="coverflow"]
+  .category-card.cover-prev:hover,
+#categories-section[data-category-mode="coverflow"]
+  .category-card.cover-next:hover {
+  opacity: 0.8;
+}
+
+/* Карточки, которые не в фокусе (прячем за краями) */
+#categories-section[data-category-mode="coverflow"]
+  .category-card.cover-hidden {
+  transform: translateY(20px) scale(0.7);
+  opacity: 0;
+}
+
+/* ========================================== */
 /* АДАПТИВНОСТЬ (МЕДИАЗАПРОСЫ)                */
 /* ========================================== */
 @media (max-width: 1200px) {

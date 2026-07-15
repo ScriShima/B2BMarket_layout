@@ -341,6 +341,82 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =========================================================
+  // БЛОК: 3D КАРУСЕЛЬ КАТЕГОРИЙ (Coverflow)
+  // =========================================================
+
+  const categoryCards = document.querySelectorAll(
+    "#categories-section .category-card",
+  );
+  let coverIndex = 0; // Индекс карточки, которая сейчас по центру
+
+  function updateCoverflow() {
+    const section = document.getElementById("categories-section");
+    if (!section || section.getAttribute("data-category-mode") !== "coverflow")
+      return;
+
+    const total = categoryCards.length;
+    if (total === 0) return;
+
+    categoryCards.forEach((card, index) => {
+      // Очищаем старые классы карусели
+      card.classList.remove(
+        "cover-active",
+        "cover-prev",
+        "cover-next",
+        "cover-hidden",
+      );
+
+      // Вычисляем позиции
+      if (index === coverIndex) {
+        card.classList.add("cover-active"); // По центру
+      } else if (index === (coverIndex - 1 + total) % total) {
+        card.classList.add("cover-prev"); // Слева
+      } else if (index === (coverIndex + 1) % total) {
+        card.classList.add("cover-next"); // Справа
+      } else {
+        card.classList.add("cover-hidden"); // Остальные прячем
+      }
+    });
+  }
+
+  // Вешаем обработчик кликов на карточки
+  categoryCards.forEach((card, index) => {
+    card.addEventListener("click", (e) => {
+      const section = document.getElementById("categories-section");
+      // Если мы в режиме карусели
+      if (
+        section &&
+        section.getAttribute("data-category-mode") === "coverflow"
+      ) {
+        // Если кликнули по БОКОВОЙ карточке
+        if (
+          card.classList.contains("cover-prev") ||
+          card.classList.contains("cover-next")
+        ) {
+          e.preventDefault(); // Блокируем переход по ссылке
+          coverIndex = index; // Назначаем ее центральной
+          updateCoverflow(); // Запускаем анимацию
+        }
+        // Если кликнули по ЦЕНТРАЛЬНОЙ карточке - ничего не делаем, срабатывает обычный <a href>
+      }
+    });
+  });
+
+  // Обновляем карусель при переключении режима в конфигураторе
+  const catSelect = document.getElementById("category-mode-select");
+  if (catSelect) {
+    catSelect.addEventListener("change", (e) => {
+      if (e.target.value === "coverflow") {
+        // Даем браузеру миллисекунду на применение CSS перед расчетом
+        setTimeout(updateCoverflow, 50);
+      }
+    });
+  }
+
+  // Запускаем инициализацию при старте
+  updateCoverflow();
+
+  // =========================================================
   // БЛОК 6: МОДАЛЬНАЯ ВИТРИНА (Аккордеон)
   // =========================================================
 
@@ -394,6 +470,81 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // =========================================================
+  // БЛОК: СТРАНИЦА ЖУРНАЛА (БЛОГ)
+  // =========================================================
+
+  const blogGrid = document.getElementById("blog-grid");
+
+  if (blogGrid) {
+    // Моки статей (по умолчанию первая - самая новая)
+    const articles = [
+      {
+        title: "Шоколад в фитнес-клубах: как увеличить средний чек",
+        date: "12 Июня 2026",
+        excerpt:
+          "Разбираем кейсы успешных интеграций протеиновых десертов в вендинговые аппараты и бары фитнес-клубов.",
+        img: "src/Chocolate.jpg",
+      },
+      {
+        title: "Маркировка Честный Знак в 2026 году",
+        date: "05 Июня 2026",
+        excerpt:
+          "Новые требования к упаковке кондитерских изделий. Что нужно знать оптовику.",
+        img: "src/Marmalade_banner.png",
+      },
+      {
+        title: "Закупка сухофруктов: на что смотреть?",
+        date: "28 Мая 2026",
+        excerpt:
+          "Чек-лист для закупщика: как определить качество сырья на глаз и избежать возвратов.",
+        img: "src/nuts.jpg",
+      },
+      {
+        title: "Сезонный спрос: корпоративные подарки",
+        date: "15 Мая 2026",
+        excerpt:
+          "Готовим сани летом. Почему предзаказ новогодних эко-наборов нужно делать уже в августе.",
+        img: "src/sweet_gift.jpg",
+      },
+      {
+        title: "Замена сахара в производстве",
+        date: "02 Мая 2026",
+        excerpt:
+          "Стевия, эритрит или мальтит? Сравниваем популярные сахарозаменители в кондитерском деле.",
+        img: "src/Protein_banner.png",
+      },
+    ];
+
+    // Рендер карточек
+    blogGrid.innerHTML = articles
+      .map(
+        (article) => `
+      <a href="#" class="blog-card">
+        <div class="blog-card__img-wrapper">
+          <img src="${article.img}" alt="${article.title}" class="blog-card__img">
+        </div>
+        <div class="blog-card__content">
+          <span class="blog-card__date">${article.date}</span>
+          <h3 class="blog-card__title">${article.title}</h3>
+          <p class="blog-card__excerpt">${article.excerpt}</p>
+        </div>
+      </a>
+    `,
+      )
+      .join("");
+  }
+
+  // Настройка конфигуратора для блога
+  const blogModeSelect = document.getElementById("blog-mode-select");
+  const blogSection = document.getElementById("blog-section");
+
+  if (blogModeSelect && blogSection) {
+    blogModeSelect.addEventListener("change", (e) => {
+      blogSection.setAttribute("data-blog-mode", e.target.value);
+    });
+  }
+
+  // =========================================================
   // БЛОК 7: UI КОНФИГУРАТОР И ТЕМЫ (Настройки)
   // =========================================================
 
@@ -404,6 +555,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const heroVisual = document.getElementById("hero-visual");
   const catModeSelect = document.getElementById("category-mode-select");
   const categoriesSection = document.getElementById("categories-section");
+
+  // Управление маршрутизатором "Для кого"
+  const audienceModeSelect = document.getElementById("audience-mode-select");
+  const audienceSection = document.getElementById("target-audience-section");
+
+  if (audienceModeSelect && audienceSection) {
+    audienceModeSelect.addEventListener("change", (e) => {
+      audienceSection.setAttribute("data-audience-mode", e.target.value);
+    });
+  }
 
   // Управление темами
   const savedTheme = localStorage.getItem("b2b-theme") || "default";

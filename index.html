@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/base/header.css" />
     <link rel="stylesheet" href="css/base/footer.css" />
     <link rel="stylesheet" href="css/home/home.css" />
+    <link rel="stylesheet" href="css/home/target_audience.css" />
   </head>
   <body>
     <!-- HEADER -->
@@ -312,6 +313,149 @@
         </div>
       </section>
 
+      <!-- TARGET AUDIENCE (МАРШРУТИЗАТОР) -->
+      <section
+        class="target-audience"
+        id="target-audience-section"
+        data-audience-mode="cards"
+      >
+        <div class="container">
+          <!-- ВАРИАНТЫ 1 и 2: Строго две опции (Бизнес и Розница) -->
+          <div class="audience-layout audience-layout--two-blocks">
+            <!-- B2B Блок -->
+            <div class="audience-card audience-card--b2b">
+              <div class="audience-card__bg">
+                <img src="src/Chocolate_banner.jpg" alt="Оптовые поставки" />
+              </div>
+              <div class="audience-card__content">
+                <span class="audience-badge">Для бизнеса</span>
+                <h2 class="audience-title">Оптовые закупки от 15 000 ₽</h2>
+                <p class="audience-desc">
+                  Прямые поставки от производителя. Маржинальность до 60%,
+                  полный пакет документов (ЕАС, HACCP) и персональный менеджер.
+                </p>
+                <a href="#categories-section" class="btn btn--primary"
+                  >Перейти в каталог</a
+                >
+              </div>
+            </div>
+
+            <!-- B2C Блок -->
+            <div class="audience-card audience-card--b2c">
+              <div class="audience-card__bg">
+                <img src="src/sweet_gift.jpg" alt="Розничный магазин" />
+              </div>
+              <div class="audience-card__content">
+                <span class="audience-badge audience-badge--accent"
+                  >Для себя</span
+                >
+                <h2 class="audience-title">Любимые десерты от 1 шт.</h2>
+                <p class="audience-desc">
+                  Хотите купить сладости для дома или сделать подарок? Перейдите
+                  в наш розничный магазин CHGIFT и заказывайте без минимальной
+                  суммы.
+                </p>
+                <a
+                  href="https://chgift.ru"
+                  target="_blank"
+                  class="btn btn--secondary"
+                  >В розничный магазин &rarr;</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- ВАРИАНТ 3: Детализированный Bento-формат -->
+          <div class="audience-layout audience-layout--bento">
+            <div class="bento-card bento-card--large">
+              <h3 class="bento-title">Ритейлу и Сетям</h3>
+              <p class="bento-desc">
+                Высокая маржинальность, стабильные остатки и декларации ЕАС на
+                весь ассортимент.
+              </p>
+            </div>
+            <div class="bento-card">
+              <h3 class="bento-title">Кофейням и HoReCa</h3>
+              <p class="bento-desc">
+                Идеальный прикассовый товар для увеличения среднего чека.
+              </p>
+            </div>
+            <div class="bento-card">
+              <h3 class="bento-title">Корпоративные подарки</h3>
+              <p class="bento-desc">
+                Эко-наборы без сахара для ваших сотрудников и партнеров.
+              </p>
+            </div>
+            <div class="bento-card bento-card--b2c">
+              <span class="audience-badge audience-badge--accent"
+                >В розницу</span
+              >
+              <h3 class="bento-title">Купить для себя</h3>
+              <p class="bento-desc">
+                Заказы до 15 000 ₽ оформляйте в нашем розничном проекте CHGIFT.
+              </p>
+              <a href="https://chgift.ru" target="_blank" class="bento-link"
+                >Перейти на сайт &rarr;</a
+              >
+            </div>
+          </div>
+
+          <!-- ВАРИАНТ 4: Fade-Split (Растворяющиеся фото с текстом внизу) -->
+          <div class="audience-layout audience-layout--fade">
+            <!-- Центральная тающая линия -->
+            <div class="fade-divider"></div>
+
+            <!-- Левая колонка (Бизнесу) -->
+            <div class="fade-column">
+              <div class="fade-column__visual">
+                <img src="src/Chocolate_banner.jpg" alt="Производство" />
+                <div class="fade-column__mask"></div>
+              </div>
+              <div class="fade-column__content">
+                <h3 class="fade-column__title">Для бизнеса</h3>
+                <p class="fade-column__text">
+                  Прямые поставки от производителя. Маржинальность до 60%,
+                  полный пакет документов и стабильные складские остатки для
+                  регулярных отгрузок.
+                </p>
+                <div class="fade-column__actions">
+                  <a href="wholesale.html" class="btn btn--primary"
+                    >Условия для оптовиков</a
+                  >
+                  <a href="catalog.html" class="fade-column__link"
+                    >Перейти в каталог &rarr;</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Правая колонка (Для себя) -->
+            <div class="fade-column">
+              <div class="fade-column__visual">
+                <img src="src/sweet_gift.jpg" alt="Подарки" />
+                <div class="fade-column__mask"></div>
+              </div>
+              <div class="fade-column__content">
+                <h3 class="fade-column__title">Для себя и близких</h3>
+                <p class="fade-column__text">
+                  Посетите наш розничный бутик CHGIFT. Мы создали его специально
+                  для того, чтобы вы могли заказывать любимые десерты без
+                  ограничений по объему.
+                </p>
+                <div class="fade-column__actions">
+                  <a
+                    href="https://chgift.ru"
+                    target="_blank"
+                    class="btn btn--secondary"
+                    >В розничный магазин &rarr;</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- CATEGORIES -->
       <section
         class="categories"
@@ -384,6 +528,54 @@
             </a>
 
             <!-- Категория 4 -->
+            <a href="catalog.html" class="category-card">
+              <div class="category-card__img-wrapper">
+                <img
+                  src="src/sweet_gift.jpg"
+                  alt="Подарочные наборы"
+                  class="category-card__img"
+                />
+              </div>
+              <div class="category-card__content">
+                <span class="category-card__sku-count">8 SKU</span>
+                <h3 class="category-card__title">Подарочные наборы</h3>
+                <span class="category-card__price">от 500 ₽/шт</span>
+              </div>
+              <div class="category-card__arrow">&rarr;</div>
+            </a>
+
+            <a href="catalog.html" class="category-card">
+              <div class="category-card__img-wrapper">
+                <img
+                  src="src/sweet_gift.jpg"
+                  alt="Подарочные наборы"
+                  class="category-card__img"
+                />
+              </div>
+              <div class="category-card__content">
+                <span class="category-card__sku-count">8 SKU</span>
+                <h3 class="category-card__title">Подарочные наборы</h3>
+                <span class="category-card__price">от 500 ₽/шт</span>
+              </div>
+              <div class="category-card__arrow">&rarr;</div>
+            </a>
+
+            <a href="catalog.html" class="category-card">
+              <div class="category-card__img-wrapper">
+                <img
+                  src="src/sweet_gift.jpg"
+                  alt="Подарочные наборы"
+                  class="category-card__img"
+                />
+              </div>
+              <div class="category-card__content">
+                <span class="category-card__sku-count">8 SKU</span>
+                <h3 class="category-card__title">Подарочные наборы</h3>
+                <span class="category-card__price">от 500 ₽/шт</span>
+              </div>
+              <div class="category-card__arrow">&rarr;</div>
+            </a>
+
             <a href="catalog.html" class="category-card">
               <div class="category-card__img-wrapper">
                 <img
@@ -925,6 +1117,7 @@
                 <a href="#" class="footer__nav-link">Доставка и логистика</a>
                 <a href="#" class="footer__nav-link">Маркетинговые материалы</a>
                 <a href="#" class="footer__nav-link">Частые вопросы (FAQ)</a>
+                <a href="blog.html" class="footer__nav-link">Блог</a>
               </nav>
             </div>
             <div class="footer__nav-column">
@@ -1107,10 +1300,21 @@
         </div>
 
         <div class="ui-configurator__group">
+          <label>Блок "Для кого":</label>
+          <select id="audience-mode-select" class="config-select">
+            <option value="split">Split-Screen (50/50)</option>
+            <option value="cards" selected>Премиум-карточки (2 опции)</option>
+            <option value="bento">Bento Сетка (Детально)</option>
+            <option value="fade" selected>Fade-Split (Растворение)</option>
+          </select>
+        </div>
+
+        <div class="ui-configurator__group">
           <label>Формат категорий:</label>
           <select id="category-mode-select" class="config-select">
             <option value="grid" selected>Базовая сетка (Оригинал)</option>
             <option value="bento">Премиум-Bento (Журнальная)</option>
+            <option value="coverflow">3D-Карусель (Coverflow)</option>
           </select>
         </div>
         <div class="ui-configurator__group">

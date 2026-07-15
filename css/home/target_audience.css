@@ -1,0 +1,282 @@
+/* ========================================== */
+/* МАРШРУТИЗАТОР "ДЛЯ КОГО" (TARGET AUDIENCE) */
+/* ========================================== */
+
+.target-audience {
+  padding: 60px 0;
+  background: var(--color-bg-body);
+}
+
+/* Скрываем всё по умолчанию */
+.audience-layout {
+  display: none;
+}
+
+/* === ЛОГИКА ОТОБРАЖЕНИЯ ПО РЕЖИМАМ === */
+#target-audience-section[data-audience-mode="split"]
+  .audience-layout--two-blocks,
+#target-audience-section[data-audience-mode="cards"]
+  .audience-layout--two-blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+#target-audience-section[data-audience-mode="bento"] .audience-layout--bento {
+  display: grid;
+}
+
+/* --- ОБЩИЕ СТИЛИ ДЛЯ КАРТОЧЕК (Режимы 1 и 2) --- */
+.audience-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.audience-card__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.audience-card__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.audience-card:hover .audience-card__bg img {
+  transform: scale(1.05);
+}
+.audience-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+.audience-card__content {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  color: #fff;
+}
+.audience-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--color-primary);
+  border-radius: var(--radius-round);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.audience-badge--accent {
+  background: #f39c12; /* Цвет розницы/подарков */
+}
+.audience-title {
+  font-size: 32px;
+  margin: 0 0 16px 0;
+  color: #fff;
+}
+.audience-desc {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 32px 0;
+  opacity: 0.9;
+  max-width: 90%;
+}
+
+/* --- РЕЖИМ 1: SPLIT-SCREEN (Жесткое деление без зазоров) --- */
+#target-audience-section[data-audience-mode="split"]
+  .audience-layout--two-blocks {
+  gap: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+#target-audience-section[data-audience-mode="split"] .audience-card {
+  border-radius: 0;
+}
+
+/* --- РЕЖИМ 3: BENTO СЕТКА --- */
+.audience-layout--bento {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 220px);
+  gap: 20px;
+}
+.bento-card {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sm);
+}
+.bento-card--large {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: var(--color-bg-dark); /* Темный акцент для флагмана */
+  border: none;
+}
+.bento-card--large .bento-title {
+  font-size: 32px;
+}
+.bento-card--large .bento-desc {
+  font-size: 18px;
+}
+.bento-card--b2c {
+  background: #fdf5e6; /* Легкий теплый фон для розницы */
+  border-color: #f39c12;
+}
+.bento-title {
+  font-size: 20px;
+  margin: 0 0 12px 0;
+  color: var(--color-text-dark);
+}
+.bento-desc {
+  font-size: 14px;
+  color: var(--color-text-main);
+  margin: 0;
+  line-height: 1.5;
+}
+.bento-link {
+  margin-top: 20px;
+  font-weight: 700;
+  color: #f39c12;
+  text-decoration: none;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  #target-audience-section[data-audience-mode="split"]
+    .audience-layout--two-blocks,
+  #target-audience-section[data-audience-mode="cards"]
+    .audience-layout--two-blocks {
+    grid-template-columns: 1fr;
+  }
+  .audience-layout--bento {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .bento-card--large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* --- РЕЖИМ 4: FADE-SPLIT (Растворяющиеся фото) --- */
+#target-audience-section[data-audience-mode="fade"] .audience-layout--fade {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  gap: 24px; /* Воздух между блоками, как у карточек */
+}
+
+/* Убираем центральную линию, так как зазор (gap) теперь сам работает как разделитель */
+.fade-divider {
+  display: none;
+}
+
+.fade-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Блок с фотографией оформляем как верх карточки */
+.fade-column__visual {
+  position: relative;
+  height: 320px; /* Высота фотографий */
+  width: 100%;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0; /* Скругление только верхних углов */
+  overflow: hidden; /* Чтобы картинка не обрезала скругления */
+}
+.fade-column__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Градиентная маска для плавного перехода в фон сайта */
+.fade-column__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 101%;
+  background: linear-gradient(
+    to bottom,
+    transparent 30%,
+    var(--color-bg-body) 100%
+  );
+}
+
+/* Блок с текстом и кнопками */
+.fade-column__content {
+  padding: 0 40px 40px; /* Уменьшили боковые отступы до 40px, чтобы текст не был слишком сжат */
+  text-align: center;
+  background-color: var(--color-bg-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1; /* Чтобы кнопки всегда были на одном уровне, если текст разный */
+}
+
+.fade-column__title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  color: var(--color-text-dark);
+}
+
+.fade-column__text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  margin: 0 0 32px 0;
+}
+
+/* Контейнер для кнопок */
+.fade-column__actions {
+  margin-top: auto; /* Прижимает кнопки к низу */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.fade-column__link {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.fade-column__link:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Адаптивность для телефонов */
+@media (max-width: 992px) {
+  #target-audience-section[data-audience-mode="fade"] .audience-layout--fade {
+    grid-template-columns: 1fr;
+  }
+  .fade-column__content {
+    padding: 0 20px 40px;
+  }
+}
