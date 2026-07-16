@@ -161,7 +161,7 @@
 
 .products--grid .product-card__actions {
   display: grid;
-  grid-template-columns: auto 1fr; /* Счетчик слева, кнопка занимает остальное место */
+  grid-template-columns: 80px 1fr; /* 80px жестко под счетчик, остальное под кнопку */
   gap: 8px;
   align-items: center;
 }
@@ -171,6 +171,10 @@
   font-size: 14px;
   height: 42px; /* Высота равна высоте счетчика */
   width: 100%;
+}
+
+.products--grid .btn--add.is-added {
+  background-color: var(--color-primary-hover);
 }
 
 /* Адаптивность сетки */

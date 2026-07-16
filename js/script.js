@@ -90,29 +90,61 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isHighProtein)
       tagsHtml += '<span class="product-badge">Высокий протеин</span>';
 
+    // Расчет стоимости кванта для B2B субтотала
+    const totalPackPrice = product.price * product.pack;
+
     return `
-      <div class="product-card">
-        <div class="product-card__img-wrapper">
-          <div class="product-card__badges">${tagsHtml}</div>
-          <img src="${product.image}" alt="${product.name}" class="product-card__img">
-        </div>
-        <div class="product-card__sku">Арт: ${product.sku}</div>
-        <h4 class="product-card__title">${product.name}, 100 г</h4>
-        <div class="product-card__pack">Квант: коробка (${product.pack} шт) = ${product.price * product.pack} ₽</div>
-        <div class="product-card__price-row">
-          <span class="product-card__price-val">${product.price} ₽</span>
-          <span class="product-card__price-unit">/ шт</span>
-        </div>
-        <div class="product-card__actions">
-          <div class="quantity">
-            <button type="button" class="quantity__btn quantity__btn--minus">−</button>
-            <input type="number" class="quantity__input" value="1" min="1" readonly>
-            <button type="button" class="quantity__btn quantity__btn--plus">+</button>
-          </div>
-          <button type="button" class="btn btn--primary btn--add" data-id="${product.id}">В заявку</button>
-        </div>
+    <div class="product-card">
+      <!-- 1. Чекбокс для массового выделения (B2B) -->
+      <div class="product-card__checkbox">
+        <input type="checkbox" class="b2b-checkbox" data-id="${product.id}" aria-label="Выбрать товар для заказа">
       </div>
-    `;
+
+      <!-- 2. Изображение и бейджи -->
+      <div class="product-card__img-wrapper">
+        <div class="product-card__badges">${tagsHtml}</div>
+        <img src="${product.image}" alt="${product.name}" class="product-card__img">
+      </div>
+
+      <!-- 3. Артикул (SKU) -->
+      <div class="product-card__sku">Арт: ${product.sku}</div>
+
+      <!-- 4. Название -->
+      <h4 class="product-card__title">${product.name}, 100 г</h4>
+
+      <!-- 5. Наличие на складе (B2B) -->
+      <div class="product-card__stock">В наличии</div>
+
+      <!-- 6. Квант / Фасовка -->
+      <div class="product-card__pack">Квант: коробка (${product.pack} шт) = ${totalPackPrice} ₽</div>
+
+      <!-- 7. Цена за штуку -->
+      <div class="product-card__price-row">
+        <span class="product-card__price-val">${product.price} ₽</span>
+        <span class="product-card__price-unit">/ шт</span>
+      </div>
+
+      <!-- 8. Действия (Количество + Кнопка) -->
+      <div class="product-card__actions">
+        <div class="quantity">
+          <button type="button" class="quantity__btn quantity__btn--minus">−</button>
+          <input type="number" class="quantity__input" value="1" min="1" readonly>
+          <button type="button" class="quantity__btn quantity__btn--plus">+</button>
+        </div>
+        <button type="button" class="btn btn--primary btn--add" data-id="${product.id}">
+          <span class="btn-text">В заявку</span>
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- 9. Сумма по строке (B2B) -->
+      <div class="product-card__sum">${totalPackPrice} ₽</div>
+    </div>
+  `;
   }
 
   function renderCatalog() {
@@ -198,12 +230,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".btn--add").forEach((btn) => {
       btn.addEventListener("click", function (e) {
         e.stopPropagation();
-        const originalText = this.textContent;
-        this.textContent = "Добавлено ✓";
-        this.style.background = "var(--color-primary-hover)";
+        const textSpan = this.querySelector(".btn-text");
+        const originalText = textSpan.textContent;
+        this.classList.add("is-added");
+        textSpan.textContent = "Добавлено ✓";
+
         setTimeout(() => {
-          this.textContent = originalText;
-          this.style.background = "";
+          this.classList.remove("is-added");
+          textSpan.textContent = originalText;
         }, 1500);
       });
     });
@@ -211,10 +245,67 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".product-card").forEach((card) => {
       card.style.cursor = "pointer";
       card.addEventListener("click", (e) => {
-        if (!e.target.closest(".product-card__actions"))
+        if (
+          !e.target.closest(".product-card__actions") &&
+          !e.target.closest(".product-card__checkbox")
+        ) {
           window.location.href = "product.html";
+        }
       });
     });
+  }
+
+  // Делегирование событий для B2B чекбоксов
+  document.addEventListener("change", (e) => {
+    // 1. Клик по чекбоксу конкретного товара
+    if (e.target.classList.contains("b2b-checkbox")) {
+      updateBulkPanel();
+      updateSelectAllState();
+    }
+
+    // 2. Клик по главному чекбоксу "Выбрать все"
+    if (e.target.id === "selectAll") {
+      const isChecked = e.target.checked;
+      document.querySelectorAll(".b2b-checkbox").forEach((cb) => {
+        cb.checked = isChecked;
+      });
+      updateBulkPanel();
+    }
+  });
+
+  function updateBulkPanel() {
+    const checkboxes = document.querySelectorAll(".b2b-checkbox:checked");
+    const panel = document.getElementById("b2b-bulk-action");
+    const countEl = document.getElementById("bulk-count");
+    const bulkSumEl = document.getElementById("bulk-sum");
+
+    let totalSum = 0;
+    checkboxes.forEach((cb) => {
+      const card = cb.closest(".product-card");
+      const priceText = card.querySelector(".product-card__sum").textContent;
+      // Очищаем строку от текста (₽) и суммируем
+      totalSum += parseInt(priceText.replace(/\D/g, ""), 10);
+    });
+
+    if (countEl) countEl.textContent = checkboxes.length;
+    if (bulkSumEl)
+      bulkSumEl.textContent = totalSum.toLocaleString("ru-RU") + " ₽";
+
+    // Показываем/скрываем панель
+    if (checkboxes.length > 0) {
+      panel.classList.add("visible");
+    } else {
+      panel.classList.remove("visible");
+    }
+  }
+
+  function updateSelectAllState() {
+    const selectAll = document.getElementById("selectAll");
+    if (!selectAll) return;
+    const allBoxes = document.querySelectorAll(".b2b-checkbox");
+    const checkedBoxes = document.querySelectorAll(".b2b-checkbox:checked");
+    selectAll.checked =
+      allBoxes.length > 0 && allBoxes.length === checkedBoxes.length;
   }
 
   // =========================================================
@@ -222,14 +313,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // =========================================================
 
   const header = document.querySelector(".header");
+  const toolbar = document.querySelector(".sticky-toolbar");
+  const viewToggles = document.getElementById("view-toggles");
+  const headerActions = document.querySelector(".header__main .actions");
+
   let lastScrollY = window.scrollY;
 
   function updateHeaderOffset() {
-    if (header)
+    if (header) {
       document.documentElement.style.setProperty(
         "--header-offset",
         `${header.offsetHeight}px`,
       );
+    }
   }
 
   updateHeaderOffset();
@@ -238,13 +334,37 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", () => {
     if (window.scrollY === 0) {
       header.classList.remove("header--hidden", "header--scrolled");
+      // Возвращаем тогглы в тулбар
+      if (toolbar && viewToggles) {
+        toolbar.querySelector(".toolbar-controls").appendChild(viewToggles);
+        viewToggles.classList.remove("view-toggles--in-header");
+      }
       return;
     }
+
     if (window.scrollY > lastScrollY && window.scrollY > 150) {
+      // Скролл вниз - прячем шапку
       header.classList.add("header--hidden", "header--scrolled");
     } else if (window.scrollY < lastScrollY) {
+      // Скролл вверх - показываем шапку
       header.classList.remove("header--hidden");
       header.classList.add("header--scrolled");
+
+      // Интеграция тулбара: переносим переключатель в шапку
+      if (
+        toolbar &&
+        window.scrollY > toolbar.offsetTop + toolbar.offsetHeight
+      ) {
+        if (headerActions && viewToggles) {
+          // Вставляем переключатель перед иконкой профиля в шапке
+          headerActions.insertBefore(viewToggles, headerActions.firstChild);
+          viewToggles.classList.add("view-toggles--in-header");
+        }
+      } else if (toolbar && viewToggles) {
+        // Доскроллили обратно до основного тулбара - возвращаем элемент на родину
+        toolbar.querySelector(".toolbar-controls").appendChild(viewToggles);
+        viewToggles.classList.remove("view-toggles--in-header");
+      }
     }
     lastScrollY = window.scrollY;
   });

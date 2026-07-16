@@ -200,19 +200,31 @@
 
           <!-- Основной контент каталога -->
           <div class="catalog__content">
-            <!-- Верхняя панель управления -->
-            <div class="toolbar">
-              <div class="toolbar__count">
-                Показано: <strong id="items-count">0</strong>
+            <!-- Умный тулбар -->
+            <div class="catalog-toolbar sticky-toolbar">
+              <div class="toolbar-search">
+                <input
+                  type="text"
+                  placeholder="Поиск по названию или артикулу (SKU)..."
+                  class="input-base"
+                  id="catalog-search"
+                />
               </div>
 
-              <div class="toolbar__controls">
-                <div class="view-toggles">
+              <div class="toolbar-controls">
+                <select class="sort-select" id="catalog-sort">
+                  <option value="popular">Сначала популярные</option>
+                  <option value="cheap">Сначала дешевле</option>
+                  <option value="expensive">Сначала дороже</option>
+                </select>
+
+                <div class="view-toggles" id="view-toggles">
                   <button
                     type="button"
                     id="btn-grid"
                     class="view-toggles__btn view-toggles__btn--active"
                     aria-label="Сетка"
+                    title="Плитка (B2C)"
                   >
                     <svg
                       width="20"
@@ -261,6 +273,7 @@
                     id="btn-table"
                     class="view-toggles__btn"
                     aria-label="Таблица"
+                    title="Таблица (B2B)"
                   >
                     <svg
                       width="20"
@@ -272,46 +285,75 @@
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     >
-                      <line x1="9" y1="6" x2="21" y2="6" />
-                      <line x1="9" y1="12" x2="21" y2="12" />
-                      <line x1="9" y1="18" x2="21" y2="18" />
+                      <line x1="9" y1="6" x2="21" y2="6"></line>
+                      <line x1="9" y1="12" x2="21" y2="12"></line>
+                      <line x1="9" y1="18" x2="21" y2="18"></line>
                       <circle
                         cx="4"
                         cy="6"
                         r="1.5"
                         fill="currentColor"
                         stroke="none"
-                      />
+                      ></circle>
                       <circle
                         cx="4"
                         cy="12"
                         r="1.5"
                         fill="currentColor"
                         stroke="none"
-                      />
+                      ></circle>
                       <circle
                         cx="4"
                         cy="18"
                         r="1.5"
                         fill="currentColor"
                         stroke="none"
-                      />
+                      ></circle>
                     </svg>
                   </button>
                 </div>
-                <select class="sort-select">
-                  <option value="popular">По популярности</option>
-                  <option value="price_asc">Сначала дешевле</option>
-                  <option value="price_desc">Сначала дороже</option>
-                </select>
               </div>
             </div>
 
-            <!-- Контейнер для товаров. Сюда JS рендерит карточки -->
+            <!-- Шапка таблицы (скрыта по умолчанию, показывается через JS одновременно с переключением класса контейнера) -->
+            <div
+              class="product-table-header"
+              id="table-header"
+              style="display: none"
+            >
+              <div class="th-col th-checkbox">
+                <input
+                  type="checkbox"
+                  id="selectAll"
+                  aria-label="Выбрать все"
+                />
+              </div>
+              <div class="th-col th-photo">Фото</div>
+              <div class="th-col th-sku">Артикул</div>
+              <div class="th-col th-name">Наименование</div>
+              <div class="th-col th-stock">Наличие</div>
+              <div class="th-col th-pack">Фасовка</div>
+              <div class="th-col th-price">Цена</div>
+              <div class="th-col th-qty">Кол-во</div>
+              <div class="th-col th-sum">Сумма</div>
+            </div>
+
+            <!-- Контейнер для товаров -->
             <div id="products-list" class="products products--grid"></div>
 
             <!-- Пагинация -->
             <div id="pagination-container" class="pagination"></div>
+
+            <!-- Плавающая панель для оптовиков (Скрыта по умолчанию) -->
+            <div class="b2b-floating-panel" id="b2b-bulk-action">
+              <div class="bulk-info">
+                <span>Выбрано позиций: <b id="bulk-count">0</b></span>
+                <span>Общая сумма: <b id="bulk-sum">0 ₽</b></span>
+              </div>
+              <button class="btn btn--primary bulk-submit">
+                Добавить выбранное в корзину
+              </button>
+            </div>
 
             <!-- Блок помощи -->
             <div class="help-banner">
@@ -350,7 +392,6 @@
         </div>
       </div>
 
-      <!-- Подключение обновленного скрипта (проверь путь) -->
       <script src="js/script.js"></script>
     </main>
     <footer class="footer">

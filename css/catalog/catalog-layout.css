@@ -85,28 +85,67 @@
   border-radius: 4px;
 }
 
-/* --- ВЕРХНЯЯ ПАНЕЛЬ --- */
-.toolbar {
+/* --- ВЕРХНЯЯ ПАНЕЛЬ (Умный тулбар) --- */
+.catalog-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.sticky-toolbar {
+  position: relative;
+  top: calc(var(--header-height, 0px) + var(--spacing-sm));
+  margin-bottom: var(--spacing-lg);
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-lg);
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 1px solid var(--color-border);
+  padding: 12px 16px;
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
   flex-wrap: wrap;
   gap: 16px;
+  transition:
+    top var(--transition-normal),
+    box-shadow var(--transition-fast);
 }
 
-.toolbar__count {
+.view-toggles--in-header {
+  margin-right: 16px;
+  height: 40px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-white);
+}
+
+/* Эстетичное убирание визуального шума при прокрутке */
+.sticky-toolbar.is-scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.toolbar-search {
+  flex: 1;
+  min-width: 250px;
+}
+
+.input-base {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
   font-size: 14px;
-  color: var(--color-text-main);
-}
-.toolbar__count strong {
-  color: var(--color-text-dark);
-  font-weight: 700;
+  transition: border-color var(--transition-fast);
 }
 
-.toolbar__controls {
+.input-base:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.toolbar-controls {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -114,7 +153,7 @@
 
 .view-toggles {
   display: inline-flex;
-  background-color: var(--color-bg-white);
+  background-color: var(--color-bg-light);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 4px;
@@ -137,18 +176,12 @@
 
 .view-toggles__btn:hover:not(.view-toggles__btn--active) {
   color: var(--color-primary);
-  background-color: var(--color-bg-body);
 }
 
 .view-toggles__btn--active {
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-}
-
-.view-toggles__btn--active:hover {
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-  cursor: default;
+  background: var(--color-bg-white);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
 }
 
 .sort-select {
@@ -166,6 +199,167 @@
 
 .sort-select:focus {
   border-color: var(--color-primary);
+}
+
+/* Базовое скрытие скрытых полей карточки в режиме обычной Б2Ц сетки */
+.products--grid .product-card__checkbox,
+.products--grid .product-card__stock,
+.products--grid .product-card__sum,
+.products--grid .btn-icon {
+  display: none;
+}
+
+.products--grid .product-card {
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.products--grid .product-card__img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: var(--color-img-placeholder);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--spacing-sm);
+}
+
+.products--grid .product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.products--grid .product-card__badges {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.products--grid .product-badge {
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-badge-bg);
+  border: 1px solid var(--color-badge-border);
+  color: var(--color-badge-dark);
+}
+
+.products--grid .product-card__sku {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.products--grid .product-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: 1.4;
+  height: 2.8em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.products--grid .product-card__pack {
+  font-size: 13px;
+  color: var(--color-pack-text);
+  background-color: var(--color-pack-bg);
+  border: 1px solid var(--color-border);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.products--grid .product-card__price-row {
+  margin-top: auto;
+  margin-bottom: var(--spacing-sm);
+}
+
+.products--grid .product-card__price-val {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.products--grid .product-card__price-unit {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.products--grid .product-card__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.products--grid .quantity {
+  display: flex;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.products--grid .quantity__btn {
+  width: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.products--grid .quantity__input {
+  width: 36px;
+  text-align: center;
+  border: none;
+  font-weight: 600;
+}
+
+.products--grid .btn--add {
+  flex: 1;
+}
+
+/* Плавающая панель B2B */
+.b2b-floating-panel {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(150%);
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 16px 32px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  z-index: 200;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.b2b-floating-panel.visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+.bulk-info {
+  display: flex;
+  gap: 24px;
+  font-size: 15px;
+  color: var(--color-text-main);
+}
+
+.bulk-info b {
+  font-size: 18px;
+  color: var(--color-primary);
 }
 
 /* --- БАННЕР ПОМОЩИ --- */
