@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/base/footer.css" />
     <link rel="stylesheet" href="css/home/home.css" />
     <link rel="stylesheet" href="css/home/target_audience.css" />
+    <link rel="stylesheet" href="css/home/auth-drawer.css" />
   </head>
   <body>
     <!-- HEADER -->
@@ -1232,7 +1233,108 @@
       </div>
     </footer>
 
+    <!-- Оверлей и сама выезжающая панель -->
+    <div class="auth-overlay" id="authOverlay">
+      <aside class="auth-drawer" id="authDrawer">
+        <div class="auth-drawer__header">
+          <h2 class="auth-drawer__title">Вход в систему</h2>
+          <button
+            class="auth-drawer__close"
+            id="closeAuthBtn"
+            aria-label="Закрыть"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              stroke="currentColor"
+              fill="none"
+              stroke-width="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Табы B2B / B2C -->
+        <div class="auth-tabs">
+          <button class="auth-tabs__btn active" data-target="form-b2b">
+            Юр. лица (B2B)
+          </button>
+          <button class="auth-tabs__btn" data-target="form-b2c">
+            Физ. лица
+          </button>
+        </div>
+
+        <div class="auth-drawer__body">
+          <!-- Форма B2B -->
+          <form id="form-b2b" class="auth-form active">
+            <p class="auth-form__hint">
+              Введите ИНН вашей компании для доступа к оптовым ценам и
+              документообороту.
+            </p>
+            <div class="form-group">
+              <label class="form-label" for="inn">ИНН Компании</label>
+              <input
+                type="text"
+                id="inn"
+                class="form-input"
+                placeholder="Например: 7700000000"
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="pass-b2b"
+                >Пароль / Код из Email</label
+              >
+              <input
+                type="password"
+                id="pass-b2b"
+                class="form-input"
+                placeholder="••••••••"
+              />
+            </div>
+            <button type="submit" class="btn btn--primary w-100">
+              Войти как партнер
+            </button>
+            <div class="auth-form__footer">
+              <a href="#" class="auth-link">Как получить доступ по ИНН?</a>
+            </div>
+          </form>
+
+          <!-- Форма B2C -->
+          <form id="form-b2c" class="auth-form">
+            <div class="form-group">
+              <label class="form-label" for="email">Email или телефон</label>
+              <input
+                type="text"
+                id="email"
+                class="form-input"
+                placeholder="test@mail.ru"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="pass-b2c">Пароль</label>
+              <input
+                type="password"
+                id="pass-b2c"
+                class="form-input"
+                placeholder="••••••••"
+              />
+            </div>
+            <button type="submit" class="btn btn--primary w-100">Войти</button>
+            <div class="auth-form__footer">
+              <a href="#" class="auth-link">Регистрация</a>
+              <a href="#" class="auth-link">Забыли пароль?</a>
+            </div>
+          </form>
+        </div>
+      </aside>
+    </div>
+
     <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const themeSelect = document.getElementById("theme-select");
