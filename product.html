@@ -150,7 +150,7 @@
 
     <main class="product">
       <div class="container">
-        <!-- Хлебные крошки -->
+        <!-- Хлебные крошки (оставляем для навигации) -->
         <nav class="breadcrumbs">
           <a href="catalog.html" class="breadcrumbs__link">Каталог</a>
           <span class="breadcrumbs__separator">
@@ -187,729 +187,358 @@
           >
         </nav>
 
-        <!-- ВЕРХНИЙ БЛОК: Галерея + Инфо + Сайдбар -->
-        <div class="product-top">
-          <!-- 1. Галерея -->
-          <div class="gallery">
-            <div class="gallery__thumbs">
-              <button class="gallery__thumb gallery__thumb--active">
-                <img src="src/Chocolate.jpg" alt="Вид 1" />
-              </button>
-              <button class="gallery__thumb">
-                <img src="src/Chocolate.jpg" alt="Вид 2" />
-              </button>
-              <button class="gallery__thumb">
-                <img src="src/Chocolate.jpg" alt="Вид 3" />
-              </button>
-            </div>
-            <div class="gallery__main">
-              <div class="gallery__tags">
-                <span class="product-badge">Без сахара</span>
-                <span class="product-badge">Веган</span>
-              </div>
+        <!-- Очищенный двухколоночный макет по референсам Loovfood / Huel -->
+        <div class="product-core-grid">
+          <!-- ЛЕВАЯ КОЛОНКА: Медиа и Натуральность -->
+          <div class="product-gallery-side">
+            <div class="product-main-display">
               <img
                 src="src/Chocolate.jpg"
-                alt="Горький шоколад 72% со стевией"
+                alt="Горький шоколад 72% со стевией, 100 г"
+                class="product-main-image"
               />
             </div>
-          </div>
 
-          <!-- 2. Информация о товаре -->
-          <div class="product-info">
-            <div class="product-info__header">
-              <h1 class="product-info__title">
-                Горький шоколад 72% со стевией, 100 г
-              </h1>
-              <div class="product-info__actions">
-                <button class="action-btn" aria-label="Сравнить">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M16 3h5v5" />
-                    <path d="M8 3H3v5" />
-                    <path d="M12 22v-8.3a4 4 0 0 0-1.17-2.83L3 3" />
-                    <path d="m15 9 6-6" />
-                  </svg>
-                </button>
-                <button class="action-btn" aria-label="В избранное">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                    />
-                  </svg>
-                </button>
-                <button class="action-btn" aria-label="Поделиться">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <circle cx="18" cy="5" r="3" />
-                    <circle cx="6" cy="12" r="3" />
-                    <circle cx="18" cy="19" r="3" />
-                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="product-info__meta">
-              <div class="rating-badge">
+            <!-- Компактные эко-триггеры -->
+            <div class="product-properties-line">
+              <div class="prop-item">
                 <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                  />
-                </svg>
-                <span>5.0</span>
-              </div>
-              <a href="#reviews" class="meta-link">23 отзыва</a>
-              <span class="meta-divider">·</span>
-              <span class="meta-text">Арт: CHOC-72</span>
-            </div>
-
-            <div class="variants">
-              <h3 class="variants__title">Варианты (3)</h3>
-              <div class="variants__list">
-                <button class="variants__btn variants__btn--active">
-                  <img src="src/Chocolate.jpg" alt="Вар 1" />
-                </button>
-                <button class="variants__btn">
-                  <img src="src/Chocolate.jpg" alt="Вар 2" />
-                </button>
-                <button class="variants__btn">
-                  <img src="src/Chocolate.jpg" alt="Вар 3" />
-                </button>
-              </div>
-            </div>
-
-            <div class="chars-mini">
-              <div class="chars-mini__row">
-                <span class="chars-mini__label">Торговая марка</span>
-                <span class="chars-mini__val">Лакомства для здоровья</span>
-              </div>
-              <div class="chars-mini__row">
-                <span class="chars-mini__label">Артикул</span>
-                <span class="chars-mini__val">CHOC-72</span>
-              </div>
-              <div class="chars-mini__row">
-                <span class="chars-mini__label">Категория</span>
-                <span class="chars-mini__val">Шоколад без сахара</span>
-              </div>
-              <div class="chars-mini__row">
-                <span class="chars-mini__label">Страна производитель</span>
-                <span class="chars-mini__val">Россия</span>
-              </div>
-              <div class="chars-mini__row">
-                <span class="chars-mini__label">Вес нетто</span>
-                <span class="chars-mini__val">100 г</span>
-              </div>
-              <a href="#characteristics" class="chars-mini__link"
-                >Все характеристики
-                <svg
-                  width="14"
-                  height="14"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
+                  aria-hidden="true"
                 >
-                  <path d="m9 18 6-6-6-6" />
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="m9 12 2 2 4-4" />
                 </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- 3. Сайдбар -->
-          <div class="sidebar-wrapper">
-            <aside class="sidebar-cart">
-              <div class="sidebar-cart__header">
-                <div class="sidebar-cart__price-main">
-                  <span class="sidebar-cart__price-val">110 ₽</span>
-                  <span class="opt-badge">опт</span>
-                </div>
-                <div class="sidebar-cart__price-retail">143 ₽ / розница</div>
+                <span>Без добавленного сахара</span>
               </div>
-
-              <div class="sidebar-cart__controls">
-                <!-- Используем глобальный счетчик -->
-                <div class="quantity">
-                  <button type="button" class="quantity__btn">&minus;</button>
-                  <input
-                    type="text"
-                    class="quantity__input"
-                    value="1"
-                    readonly
-                  />
-                  <button type="button" class="quantity__btn">&plus;</button>
-                </div>
-                <div class="sidebar-cart__info">
-                  коробка (20 шт) =<br />2 200 ₽
-                </div>
-              </div>
-
-              <button type="button" class="btn btn--primary btn--full">
+              <div class="prop-item">
                 <svg
-                  width="18"
-                  height="18"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
+                  aria-hidden="true"
                 >
-                  <circle cx="9" cy="21" r="1" />
-                  <circle cx="20" cy="21" r="1" />
-                  <path
-                    d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                  />
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="m9 12 2 2 4-4" />
                 </svg>
-                В заявку - 2 200 ₽
-              </button>
-
-              <div class="sidebar-cart__stock">В боксе 20 шт</div>
-
-              <ul class="sidebar-cart__delivery">
-                <li>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <rect x="1" y="3" width="15" height="13" />
-                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
-                    <circle cx="5.5" cy="18.5" r="2.5" />
-                    <circle cx="18.5" cy="18.5" r="2.5" />
-                  </svg>
-                  Отгрузка от 1 коробки по РФ
-                </li>
-                <li>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    <path d="m9 12 2 2 4-4" />
-                  </svg>
-                  Сертификат HACCP и декларация
-                </li>
-                <li>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                  12 месяцев при температуре +18 °C
-                </li>
-              </ul>
-            </aside>
-
-            <!-- Похожие товары (виджет) -->
-            <div class="similar">
-              <div class="similar__header">
-                <h3 class="similar__title">Похожие товары</h3>
-                <a href="catalog.html" class="similar__link">Все</a>
+                <span>100% Веганский продукт</span>
               </div>
-              <div class="similar__list">
-                <a href="#" class="similar__item">
-                  <img
-                    src="src/marmalade.jpg"
-                    alt="Пастила"
-                    class="similar__img"
-                  />
-                  <div>
-                    <div class="similar__price">240 ₽</div>
-                    <div class="similar__name">
-                      Набор пастилы «Ассорти» без сахара, 500 г
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="similar__item">
-                  <img src="src/nuts.jpg" alt="Драже" class="similar__img" />
-                  <div>
-                    <div class="similar__price">185 ₽</div>
-                    <div class="similar__name">
-                      Драже «Фундук в шоколаде», 150 г
-                    </div>
-                  </div>
-                </a>
-                <a href="#" class="similar__item">
-                  <img
-                    src="src/sweet_gift.jpg"
-                    alt="Батончик"
-                    class="similar__img"
-                  />
-                  <div>
-                    <div class="similar__price">45 ₽</div>
-                    <div class="similar__name">
-                      Протеиновый батончик «Кокос», 50 г
-                    </div>
-                  </div>
-                </a>
+              <div class="prop-item">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+                <span>Стандарт HACCP ISO 22000</span>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- ТАБЫ И ОПИСАНИЕ -->
-        <div class="product-details" id="characteristics">
-          <div class="tabs">
-            <button class="tabs__btn tabs__btn--active">Описание</button>
-            <button class="tabs__btn">Характеристики</button>
-            <button class="tabs__btn">Документы</button>
-          </div>
+          <!-- ПРАВАЯ КОЛОНКА: Коммерческий дашборд и Спецификации -->
+          <div class="product-info-side">
+            <div class="product-meta-top">
+              <span class="product-sku">Артикул: CHOC-72</span>
+            </div>
 
-          <div class="tabs__content">
-            <p>
-              Горький шоколад с содержанием какао 72%, подслащённый стевией. Без
-              добавленного сахара, насыщенный вкус и плотная текстура. Идеален
-              для полки ЗОЖ и осознанного питания.
+            <h1 class="product-main-title">
+              Горький шоколад 72% со стевией, 100 г
+            </h1>
+
+            <p class="product-brief-description">
+              Премиальный горький шоколад с высоким содержанием какао,
+              подслащённый натуральной стевией. Разработан специально для
+              диетического, диабетического и осознанного питания. Насыщенный
+              вкус без горького послевкусия.
             </p>
-            <ul class="tabs__list">
-              <li>
-                <strong>Без добавленного сахара:</strong> подходит для полки ЗОЖ
-                и осознанного питания.
-              </li>
-              <li>
-                <strong>Стабильные остатки:</strong> отгрузка со склада в Москве
-                кратно кванту поставки.
-              </li>
-              <li>
-                <strong>Полный пакет документов:</strong> декларации
-                соответствия и сертификаты HACCP.
-              </li>
-              <li>
-                <strong>Удобная фасовка:</strong> коробка (20 шт) — оптимально
-                для ритейла и маркетплейсов.
-              </li>
-            </ul>
-          </div>
 
-          <div class="nutrition">
-            <div class="nutrition__card">
-              <span class="nutrition__label">Калорийность</span>
-              <span class="nutrition__val">548 ккал</span>
-            </div>
-            <div class="nutrition__card">
-              <span class="nutrition__label">Белки</span>
-              <span class="nutrition__val">9 г</span>
-            </div>
-            <div class="nutrition__card">
-              <span class="nutrition__label">Жиры</span>
-              <span class="nutrition__val">42 г</span>
-            </div>
-            <div class="nutrition__card">
-              <span class="nutrition__label">Углеводы</span>
-              <span class="nutrition__val">14 г</span>
-            </div>
-          </div>
-          <p class="nutrition__note">Пищевая ценность на 100 г продукта.</p>
-        </div>
+            <!-- Блок коммерческого заказа -->
+            <div class="product-purchase-block">
+              <div class="product-price-display">
+                <span class="price-box-value">2 200 ₽</span>
+                <span class="price-box-label">за шоу-бокс (20 шт.)</span>
+              </div>
 
-        <!-- ОТЗЫВЫ -->
-        <div class="reviews" id="reviews">
-          <h2 class="section-title">Отзывы (23)</h2>
-          <div class="reviews__grid">
-            <div class="reviews__list">
-              <!-- Отзыв 1 -->
-              <div class="review-card">
-                <div class="review-card__header">
-                  <div class="review-card__stars">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      />
-                    </svg>
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      />
-                    </svg>
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      />
-                    </svg>
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      />
-                    </svg>
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      />
-                    </svg>
-                  </div>
-                  <span class="review-card__date">12 июня</span>
+              <div class="price-unit-recalculation">
+                Цена единицы товара: 110 ₽ • Рекомендуемая РРЦ: 143 ₽
+              </div>
+
+              <div class="purchase-row">
+                <div class="box-counter">
+                  <button
+                    type="button"
+                    class="box-counter__btn"
+                    aria-label="Уменьшить на 1 коробку"
+                  >
+                    &minus;
+                  </button>
+                  <input
+                    type="number"
+                    class="box-counter__input"
+                    value="1"
+                    min="1"
+                    step="1"
+                  />
+                  <button
+                    type="button"
+                    class="box-counter__btn"
+                    aria-label="Увеличить на 1 коробку"
+                  >
+                    &plus;
+                  </button>
                 </div>
-                <div class="review-card__variant">Вариант: коробка (20 шт)</div>
-                <p class="review-card__text">
-                  Берём регулярно под полку ЗОЖ. Оборачиваемость отличная,
-                  упаковка визуальная, остатки всегда в наличии.
-                </p>
-                <div class="review-card__footer">
-                  <span class="review-card__author">Анна, сеть «ВкусВилл»</span>
-                  <div class="review-card__helpful">
-                    Отзыв полезен? <button>+4</button><button>−0</button>
+
+                <button
+                  type="button"
+                  class="btn btn--primary product-add-submit"
+                >
+                  Добавить в заявку
+                </button>
+              </div>
+            </div>
+
+            <!-- Развернутый текстовый паспорт товара -->
+            <div class="product-specifications-list">
+              <div class="spec-section">
+                <h2 class="spec-section__title">Логистические данные</h2>
+                <ul class="spec-text-list">
+                  <li>
+                    <strong>Квант поставки:</strong> Транспортный шоу-бокс (20
+                    плиток по 100 г)
+                  </li>
+                  <li><strong>Вес брутто коробки:</strong> 2.30 кг</li>
+                  <li><strong>Габариты короба:</strong> 320 × 210 × 140 мм</li>
+                  <li>
+                    <strong>Палетизация:</strong> 120 коробов на европалете (8
+                    слоев)
+                  </li>
+                  <li>
+                    <strong>Срок годности:</strong> 12 месяцев при температуре
+                    +18 (±3) °C
+                  </li>
+                </ul>
+              </div>
+
+              <div class="spec-section">
+                <h2 class="spec-section__title">Пищевая ценность (на 100 г)</h2>
+                <div class="nutrition-minimal-line">
+                  <div class="nutr-cell">
+                    <strong>548</strong><span>ккал</span>
+                  </div>
+                  <div class="nutr-cell">
+                    <strong>9 г</strong><span>белки</span>
+                  </div>
+                  <div class="nutr-cell">
+                    <strong>42 г</strong><span>жиры</span>
+                  </div>
+                  <div class="nutr-cell">
+                    <strong>14 г</strong><span>углеводы</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Отзыв 2 -->
-              <div class="review-card">
-                <div class="review-card__header">
-                  <div class="review-card__stars">
+              <div class="spec-section">
+                <h2 class="spec-section__title">Документы и сертификаты</h2>
+                <div class="documents-download-links">
+                  <a
+                    href="/docs/eac-choc72.pdf"
+                    class="doc-download-item"
+                    download
+                  >
                     <svg
-                      width="14"
-                      height="14"
+                      width="18"
+                      height="18"
                       viewBox="0 0 24 24"
-                      fill="currentColor"
+                      fill="none"
                       stroke="currentColor"
                       stroke-width="2"
+                      aria-hidden="true"
                     >
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      />
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
                     </svg>
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      />
-                    </svg>
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      />
-                    </svg>
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      />
-                    </svg>
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <polygon
-                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                      />
-                    </svg>
-                  </div>
-                  <span class="review-card__date">3 июня</span>
-                </div>
-                <div class="review-card__variant">Вариант: палета</div>
-                <p class="review-card__text">
-                  Стабильное качество от партии к партии. Документы и декларации
-                  приходят сразу, работать удобно.
-                </p>
-                <div class="review-card__footer">
-                  <span class="review-card__author">Дмитрий, дистрибьютор</span>
-                  <div class="review-card__helpful">
-                    Отзыв полезен? <button>+2</button><button>−0</button>
-                  </div>
+                    <span>Декларация о соответствии ЕАС (PDF, 1.2 Мб)</span>
+                  </a>
                 </div>
               </div>
-            </div>
-
-            <!-- Сводка отзывов -->
-            <div class="reviews-summary">
-              <div class="reviews-summary__score">
-                <span class="reviews-summary__val">5,0</span>
-                <div class="reviews-summary__stars">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    />
-                  </svg>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    />
-                  </svg>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    />
-                  </svg>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    />
-                  </svg>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <polygon
-                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              <div class="bars">
-                <div class="bars__row">
-                  <span class="bars__num">5</span>
-                  <div class="bars__track">
-                    <div class="bars__fill" style="width: 86%"></div>
-                  </div>
-                  <span class="bars__pct">86%</span>
-                </div>
-                <div class="bars__row">
-                  <span class="bars__num">4</span>
-                  <div class="bars__track">
-                    <div class="bars__fill" style="width: 11%"></div>
-                  </div>
-                  <span class="bars__pct">11%</span>
-                </div>
-                <div class="bars__row">
-                  <span class="bars__num">3</span>
-                  <div class="bars__track">
-                    <div class="bars__fill" style="width: 3%"></div>
-                  </div>
-                  <span class="bars__pct">3%</span>
-                </div>
-                <div class="bars__row">
-                  <span class="bars__num">2</span>
-                  <div class="bars__track">
-                    <div class="bars__fill" style="width: 0%"></div>
-                  </div>
-                  <span class="bars__pct">0%</span>
-                </div>
-                <div class="bars__row">
-                  <span class="bars__num">1</span>
-                  <div class="bars__track">
-                    <div class="bars__fill" style="width: 0%"></div>
-                  </div>
-                  <span class="bars__pct">0%</span>
-                </div>
-              </div>
-              <button class="btn btn--primary btn--full">Оставить отзыв</button>
             </div>
           </div>
         </div>
 
-        <!-- С ЭТИМ ТОВАРОМ ПОКУПАЮТ -->
-        <div class="cross-sell">
-          <h2 class="section-title">С этим товаром покупают</h2>
-          <div class="cross-sell__grid">
-            <!-- Карточка 1 -->
-            <div class="mini-card">
-              <div class="mini-card__img-wrapper">
-                <img src="src/marmalade.jpg" alt="Пастила" />
+        <!-- МАТРИЦА БЫСТРЫХ ДОЗАКАЗОВ (CROSS-SELL) -->
+        <div class="cross-sell-section">
+          <h2 class="cross-sell-title">Рекомендуем к дозаказу (Шоу-боксы)</h2>
+
+          <form class="cross-sell-matrix">
+            <!-- Строка товара 1 -->
+            <div class="matrix-row">
+              <div class="matrix-cell matrix-cell--thumb">
+                <img
+                  src="src/marmalade.jpg"
+                  alt="Набор пастилы Ассорти"
+                  class="matrix-img"
+                />
               </div>
-              <div class="mini-card__info">
-                <div class="mini-card__price">240 ₽</div>
-                <div class="mini-card__name">
-                  Набор пастилы «Ассорти» без сахара, 500 г
-                </div>
-                <button class="btn btn--primary btn--full">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+              <div class="matrix-cell matrix-cell--info">
+                <span class="matrix-product-name"
+                  >Набор пастилы «Ассорти» без сахара</span
+                >
+                <span class="matrix-product-pack"
+                  >Транспортный короб: 12 упаковок по 500 г</span
+                >
+              </div>
+              <div class="matrix-cell matrix-cell--price">
+                <span class="matrix-price-value">2 880 ₽</span>
+                <span class="matrix-price-per-unit">240 ₽/шт.</span>
+              </div>
+              <div class="matrix-cell matrix-cell--action">
+                <div class="matrix-counter">
+                  <button
+                    type="button"
+                    class="matrix-counter__btn"
+                    aria-label="Уменьшить количество"
                   >
-                    <circle cx="9" cy="21" r="1" />
-                    <circle cx="20" cy="21" r="1" />
-                    <path
-                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    />
-                  </svg>
-                  В заявку
-                </button>
+                    &minus;
+                  </button>
+                  <input
+                    type="number"
+                    class="matrix-counter__input"
+                    value="0"
+                    min="0"
+                    step="1"
+                    name="qty-marmalade"
+                  />
+                  <button
+                    type="button"
+                    class="matrix-counter__btn"
+                    aria-label="Увеличить количество"
+                  >
+                    &plus;
+                  </button>
+                </div>
               </div>
             </div>
 
-            <!-- Карточка 2 -->
-            <div class="mini-card">
-              <div class="mini-card__img-wrapper">
-                <img src="src/nuts.jpg" alt="Драже" />
+            <!-- Строка товара 2 -->
+            <div class="matrix-row">
+              <div class="matrix-cell matrix-cell--thumb">
+                <img
+                  src="src/nuts.jpg"
+                  alt="Драже Фундук в шоколаде"
+                  class="matrix-img"
+                />
               </div>
-              <div class="mini-card__info">
-                <div class="mini-card__price">185 ₽</div>
-                <div class="mini-card__name">
-                  Драже «Фундук в шоколаде», 150 г
-                </div>
-                <button class="btn btn--primary btn--full">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+              <div class="matrix-cell matrix-cell--info">
+                <span class="matrix-product-name"
+                  >Драже «Фундук в шоколаде»</span
+                >
+                <span class="matrix-product-pack"
+                  >Транспортный короб: 15 упаковок по 150 г</span
+                >
+              </div>
+              <div class="matrix-cell matrix-cell--price">
+                <span class="matrix-price-value">2 775 ₽</span>
+                <span class="matrix-price-per-unit">185 ₽/шт.</span>
+              </div>
+              <div class="matrix-cell matrix-cell--action">
+                <div class="matrix-counter">
+                  <button
+                    type="button"
+                    class="matrix-counter__btn"
+                    aria-label="Уменьшить количество"
                   >
-                    <circle cx="9" cy="21" r="1" />
-                    <circle cx="20" cy="21" r="1" />
-                    <path
-                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    />
-                  </svg>
-                  В заявку
-                </button>
+                    &minus;
+                  </button>
+                  <input
+                    type="number"
+                    class="matrix-counter__input"
+                    value="0"
+                    min="0"
+                    step="1"
+                    name="qty-nuts"
+                  />
+                  <button
+                    type="button"
+                    class="matrix-counter__btn"
+                    aria-label="Увеличить количество"
+                  >
+                    &plus;
+                  </button>
+                </div>
               </div>
             </div>
 
-            <!-- Карточка 3 -->
-            <div class="mini-card">
-              <div class="mini-card__img-wrapper">
-                <img src="src/sweet_gift.jpg" alt="Батончик" />
+            <!-- Строка товара 3 -->
+            <div class="matrix-row">
+              <div class="matrix-cell matrix-cell--thumb">
+                <img
+                  src="src/sweet_gift.jpg"
+                  alt="Протеиновый батончик Кокос"
+                  class="matrix-img"
+                />
               </div>
-              <div class="mini-card__info">
-                <div class="mini-card__price">45 ₽</div>
-                <div class="mini-card__name">
-                  Протеиновый батончик «Кокос», 50 г
-                </div>
-                <button class="btn btn--primary btn--full">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+              <div class="matrix-cell matrix-cell--info">
+                <span class="matrix-product-name"
+                  >Протеиновый батончик «Кокос»</span
+                >
+                <span class="matrix-product-pack"
+                  >Транспортный короб: 24 штуки по 50 г</span
+                >
+              </div>
+              <div class="matrix-cell matrix-cell--price">
+                <span class="matrix-price-value">1 080 ₽</span>
+                <span class="matrix-price-per-unit">45 ₽/шт.</span>
+              </div>
+              <div class="matrix-cell matrix-cell--action">
+                <div class="matrix-counter">
+                  <button
+                    type="button"
+                    class="matrix-counter__btn"
+                    aria-label="Уменьшить количество"
                   >
-                    <circle cx="9" cy="21" r="1" />
-                    <circle cx="20" cy="21" r="1" />
-                    <path
-                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    />
-                  </svg>
-                  В заявку
-                </button>
+                    &minus;
+                  </button>
+                  <input
+                    type="number"
+                    class="matrix-counter__input"
+                    value="0"
+                    min="0"
+                    step="1"
+                    name="qty-bar"
+                  />
+                  <button
+                    type="button"
+                    class="matrix-counter__btn"
+                    aria-label="Увеличить количество"
+                  >
+                    &plus;
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+
+            <!-- ЕДИНАЯ КНОПКА ОТПРАВКИ -->
+            <div class="matrix-footer">
+              <button type="submit" class="btn btn--primary matrix-submit-btn">
+                Добавить выбранные короба в заявку
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </main>
