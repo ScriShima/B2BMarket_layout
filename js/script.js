@@ -745,4 +745,15 @@ document.addEventListener("DOMContentLoaded", function () {
       bestsellersSection.setAttribute("data-bestseller-mode", e.target.value);
     });
   }
+
+  //Управление блоком "Партнеры"
+
+  const trustModeSelect = document.getElementById("trust-mode-select");
+  const trustSection = document.getElementById("trust-section");
+
+  if (trustModeSelect && trustSection) {
+    trustModeSelect.addEventListener("change", (e) => {
+      trustSection.setAttribute("data-trust-mode", e.target.value);
+    });
+  }
 });

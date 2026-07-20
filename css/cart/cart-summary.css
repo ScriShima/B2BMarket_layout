@@ -1,5 +1,5 @@
 /* ========================================== */
-/* ПРАВЫЙ БЛОК: ИТОГО                         */
+/* ПРАВЫЙ БЛОК: ИТОГО (B2B)                   */
 /* ========================================== */
 .summary-wrapper {
   position: sticky;
@@ -11,20 +11,79 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   padding: 24px;
+  box-shadow: var(--shadow-sm);
 }
 
 .summary__title {
   font-size: 20px;
   font-weight: 800;
   color: var(--color-text-dark);
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
 }
 
+/* Прогресс-бар заказа */
+.summary-progress {
+  background: var(--color-bg-light);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+}
+
+.summary-progress__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--color-text-dark);
+}
+
+.summary-progress__amount {
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background-color: var(--color-accent);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.summary-progress__hint {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* Состояние успеха (Минимальный заказ достигнут) */
+.summary-progress__badge {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--color-success);
+  background-color: rgba(33, 107, 60, 0.1); /* Полупрозрачный зеленый фон */
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.progress-bar__fill--success {
+  background-color: var(--color-success);
+}
+
+/* Статистика и финансы */
 .summary__stats {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .summary__row {
@@ -43,32 +102,75 @@
   color: var(--color-text-dark);
 }
 
+.summary__divider {
+  height: 1px;
+  background-color: var(--color-border-light);
+  margin: 4px 0;
+}
+
 .summary__row--total {
-  border-top: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-border);
   padding-top: 16px;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .summary__val--total {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
-  color: var(--color-text-dark);
+  color: var(--color-primary);
 }
 
-.summary__notice {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-dark);
-  font-size: 12px;
-  padding: 10px 12px;
-  border-radius: var(--radius-sm);
-  margin-bottom: 24px;
-}
-
+/* Кнопки действий */
 .summary__actions {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn:disabled {
+  background-color: var(--color-border);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.summary__actions-docs {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-doc {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-doc:hover {
+  background: var(--color-bg-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-doc svg {
+  width: 16px;
+  height: 16px;
 }
 
 .btn--outline {
@@ -83,6 +185,7 @@
   color: var(--color-primary);
 }
 
+/* Комментарий */
 .summary__textarea {
   width: 100%;
   resize: none;
@@ -100,6 +203,7 @@
 
 .summary__textarea:focus {
   border-color: var(--color-primary);
+  background-color: var(--color-bg-white);
 }
 
 @media (max-width: 992px) {

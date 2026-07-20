@@ -7,9 +7,13 @@
     <link rel="stylesheet" href="css/base/base.css" />
     <link rel="stylesheet" href="css/base/header.css" />
     <link rel="stylesheet" href="css/base/footer.css" />
-    <link rel="stylesheet" href="css/wholesale/conditions.css" />
+    <link rel="stylesheet" href="css/wholesale/hero.css" />
     <link rel="stylesheet" href="css/wholesale/steps.css" />
     <link rel="stylesheet" href="css/wholesale/cta.css" />
+    <link rel="stylesheet" href="css/wholesale/benefits.css" />
+    <link rel="stylesheet" href="css/wholesale/pricing.css" />
+    <link rel="stylesheet" href="css/wholesale/trust.css" />
+    <link rel="stylesheet" href="css/home/home.css" />
   </head>
   <body>
     <header class="header">
@@ -146,230 +150,284 @@
     </header>
 
     <main class="wholesale">
-      <section class="conditions">
-        <div class="container">
-          <div class="hero-block">
-            <span class="hero__badge">
-              <svg
-                class="icon-sm"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"
-                />
-                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-              </svg>
-              Завод-производитель · 10+ лет на рынке
-            </span>
-            <h1 class="wholesale__title">Условия для оптовиков</h1>
-            <p class="wholesale__desc">
-              Прямые поставки полезных сладостей без сахара для ритейла,
-              маркетплейсов и дистрибьюторов. Высокая маржинальность и
-              стабильные остатки на складе.
+      <!-- СЕКЦИЯ 1: HERO БЛОК (Продающий первый экран) -->
+      <section class="hero-b2b">
+        <div class="container hero-b2b__container">
+          <div class="hero-b2b__content">
+            <span class="hero-badge">B2B Платформа для ритейла</span>
+            <h1 class="hero-b2b__title">
+              Прямые поставки полезных сладостей без сахара
+            </h1>
+            <p class="hero-b2b__desc">
+              Высокая маржинальность, стабильные остатки на складе и отгрузка от
+              1 коробки. Производим натуральный продукт, который продает себя
+              сам.
             </p>
+            <div class="hero-b2b__actions">
+              <button class="btn btn--primary">Получить прайс и образцы</button>
+              <a href="#pricing" class="btn btn--secondary"
+                >Условия сотрудничества</a
+              >
+            </div>
           </div>
+          <div class="hero-b2b__visual">
+            <!-- Заглушка под качественный 3D рендер/фотографию продукции -->
+            <div class="visual-placeholder">
+              <span>Здесь будет композиция</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div class="advantages">
-            <div class="advantage-card">
-              <div class="advantage-card__icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="m16 16 2 2 4-4" />
-                  <path
-                    d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"
-                  />
-                  <path d="m7.5 4.27 9 5.15" />
-                  <polyline points="3.29 7 12 12 20.71 7" />
-                  <line x1="12" x2="12" y1="22" y2="12" />
-                </svg>
+      <!-- СЕКЦИЯ 2: SOCIAL PROOF (Мультирежим) -->
+      <section id="trust-section" class="trust-b2b" data-trust-mode="grid">
+        <div class="container">
+          <!-- ВАРИАНТ 1: Сетка с B2B-фактами (grid) -->
+          <div class="trust-variant trust-variant--grid">
+            <h2 class="trust-b2b__title">
+              Наши продукты уже генерируют прибыль партнерам:
+            </h2>
+            <div class="trust-grid">
+              <div class="trust-card">
+                <div class="trust-card__logo">ВкусВилл</div>
+                <p class="trust-card__fact">
+                  В постоянной матрице более 15 SKU. Отгрузки на РЦ без сбоев.
+                </p>
               </div>
-              <h3 class="advantage-card__title">Минимальный заказ</h3>
-              <p class="advantage-card__text">Стартовая партия от 15 000 ₽</p>
-            </div>
-            <div class="advantage-card">
-              <div class="advantage-card__icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"
-                  />
-                  <path d="M14 9h4l4 4v5c0 .6-.4 1-1 1h-2" />
-                  <circle cx="7" cy="18" r="2" />
-                  <circle cx="17" cy="18" r="2" />
-                </svg>
+              <div class="trust-card">
+                <div class="trust-card__logo">Азбука Вкуса</div>
+                <p class="trust-card__fact">
+                  Прошли строгий аудит качества. Премиум-выкладка в 100+ точках.
+                </p>
               </div>
-              <h3 class="advantage-card__title">Отгрузка по РФ</h3>
-              <p class="advantage-card__text">
-                От 1 коробки до транспортной компании
-              </p>
-            </div>
-            <div class="advantage-card">
-              <div class="advantage-card__icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <path d="m9 12 2 2 4-4" />
-                </svg>
+              <div class="trust-card">
+                <div class="trust-card__logo">Ozon Fresh</div>
+                <p class="trust-card__fact">
+                  Ежедневные поставки. Входим в ТОП-5 в категории ЗОЖ-снеков.
+                </p>
               </div>
-              <h3 class="advantage-card__title">Документы</h3>
-              <p class="advantage-card__text">Сертификаты HACCP и декларации</p>
-            </div>
-            <div class="advantage-card">
-              <div class="advantage-card__icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"
-                  />
-                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-                </svg>
+              <div class="trust-card">
+                <div class="trust-card__logo">Самокат</div>
+                <p class="trust-card__fact">
+                  Адаптировали упаковку под стандарты dark-store. Быстрая
+                  оборачиваемость.
+                </p>
               </div>
-              <h3 class="advantage-card__title">Составы без сахара</h3>
-              <p class="advantage-card__text">
-                Натуральные ингредиенты и эко-упаковка
-              </p>
             </div>
           </div>
 
-          <div class="tiers" style="margin-top: 60px">
-            <h2 class="tiers__title">Условия сотрудничества</h2>
-            <p class="section-subtitle">Чем больше объем — тем выгоднее цена</p>
-            <div class="tiers__grid">
-              <div class="tier-card">
-                <h3 class="tier-card__title">Стартовый</h3>
-                <span class="tier-card__label">Объём заказа</span>
-                <span class="tier-card__value">от 15 000 ₽</span>
-                <span class="tier-card__label">Скидка</span>
-                <span class="tier-card__value tier-card__value--highlight"
-                  >—</span
-                >
-                <p class="tier-card__note">Знакомство с ассортиментом</p>
+          <!-- ВАРИАНТ 2: Бегущая строка SaaS (marquee) -->
+          <div class="trust-variant trust-variant--marquee">
+            <div class="marquee-wrapper">
+              <div class="marquee-track">
+                <!-- Набор 1 -->
+                <div class="marquee-item">ВкусВилл</div>
+                <div class="marquee-badge">HACCP ISO 22000</div>
+                <div class="marquee-item">Азбука Вкуса</div>
+                <div class="marquee-badge">Отгрузка от 1 коробки</div>
+                <div class="marquee-item">Яндекс Лавка</div>
+                <div class="marquee-badge">Без сахара</div>
+                <div class="marquee-item">Перекресток</div>
+                <!-- Набор 2 (дубль для бесконечной анимации) -->
+                <div class="marquee-item">ВкусВилл</div>
+                <div class="marquee-badge">HACCP ISO 22000</div>
+                <div class="marquee-item">Азбука Вкуса</div>
+                <div class="marquee-badge">Отгрузка от 1 коробки</div>
+                <div class="marquee-item">Яндекс Лавка</div>
+                <div class="marquee-badge">Без сахара</div>
+                <div class="marquee-item">Перекресток</div>
               </div>
-              <div class="tier-card">
-                <h3 class="tier-card__title">Дилер</h3>
-                <span class="tier-card__label">Объём заказа</span>
-                <span class="tier-card__value">от 80 000 ₽</span>
-                <span class="tier-card__label">Скидка</span>
-                <span class="tier-card__value tier-card__value--highlight"
-                  >до 8%</span
-                >
-                <p class="tier-card__note">Регулярные поставки</p>
+            </div>
+          </div>
+
+          <!-- ВАРИАНТ 3: H2H Цитата (h2h) -->
+          <div class="trust-variant trust-variant--h2h">
+            <div class="h2h-layout">
+              <div class="h2h-quote">
+                <blockquote>
+                  «Лакомства B2B — один из самых надежных поставщиков в
+                  категории ЗОЖ-снеков. Полки не пустуют, брака нет,
+                  маржинальность стабильна.»
+                </blockquote>
+                <div class="h2h-author">
+                  <strong>Михаил Иванов</strong>
+                  <span>Категорийный менеджер, X5 Retail Group</span>
+                </div>
               </div>
-              <div class="tier-card">
-                <h3 class="tier-card__title">Сеть</h3>
-                <span class="tier-card__label">Объём заказа</span>
-                <span class="tier-card__value">от 250 000 ₽</span>
-                <span class="tier-card__label">Скидка</span>
-                <span class="tier-card__value tier-card__value--highlight"
-                  >до 15%</span
-                >
-                <p class="tier-card__note">Индивидуальные условия</p>
+              <div class="h2h-logos">
+                <div class="h2h-logos__grid">
+                  <div class="h2h-logo-item">ВкусВилл</div>
+                  <div class="h2h-logo-item">Перекресток</div>
+                  <div class="h2h-logo-item">Азбука Вкуса</div>
+                  <div class="h2h-logo-item">Ozon Fresh</div>
+                  <div class="h2h-logo-item">Магнит</div>
+                  <div class="h2h-logo-item">Лента</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ВАРИАНТ 4: Структурированный хаб (hub) -->
+          <div class="trust-variant trust-variant--hub">
+            <h2 class="trust-b2b__title">
+              Закрываем потребности любого формата сбыта:
+            </h2>
+            <div class="hub-grid">
+              <div class="hub-column">
+                <h3 class="hub-column__title">Федеральный ритейл</h3>
+                <ul class="hub-list">
+                  <li>ВкусВилл</li>
+                  <li>Азбука Вкуса</li>
+                  <li>Перекресток</li>
+                </ul>
+              </div>
+              <div class="hub-column">
+                <h3 class="hub-column__title">E-commerce & Dark-store</h3>
+                <ul class="hub-list">
+                  <li>Ozon Fresh</li>
+                  <li>Яндекс Лавка</li>
+                  <li>Самокат</li>
+                </ul>
+              </div>
+              <div class="hub-column">
+                <h3 class="hub-column__title">HoReCa & Корпорат</h3>
+                <ul class="hub-list">
+                  <li>Кофемания</li>
+                  <li>Surf Coffee</li>
+                  <li>Офисы IT-компаний</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="steps">
+      <!-- СЕКЦИЯ 3: УТП ДЛЯ B2B -->
+      <section class="benefits-b2b">
         <div class="container">
-          <h2 class="steps__title">Как начать работать</h2>
-          <div class="steps__grid">
-            <div class="step-card">
-              <div class="step-card__number">1</div>
-              <h3 class="step-card__title">Оставьте заявку</h3>
-              <p class="step-card__text">
-                Заполните форму или позвоните менеджеру
+          <h2 class="section-title">Почему нас ставят на полку</h2>
+          <div class="benefits-b2b__grid">
+            <div class="benefit-card">
+              <div class="benefit-card__icon">📈</div>
+              <h3 class="benefit-card__title">Маржинальность до 150%</h3>
+              <p class="benefit-card__desc">
+                Обеспечиваем высокую доходность для розницы благодаря прямому
+                производству без дистрибьюторов-посредников.
               </p>
             </div>
-            <div class="step-card">
-              <div class="step-card__number">2</div>
-              <h3 class="step-card__title">Получите прайс</h3>
-              <p class="step-card__text">
-                Excel с ценами и остатками на складе
+            <div class="benefit-card">
+              <div class="benefit-card__icon">⏳</div>
+              <h3 class="benefit-card__title">Срок годности 12 мес.</h3>
+              <p class="benefit-card__desc">
+                Используем специальную эко-упаковку, сохраняющую свежесть без
+                химии. Идеально для полочного хранения.
               </p>
             </div>
-            <div class="step-card">
-              <div class="step-card__number">3</div>
-              <h3 class="step-card__title">Согласуйте заказ</h3>
-              <p class="step-card__text">
-                Подтверждаем состав и сроки отгрузки
+            <div class="benefit-card">
+              <div class="benefit-card__icon">🎁</div>
+              <h3 class="benefit-card__title">POS-материалы</h3>
+              <p class="benefit-card__desc">
+                Предоставляем фирменные деревянные стойки, воблеры и шелфтокеры
+                для агрессивного роста продаж.
               </p>
             </div>
-            <div class="step-card">
-              <div class="step-card__number">4</div>
-              <h3 class="step-card__title">Отгрузка</h3>
-              <p class="step-card__text">Доставка до ТК по всей России</p>
+            <div class="benefit-card">
+              <div class="benefit-card__icon">🧪</div>
+              <h3 class="benefit-card__title">Бесплатные образцы</h3>
+              <p class="benefit-card__desc">
+                Сомневаетесь во вкусе? Отправим полноценный дегустационный сет
+                для вашей команды закупщиков за наш счет.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="cta">
+      <!-- СЕКЦИЯ 4: ПРОЗРАЧНЫЕ ТАРИФЫ (Условия) -->
+      <section id="pricing" class="pricing-b2b">
         <div class="container">
-          <div class="cta-card">
-            <div class="cta-card__content">
-              <h2 class="cta-card__title">Получить оптовый прайс-лист</h2>
-              <p class="cta-card__text">
-                Excel с актуальными ценами и остатками на складе придёт на вашу
-                почту.
+          <h2 class="section-title">Прозрачные условия партнерства</h2>
+          <div class="pricing-b2b__grid">
+            <div class="pricing-card">
+              <h3 class="pricing-card__name">Пробный</h3>
+              <div class="pricing-card__volume">от 15 000 ₽</div>
+              <div class="pricing-card__discount">Базовые оптовые цены</div>
+              <ul class="pricing-card__features">
+                <li>Отгрузка от 1 коробки (микс)</li>
+                <li>Предоплата 100%</li>
+                <li>Самовывоз или доставка ТК</li>
+                <li>Сертификаты в комплекте</li>
+              </ul>
+              <button class="btn btn--secondary pricing-card__btn">
+                Заказать образцы
+              </button>
+            </div>
+
+            <div class="pricing-card pricing-card--popular">
+              <div class="pricing-card__badge">Хит для розницы</div>
+              <h3 class="pricing-card__name">Дилер</h3>
+              <div class="pricing-card__volume">от 80 000 ₽</div>
+              <div class="pricing-card__discount">
+                Доп. скидка до 8% от прайса
+              </div>
+              <ul class="pricing-card__features">
+                <li>Бесплатная доставка до ТК</li>
+                <li>POS-материалы в комплекте</li>
+                <li>Отсрочка платежа (после 3 отгрузок)</li>
+                <li>Приоритетная сборка заказа</li>
+              </ul>
+              <button class="btn btn--primary pricing-card__btn">
+                Стать дилером
+              </button>
+            </div>
+
+            <div class="pricing-card">
+              <h3 class="pricing-card__name">Федеральная сеть</h3>
+              <div class="pricing-card__volume">от 250 000 ₽</div>
+              <div class="pricing-card__discount">
+                Скидка до 15% или ретро-бонус
+              </div>
+              <ul class="pricing-card__features">
+                <li>Индивидуальная матрица и СТМ</li>
+                <li>Персональный менеджер 24/7</li>
+                <li>Маркетинговый бюджет на промо</li>
+                <li>EDI-документооборот</li>
+              </ul>
+              <button class="btn btn--secondary pricing-card__btn">
+                Запросить условия
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- СЕКЦИЯ 5: CTA (Регистрация на портале) -->
+      <section class="cta-b2b">
+        <div class="container">
+          <div class="cta-b2b__wrapper">
+            <div class="cta-b2b__info">
+              <h2>Получите доступ к B2B-порталу</h2>
+              <p>
+                Хватит пересылать прайсы в Excel. Зарегистрируйтесь как партнер,
+                чтобы видеть актуальные остатки, свои персональные цены и
+                оформлять оптовые заказы в 2 клика.
               </p>
             </div>
-            <form class="cta-form">
+            <form class="cta-b2b__form">
               <input
                 type="text"
-                class="cta-form__input"
-                placeholder="Имя *"
+                placeholder="ИНН или Название компании"
                 required
               />
-              <input
-                type="tel"
-                class="cta-form__input"
-                placeholder="Телефон *"
-                required
-              />
-              <input
-                type="email"
-                class="cta-form__input"
-                placeholder="E-mail *"
-                required
-              />
+              <input type="email" placeholder="Рабочий E-mail" required />
+              <input type="tel" placeholder="Телефон" required />
               <button type="submit" class="btn btn--primary">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
-                  />
-                  <polyline points="14 2 14 8 20 8" />
-                  <path d="M12 18v-6" />
-                  <path d="m9 15 3 3 3-3" />
-                </svg>
-                Скачать прайс (.pdf)
+                Зарегистрироваться
               </button>
+              <span class="cta-b2b__hint"
+                >Менеджер свяжется с вами для активации аккаунта в течение 15
+                минут</span
+              >
             </form>
           </div>
         </div>
@@ -578,6 +636,24 @@
         </div>
       </div>
     </footer>
+
+    <div class="ui-configurator" id="ui-configurator">
+      <div class="ui-configurator__header">
+        <h3>Настройки макета (Условия сотрудничества)</h3>
+        <span class="ui-configurator__hint">Нажми Ctrl + B</span>
+      </div>
+      <div class="ui-configurator__body">
+        <div class="ui-configurator__group">
+          <label>Блок "Social Proof":</label>
+          <select id="trust-mode-select" class="config-select">
+            <option value="grid" selected>B2B-Факты (Карточки)</option>
+            <option value="marquee">Бегущая строка (SaaS)</option>
+            <option value="h2h">H2H (Цитата + Лого)</option>
+            <option value="hub">Каналы сбыта (Хаб)</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
     <script src="js/script.js"></script>
   </body>

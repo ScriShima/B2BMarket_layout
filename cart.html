@@ -145,20 +145,57 @@
         </div>
       </div>
     </header>
-
     <main class="cart">
       <section class="cart__header">
         <div class="container">
           <h1 class="cart__title">Ваша заявка</h1>
           <p class="cart__description">
-            Цены указаны без НДС. Отгрузка кратна кванту поставки.
+            Цены указаны без НДС. Отгрузка строго кратна кванту поставки.
           </p>
         </div>
       </section>
 
-      <!-- Основная сетка корзины -->
       <section class="cart__main">
         <div class="container">
+          <!-- B2B Тулбар: Быстрое добавление и управление -->
+          <div class="cart-toolbar">
+            <div class="cart-quick-add">
+              <svg
+                class="cart-quick-add__icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <!-- Инпут теперь без outline, весь фокус обрабатывает контейнер -->
+              <input
+                type="text"
+                class="cart-quick-add__input"
+                placeholder="Быстрое добавление: введите артикул (например, CHOC-72)..."
+              />
+              <!-- Кнопка стала primary (зеленой) для явного акцента -->
+              <button class="btn btn--primary cart-quick-add__btn">
+                Добавить
+              </button>
+            </div>
+            <button class="btn-clear-cart">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                ></path>
+              </svg>
+              Очистить корзину
+            </button>
+          </div>
+
           <div class="cart__grid">
             <!-- Левая колонка: Список товаров -->
             <div class="cart-list">
@@ -167,97 +204,71 @@
                 <div class="cart-item__img-wrapper">
                   <img
                     src="src/Chocolate.jpg"
-                    alt="Горький шоколад 72% со стевией, 100 г"
+                    alt="Горький шоколад 72%"
                     class="cart-item__img"
                   />
                 </div>
-
                 <div class="cart-item__info">
                   <h3 class="cart-item__title">
                     Горький шоколад 72% со стевией, 100 г
                   </h3>
-                  <div class="cart-item__sku">Арт: CHOC-72</div>
-                  <div class="cart-item__price-row">
-                    <span class="cart-item__price-val">110 ₽</span>
-                    <span class="cart-item__price-unit">/ шт</span>
+                  <div class="cart-item__meta">
+                    <span class="cart-item__sku">Арт: CHOC-72</span>
+                    <span class="cart-item__weight">Вес кор.: 2.4 кг</span>
                   </div>
-                  <div class="cart-item__pack">Квант: коробка (20 шт)</div>
+                  <div class="cart-item__prices">
+                    <div class="cart-item__price-primary">
+                      2 200 ₽
+                      <span class="cart-item__price-unit">/ коробка</span>
+                    </div>
+                    <div class="cart-item__price-secondary">110 ₽ / шт</div>
+                  </div>
                 </div>
-
-                <div class="cart-item__actions">
-                  <!-- Глобальный компонент счетчика (из base.css / product-grid.css) -->
-                  <div class="quantity">
+                <div class="cart-item__controls">
+                  <div class="quantum-stepper">
                     <button
                       type="button"
                       class="quantity__btn"
                       aria-label="Меньше"
                     >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                      </svg>
+                      −
                     </button>
-                    <input
-                      type="number"
-                      class="quantity__input"
-                      value="1"
-                      min="1"
-                      readonly
-                    />
+                    <div class="quantity__input-group">
+                      <input
+                        type="number"
+                        class="quantity__input"
+                        value="1"
+                        min="1"
+                        readonly
+                      />
+                      <span class="quantity__unit">кор.</span>
+                    </div>
                     <button
                       type="button"
                       class="quantity__btn"
                       aria-label="Больше"
                     >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                      </svg>
+                      +
                     </button>
                   </div>
-                  <div class="cart-item__totals">
-                    <div class="cart-item__sum">2 200 ₽</div>
-                    <div class="cart-item__qty">20 шт</div>
-                  </div>
+                  <div class="quantum-total">= 20 шт</div>
                 </div>
-
+                <div class="cart-item__totals">
+                  <div class="cart-item__sum">2 200 ₽</div>
+                </div>
                 <button
                   type="button"
                   class="cart-item__delete"
-                  aria-label="Удалить"
+                  aria-label="Удалить товар"
                 >
                   <svg
-                    width="20"
-                    height="20"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
                   >
-                    <path d="M3 6h18" />
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                    <line x1="10" y1="11" x2="10" y2="17" />
-                    <line x1="14" y1="11" x2="14" y2="17" />
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
                   </svg>
                 </button>
               </div>
@@ -267,186 +278,340 @@
                 <div class="cart-item__img-wrapper">
                   <img
                     src="src/marmalade.jpg"
-                    alt="Набор пастилы «Ассорти» без сахара, 500 г"
+                    alt="Набор пастилы"
                     class="cart-item__img"
                   />
                 </div>
-
                 <div class="cart-item__info">
                   <h3 class="cart-item__title">
                     Набор пастилы «Ассорти» без сахара, 500 г
                   </h3>
-                  <div class="cart-item__sku">Арт: PAST-ASR</div>
-                  <div class="cart-item__price-row">
-                    <span class="cart-item__price-val">240 ₽</span>
-                    <span class="cart-item__price-unit">/ шт</span>
+                  <div class="cart-item__meta">
+                    <span class="cart-item__sku">Арт: PAST-ASR</span>
+                    <span class="cart-item__weight">Вес кор.: 6.2 кг</span>
                   </div>
-                  <div class="cart-item__pack">Квант: коробка (12 шт)</div>
+                  <div class="cart-item__prices">
+                    <div class="cart-item__price-primary">
+                      2 880 ₽
+                      <span class="cart-item__price-unit">/ коробка</span>
+                    </div>
+                    <div class="cart-item__price-secondary">240 ₽ / шт</div>
+                  </div>
                 </div>
-
-                <div class="cart-item__actions">
-                  <div class="quantity">
+                <div class="cart-item__controls">
+                  <div class="quantum-stepper">
                     <button
                       type="button"
                       class="quantity__btn"
                       aria-label="Меньше"
                     >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                      </svg>
+                      −
                     </button>
-                    <input
-                      type="number"
-                      class="quantity__input"
-                      value="1"
-                      min="1"
-                      readonly
-                    />
+                    <div class="quantity__input-group">
+                      <input
+                        type="number"
+                        class="quantity__input"
+                        value="2"
+                        min="1"
+                        readonly
+                      />
+                      <span class="quantity__unit">кор.</span>
+                    </div>
                     <button
                       type="button"
                       class="quantity__btn"
                       aria-label="Больше"
                     >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <line x1="12" y1="5" x2="12" y2="19"></line>
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                      </svg>
+                      +
                     </button>
                   </div>
-                  <div class="cart-item__totals">
-                    <div class="cart-item__sum">2 880 ₽</div>
-                    <div class="cart-item__qty">12 шт</div>
-                  </div>
+                  <div class="quantum-total">= 24 шт</div>
                 </div>
-
+                <div class="cart-item__totals">
+                  <div class="cart-item__sum">5 760 ₽</div>
+                </div>
                 <button
                   type="button"
                   class="cart-item__delete"
-                  aria-label="Удалить"
+                  aria-label="Удалить товар"
                 >
                   <svg
-                    width="20"
-                    height="20"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
                   >
-                    <path d="M3 6h18" />
-                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                    <line x1="10" y1="11" x2="10" y2="17" />
-                    <line x1="14" y1="11" x2="14" y2="17" />
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
                   </svg>
                 </button>
               </div>
-              <!-- Сюда добавляются остальные товары скриптом -->
+
+              <!-- Товар 3 (Новый) -->
+              <div class="cart-item">
+                <div class="cart-item__img-wrapper">
+                  <img
+                    src="src/sweet_gift.jpg"
+                    alt="Протеиновый батончик"
+                    class="cart-item__img"
+                  />
+                </div>
+                <div class="cart-item__info">
+                  <h3 class="cart-item__title">
+                    Протеиновый батончик «Кокос», 60 г (Шоу-бокс)
+                  </h3>
+                  <div class="cart-item__meta">
+                    <span class="cart-item__sku">Арт: PRO-COCO</span>
+                    <span class="cart-item__weight">Вес кор.: 1.5 кг</span>
+                  </div>
+                  <div class="cart-item__prices">
+                    <div class="cart-item__price-primary">
+                      4 320 ₽
+                      <span class="cart-item__price-unit">/ коробка</span>
+                    </div>
+                    <div class="cart-item__price-secondary">180 ₽ / шт</div>
+                  </div>
+                </div>
+                <div class="cart-item__controls">
+                  <div class="quantum-stepper">
+                    <button
+                      type="button"
+                      class="quantity__btn"
+                      aria-label="Меньше"
+                    >
+                      −
+                    </button>
+                    <div class="quantity__input-group">
+                      <input
+                        type="number"
+                        class="quantity__input"
+                        value="1"
+                        min="1"
+                        readonly
+                      />
+                      <span class="quantity__unit">кор.</span>
+                    </div>
+                    <button
+                      type="button"
+                      class="quantity__btn"
+                      aria-label="Больше"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div class="quantum-total">= 24 шт</div>
+                </div>
+                <div class="cart-item__totals">
+                  <div class="cart-item__sum">4 320 ₽</div>
+                </div>
+                <button
+                  type="button"
+                  class="cart-item__delete"
+                  aria-label="Удалить товар"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Товар 4 (Новый) -->
+              <div class="cart-item">
+                <div class="cart-item__img-wrapper">
+                  <img
+                    src="src/nuts.jpg"
+                    alt="Миндаль в шоколаде"
+                    class="cart-item__img"
+                  />
+                </div>
+                <div class="cart-item__info">
+                  <h3 class="cart-item__title">
+                    Миндаль в горьком шоколаде, 150 г
+                  </h3>
+                  <div class="cart-item__meta">
+                    <span class="cart-item__sku">Арт: NUT-ALM</span>
+                    <span class="cart-item__weight">Вес кор.: 1.6 кг</span>
+                  </div>
+                  <div class="cart-item__prices">
+                    <div class="cart-item__price-primary">
+                      3 200 ₽
+                      <span class="cart-item__price-unit">/ коробка</span>
+                    </div>
+                    <div class="cart-item__price-secondary">320 ₽ / шт</div>
+                  </div>
+                </div>
+                <div class="cart-item__controls">
+                  <div class="quantum-stepper">
+                    <button
+                      type="button"
+                      class="quantity__btn"
+                      aria-label="Меньше"
+                    >
+                      −
+                    </button>
+                    <div class="quantity__input-group">
+                      <input
+                        type="number"
+                        class="quantity__input"
+                        value="1"
+                        min="1"
+                        readonly
+                      />
+                      <span class="quantity__unit">кор.</span>
+                    </div>
+                    <button
+                      type="button"
+                      class="quantity__btn"
+                      aria-label="Больше"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div class="quantum-total">= 10 шт</div>
+                </div>
+                <div class="cart-item__totals">
+                  <div class="cart-item__sum">3 200 ₽</div>
+                </div>
+                <button
+                  type="button"
+                  class="cart-item__delete"
+                  aria-label="Удалить товар"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
             </div>
 
-            <!-- Правая колонка: Итого -->
+            <!-- Правая колонка: B2B Итого -->
             <aside class="summary-wrapper">
               <div class="summary">
                 <h2 class="summary__title">Итого по заявке</h2>
 
-                <div class="summary__stats">
-                  <div class="summary__row">
-                    <span class="summary__label">Товаров</span>
-                    <span class="summary__val">4</span>
+                <!-- Состояние успеха: Сумма > 15 000 -->
+                <div class="summary-progress summary-progress--success">
+                  <div class="summary-progress__header">
+                    <span class="summary-progress__title"
+                      >Минимальный заказ:</span
+                    >
+                    <span class="summary-progress__badge">Достигнут</span>
                   </div>
-                  <div class="summary__row">
-                    <span class="summary__label">Количество</span>
-                    <span class="summary__val">71 шт</span>
+                  <div class="progress-bar">
+                    <!-- Залито на 100% зеленым -->
+                    <div
+                      class="progress-bar__fill progress-bar__fill--success"
+                      style="width: 100%"
+                    ></div>
                   </div>
-                  <div class="summary__row summary__row--total">
-                    <span class="summary__label">Сумма без НДС</span>
-                    <span class="summary__val--total">8 935 ₽</span>
+                  <div class="summary-progress__hint">
+                    Заказ готов к оформлению
                   </div>
                 </div>
 
-                <div class="summary__notice">Минимальный заказ от 15 000 ₽</div>
+                <!-- Бухгалтерская и логистическая разбивка -->
+                <div class="summary__stats">
+                  <div class="summary__row">
+                    <span class="summary__label">Товаров (коробок):</span>
+                    <span class="summary__val">4 (5 кор.)</span>
+                  </div>
+                  <div class="summary__row">
+                    <span class="summary__label">Общий вес брутто:</span>
+                    <span class="summary__val">11.7 кг</span>
+                  </div>
+                  <div class="summary__divider"></div>
+                  <div class="summary__row">
+                    <span class="summary__label">Сумма без НДС:</span>
+                    <span class="summary__val">12 900.00 ₽</span>
+                  </div>
+                  <div class="summary__row">
+                    <span class="summary__label">НДС (20%):</span>
+                    <span class="summary__val">2 580.00 ₽</span>
+                  </div>
+                  <div class="summary__row summary__row--total">
+                    <span class="summary__label">Итого к оплате:</span>
+                    <span class="summary__val--total">15 480.00 ₽</span>
+                  </div>
+                </div>
 
                 <div class="summary__actions">
-                  <!-- Используем глобальный класс .btn из base.css -->
+                  <!-- Кнопка АКТИВНА -->
                   <button
                     type="button"
-                    class="btn btn--primary"
-                    style="width: 100%"
+                    class="btn btn--primary btn--block"
+                    onclick="window.location.href = 'checkout.html'"
                   >
                     Оформить заявку
                   </button>
-                  <button
-                    type="button"
-                    class="btn btn--outline"
-                    style="width: 100%"
-                  >
+
+                  <div class="summary__actions-docs">
+                    <button
+                      type="button"
+                      class="btn-doc"
+                      title="Скачать счет (PDF)"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                        ></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                      </svg>
+                      В PDF
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-doc"
+                      title="Скачать в Excel"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                        ></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <path d="M8 13h2v4H8z"></path>
+                        <path d="M14 13h2v4h-2z"></path>
+                      </svg>
+                      В Excel
+                    </button>
+                  </div>
+
+                  <button type="button" class="btn btn--outline btn--block">
                     Продолжить выбор
                   </button>
                 </div>
 
                 <textarea
                   class="summary__textarea"
-                  placeholder="Комментарий к заявке"
+                  placeholder="Комментарий к заявке (например, номер договора или пожелания по ТК)"
                   rows="3"
                 ></textarea>
               </div>
             </aside>
-          </div>
-        </div>
-      </section>
-
-      <!-- Блок помощи -->
-      <section class="help-section">
-        <div class="container">
-          <div class="help-banner">
-            <div class="help-banner__content">
-              <h3>Нужна помощь с подбором?</h3>
-              <p>Оставьте телефон — вышлем полный прайс-лист в Excel.</p>
-            </div>
-            <form class="help-banner__form">
-              <input
-                type="tel"
-                class="help-banner__input"
-                placeholder="Телефон *"
-                required
-              />
-              <button type="submit" class="btn btn--primary">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                  />
-                </svg>
-                Получить прайс
-              </button>
-            </form>
           </div>
         </div>
       </section>

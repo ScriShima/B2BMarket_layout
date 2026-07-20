@@ -1,0 +1,326 @@
+/* checkout.css - Модульные стили оформления заказа */
+
+.checkout-container {
+    padding: var(--spacing-xl) 0;
+}
+
+.checkout-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+/* Форма */
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-section {
+    background: var(--color-bg-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.mt-4 { margin-top: var(--spacing-md); }
+
+/* Радио Карточки (Тип плательщика) */
+.radio-cards, .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.radio-card input, .grid-card input {
+    display: none;
+}
+
+.radio-card-content, .grid-card-content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    background: var(--color-bg-body);
+    height: 100%;
+}
+
+.radio-card input:checked + .radio-card-content,
+.grid-card input:checked + .grid-card-content {
+    border-color: var(--color-primary);
+    background: var(--color-feature-bg);
+    box-shadow: var(--shadow-sm);
+}
+
+.radio-title, .card-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-text-dark);
+    margin-bottom: 4px;
+}
+
+.radio-desc, .card-desc {
+    font-size: 13px;
+    color: var(--color-text-muted);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.card-price {
+    font-weight: 800;
+    color: var(--color-primary);
+}
+
+/* Инпуты */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.input-group input, .input-group textarea {
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--color-text-dark);
+    background: var(--color-bg-white);
+    transition: border-color var(--transition-fast);
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+/* Загрузка файла */
+.file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px;
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    background: var(--color-bg-body);
+    transition: var(--transition-fast);
+    text-align: center;
+}
+
+.file-upload:hover {
+    border-color: var(--color-primary);
+    background: var(--color-feature-bg);
+}
+
+.file-upload input {
+    display: none;
+}
+
+.upload-icon {
+    font-size: 20px;
+}
+
+.upload-text {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 14px;
+}
+
+/* Сайдбар */
+.checkout-sidebar {
+    position: sticky;
+    top: 20px;
+}
+
+.sidebar-widget {
+    background: var(--color-bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.widget-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-dark);
+}
+
+.progress-block {
+    background: var(--color-bg-body);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.badge-success {
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    padding: 2px 8px;
+    border-radius: var(--radius-round);
+    font-size: 11px;
+}
+
+.progress-bar {
+    height: 6px;
+    background: var(--color-border);
+    border-radius: var(--radius-round);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--color-primary);
+}
+
+.progress-hint {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    color: var(--color-text-muted);
+    margin-top: 6px;
+}
+
+.summary-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: var(--spacing-md);
+    font-size: 14px;
+    color: var(--color-text-main);
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-line.mt-2 {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--color-border);
+}
+
+.total-line {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+}
+
+.total-line span:last-child {
+    color: var(--color-primary);
+}
+
+.full-width-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    justify-content: center;
+}
+
+.doc-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: var(--spacing-sm);
+}
+
+.doc-btn {
+    padding: 8px;
+    font-size: 13px;
+    justify-content: center;
+}
+
+.sidebar-disclaimer {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: var(--spacing-md);
+    line-height: 1.4;
+}
+
+.sidebar-disclaimer a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Адаптив */
+@media (max-width: 992px) {
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .checkout-sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
