@@ -1,12 +1,12 @@
 .hero-about {
-  padding: 60px 0 40px 0;
-  background: var(--color-bg-dark);
+  /* Убираем жесткий хардкод, опираемся на дизайн-систему */
+  padding-top: var(--spacing-xl);
 }
 
-.hero-about__grid {
+.hero-about__container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: var(--spacing-xl);
   align-items: center;
 }
 
@@ -16,42 +16,47 @@
   gap: 8px;
   background-color: var(--color-badge-bg);
   border: 1px solid var(--color-badge-border);
-  color: var(--color-primary);
+  color: var(--color-badge-dark);
   padding: 6px 14px;
   border-radius: var(--radius-round);
   font-size: 13px;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: var(--spacing-md);
 }
 
-.about-hero__title {
-  font-size: clamp(36px, 5vw, 48px);
+.hero-about__title {
+  font-size: clamp(36px, 4vw, 48px);
   font-weight: 800;
   color: var(--color-text-dark);
   line-height: 1.1;
   letter-spacing: -1px;
-  margin-top: 0;
-  margin-bottom: 16px;
+  margin: 0 0 var(--spacing-md) 0;
 }
 
-.about-hero__desc {
+.hero-about__desc {
   font-size: 18px;
   color: var(--color-text-main);
   line-height: 1.6;
-  margin: 0;
+  margin: 0 0 var(--spacing-lg) 0;
 }
 
-.about-hero__img-block {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
+.hero-about__actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.about-img--rounded {
   border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border);
-  background-color: var(--color-bg-white);
+  box-shadow: var(--shadow-img);
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
 }
 
 @media (max-width: 992px) {
-  .hero-about__grid {
+  .hero-about__container {
     grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
   }
 }

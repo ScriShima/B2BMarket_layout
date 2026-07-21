@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="css/about/about-layout.css" />
     <link rel="stylesheet" href="css/about/about-hero.css" />
     <link rel="stylesheet" href="css/about/about-stats.css" />
-    <link rel="stylesheet" href="css/about/about-mission.css" />
+    <!-- <link rel="stylesheet" href="css/about/about-mission.css" /> -->
     <link rel="stylesheet" href="css/about/about-quality.css" />
-    <link rel="stylesheet" href="css/about/about-timeline.css" />
+    <!-- <link rel="stylesheet" href="css/about/about-timeline.css" /> -->
+    <link rel="stylesheet" href="css/about/about-rd.css" />
+    <link rel="stylesheet" href="css/about/about-cta.css" />
   </head>
   <body>
     <header class="header">
@@ -149,112 +151,212 @@
     </header>
 
     <main class="about">
-      <!-- Hero Section -->
-      <section class="hero-about">
-        <div class="container">
-          <div class="hero-about__grid">
-            <div class="hero-about__text">
-              <span class="about-badge">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"
-                  />
-                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-                </svg>
-                Завод-производитель · 10+ лет на рынке
-              </span>
-              <h1 class="about-hero__title">
-                О компании «Лакомства для здоровья»
-              </h1>
-              <p class="about-hero__desc">
-                Мы производим полезные сладости без сахара, которые отвечают
-                тренду на осознанное питание и стабильно продаются в рознице и
-                на маркетплейсах.
-              </p>
+      <!-- 1. Hero Section (Чистый Split-Screen, без "канвы") -->
+      <section class="hero-about section-padding">
+        <div class="container hero-about__container">
+          <div class="hero-about__content">
+            <span class="about-badge">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"
+                />
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+              </svg>
+              Завод-производитель · 10+ лет на рынке
+            </span>
+            <h1 class="hero-about__title">
+              Ваш надежный производственный партнер в сегменте полезных
+              сладостей
+            </h1>
+            <p class="hero-about__desc">
+              Мы берем на себя весь цикл: от R&D и закупки сырья до отгрузки
+              готовых партий. Вы получаете продукт без сахара, который стабильно
+              продается с высокой маржинальностью.
+            </p>
+            <div class="hero-about__actions">
+              <button class="btn btn--primary">Запросить образцы</button>
+              <a href="#quality" class="btn btn--secondary"
+                >Стандарты качества</a
+              >
             </div>
-            <div class="about-hero__img-block">
-              <img
-                src="src/Chocolate.jpg"
-                alt="Производство"
-                class="about-img"
-              />
-            </div>
+          </div>
+
+          <div class="hero-about__visual">
+            <!-- Одно мощное, чистое фото масштаба (без наложений) -->
+            <img
+              src="src/Fabric.jpg"
+              alt="Производственная линия Лакомства"
+              class="about-img about-img--rounded"
+            />
           </div>
         </div>
       </section>
 
-      <!-- Stats Section -->
-      <section class="stats-about">
+      <!-- 2. Stats Section (Темный фон для контраста - оставляем, это хорошее решение) -->
+      <section class="stats-about section-padding bg-dark">
         <div class="container">
-          <div class="stats-about__wrapper">
+          <div class="stats-about__grid">
             <div class="stat-item">
               <div class="stat-item__value">1500+</div>
-              <div class="stat-item__label">оптовых партнёров</div>
+              <div class="stat-item__title">Оптовых партнеров</div>
+              <div class="stat-item__desc">Регулярные отгрузки по РФ и СНГ</div>
             </div>
             <div class="stat-item">
               <div class="stat-item__value">250</div>
-              <div class="stat-item__label">позиций (SKU)</div>
+              <div class="stat-item__title">Позиций (SKU)</div>
+              <div class="stat-item__desc">Для расширения вашей матрицы</div>
             </div>
             <div class="stat-item">
               <div class="stat-item__value">10 лет</div>
-              <div class="stat-item__label">на рынке</div>
+              <div class="stat-item__title">На рынке</div>
+              <div class="stat-item__desc">Стабильность без срывов сроков</div>
             </div>
             <div class="stat-item">
               <div class="stat-item__value">5000 м²</div>
-              <div class="stat-item__label">склад</div>
+              <div class="stat-item__title">Склад класса А</div>
+              <div class="stat-item__desc">
+                Гарантированное наличие остатков
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Mission Section -->
-      <section class="mission-about">
+      <!-- 3. Quality Section (Карточки с явным аффордансом клика) -->
+      <section id="quality" class="quality-about section-padding bg-light">
         <div class="container">
-          <div class="mission-about__grid">
-            <div class="mission-about__img-block">
-              <img src="src/marmalade.jpg" alt="Миссия" class="about-img" />
-            </div>
-            <div class="mission-about__text">
-              <h2 class="section-title">Наша миссия</h2>
-              <p class="section-text">
-                Делать вкусные сладости полезными и доступными. Мы заменяем
-                сахар натуральными подсластителями, сохраняя привычный вкус, и
-                помогаем партнёрам предлагать продукт нового поколения.
-              </p>
-              <p class="section-text" style="margin-top: 16px">
-                Прямое производство без посредников обеспечивает стабильные
-                цены, остатки и качество.
-              </p>
-            </div>
+          <div class="section-header">
+            <h2 class="section-title">
+              Качество, подтвержденное документально
+            </h2>
+            <p class="section-text">
+              Мы работаем по международным стандартам пищевой безопасности. Вся
+              продукция сертифицирована для поставок в федеральный ритейл и
+              экспорта.
+            </p>
           </div>
-        </div>
-      </section>
 
-      <!-- Quality Section -->
-      <section class="quality-about">
-        <div class="container">
-          <h2 class="section-title">Производство и контроль качества</h2>
           <div class="quality-about__grid">
-            <div class="quality-card">
-              <div class="quality-card__icon">
+            <button
+              class="cert-card"
+              type="button"
+              onclick="
+                openCert({
+                  title: 'HACCP ISO 22000:2018',
+                  imgSrc: 'src/NASSR.png',
+                  fileSize: '2.4 МБ',
+                  regNum: 'ISO-RU-2024-08912',
+                  validUntil: '14.12.2028',
+                  issuer: 'ООО «Тест-ПищеПром» (№ RA.RU.21ПП01)',
+                })
+              "
+            >
+              <div class="cert-card__icon-wrap">
                 <svg
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div class="cert-card__info">
+                <span class="cert-card__badge">ISO Certified</span>
+                <h3 class="cert-card__title">HACCP ISO 22000</h3>
+                <p class="cert-card__text">Действителен до 2028 года</p>
+              </div>
+              <div class="cert-card__action">
+                <span class="cert-card__action-label">Просмотр</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </div>
+            </button>
+
+            <button
+              class="cert-card"
+              type="button"
+              onclick="
+                openCert({
+                  title: 'Декларация о соответствии ЕАС',
+                  imgSrc: 'src/EAS.png',
+                  fileSize: '1.8 МБ',
+                  regNum: 'ЕАЭС N RU Д-RU.ПП01.В.00123/21',
+                  validUntil: 'Бессрочно / До замены партии',
+                  issuer: 'Росаккредитация (ТР ТС 021/2011)',
+                })
+              "
+            >
+              <div class="cert-card__icon-wrap">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <div class="cert-card__info">
+                <span class="cert-card__badge">Таможенный союз</span>
+                <h3 class="cert-card__title">Декларации ЕАС</h3>
+                <p class="cert-card__text">Реестр Росаккредитации</p>
+              </div>
+              <div class="cert-card__action">
+                <span class="cert-card__action-label">Просмотр</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </div>
+            </button>
+
+            <button
+              class="cert-card"
+              type="button"
+              onclick="
+                openCert({
+                  title: 'Протоколы испытаний 100% Natural',
+                  imgSrc: 'src/Natural.png',
+                  fileSize: '1.1 МБ',
+                  regNum: 'ПИ-LAB-2025/1102',
+                  validUntil: '20.10.2027',
+                  issuer: 'Аккредитованная лаборатория R&D',
+                })
+              "
+            >
+              <div class="cert-card__icon-wrap">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
                 >
                   <path
                     d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"
@@ -262,146 +364,259 @@
                   <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
                 </svg>
               </div>
-              <h3 class="quality-card-title">Натуральные составы</h3>
-              <p class="quality-card-text">
-                Без сахара, на стевии и эритрите, без искусственных добавок.
-              </p>
-            </div>
-            <div class="quality-card">
-              <div class="quality-card__icon">
+              <div class="cert-card__info">
+                <span class="cert-card__badge">Eco Safety</span>
+                <h3 class="cert-card__title">100% Natural</h3>
+                <p class="cert-card__text">Лабораторные заключения</p>
+              </div>
+              <div class="cert-card__action">
+                <span class="cert-card__action-label">Просмотр</span>
                 <svg
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                 >
-                  <path
-                    d="M10 2v7.31L2 20.5A2 2 0 0 0 4 23h16a2 2 0 0 0 2-2.5L14 9.31V2"
-                  />
-                  <path d="M8.5 2h7" />
-                  <path d="M14 9.31V6" />
-                  <path d="M6 14h12" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
                 </svg>
               </div>
-              <h3 class="quality-card-title">Контроль качества</h3>
-              <p class="quality-card-text">
-                Собственная лаборатория и проверка каждой партии продукции.
-              </p>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. R&D Section (Пищевая лаборатория + B2B Доверие) -->
+      <section class="rd-about section-padding">
+        <div class="container rd-about__container">
+          <div class="rd-about__visual">
+            <img
+              src="src/Fabric.jpg"
+              alt="Пищевая лаборатория R&D и разработка рецептур"
+              class="about-img about-img--rounded"
+            />
+            <div class="rd-about__floating-badge">
+              <span class="rd-about__badge-value">87%</span>
+              <span class="rd-about__badge-label"
+                >повторных заказов партнеров</span
+              >
             </div>
-            <div class="quality-card">
-              <div class="quality-card__icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <path d="m9 12 2 2 4-4" />
-                </svg>
+          </div>
+          <div class="rd-about__content">
+            <h2 class="section-title">Собственная лаборатория вкуса и R&D</h2>
+            <p class="section-text">
+              Мы не используем дешевые сырьевые премиксы. Наши технологи
+              тестируют комбинации натуральных сахарозаменителей (эритрит,
+              стевия, инулин) и натуральных фруктовых экстрактов, создавая
+              чистый состав без посторонних послевкусий.
+            </p>
+
+            <div class="rd-features">
+              <div class="rd-feature-item">
+                <div class="rd-feature-item__icon">✓</div>
+                <div class="rd-feature-item__text">
+                  <strong>Разработка рецептур под СТМ</strong> — адаптируем вкус
+                  и КБЖУ под задачи вашей торговой марки.
+                </div>
               </div>
-              <h3 class="quality-card-title">Сертификация HACCP</h3>
-              <p class="quality-card-text">
-                Полный пакет деклараций и сертификатов соответствия.
-              </p>
+              <div class="rd-feature-item">
+                <div class="rd-feature-item__icon">✓</div>
+                <div class="rd-feature-item__text">
+                  <strong>Контроль каждой партии</strong> — физико-химические и
+                  органолептические тесты перед отгрузкой.
+                </div>
+              </div>
+            </div>
+
+            <div class="rd-quote">
+              <blockquote class="rd-quote__text">
+                «Компромиссов во вкусе быть не может. В B2B-сегменте повторные
+                продажи определяют всё. Продукт без сахара обязан быть таким же
+                вкусным, как и традиционные сладости.»
+              </blockquote>
+              <div class="rd-quote__author">
+                — Главный технолог производства
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Timeline Section -->
-      <section class="timeline-about">
+      <!-- 5. CTA Section (Сегментированная B2B Lead-форма) -->
+      <section class="cta-lead section-padding">
         <div class="container">
-          <h2 class="section-title">История компании</h2>
-          <div class="timeline-about__grid">
-            <div class="timeline-item">
-              <div class="timeline-item__dot">
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="8" r="6" />
-                  <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-                </svg>
-              </div>
-              <div class="timeline-item__year">2016</div>
-              <div class="section-text">Запуск производства</div>
+          <div class="lead-box bg-dark">
+            <div class="lead-box__info">
+              <h2 class="lead-box__title">
+                Получите оптовый прайс и условия коммерческого партнерства
+              </h2>
+              <p class="lead-box__text">
+                Отправим матрицу цен с квантами отгрузок, маржинальностью до 45%
+                и условиями спец-логистики для вашего типа бизнеса.
+              </p>
             </div>
-            <div class="timeline-item">
-              <div class="timeline-item__dot">
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="8" r="6" />
-                  <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-                </svg>
+            <form class="lead-box__form">
+              <div class="form-row">
+                <div class="form-select-wrapper">
+                  <select
+                    class="form-input form-select"
+                    required
+                    aria-label="Сфера деятельности"
+                  >
+                    <option value="" disabled selected>
+                      Ваша сфера деятельности
+                    </option>
+                    <option value="retail">Торговая сеть / Ритейл</option>
+                    <option value="horeca">Кофейни / HoReCa</option>
+                    <option value="distributor">
+                      Оптовая торговля / Дистрибуция
+                    </option>
+                    <option value="stm">Разработка СТМ / Private Label</option>
+                  </select>
+                </div>
               </div>
-              <div class="timeline-item__year">2019</div>
-              <div class="section-text">Выход на федеральные сети</div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-item__dot">
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="8" r="6" />
-                  <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-                </svg>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-input"
+                  placeholder="Рабочий E-mail или Telegram (@username)"
+                  required
+                />
+                <button type="submit" class="btn btn--primary">
+                  Запросить прайс
+                </button>
               </div>
-              <div class="timeline-item__year">2022</div>
-              <div class="section-text">Расширение склада до 5000 м²</div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-item__dot">
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="8" r="6" />
-                  <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-                </svg>
+              <div class="form-policy">
+                Нажимая кнопку, вы соглашаетесь с
+                <a href="#">политикой конфиденциальности</a>
               </div>
-              <div class="timeline-item__year">2026</div>
-              <div class="section-text">1500+ оптовых партнёров</div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
     </main>
+
+    <!-- Двухколоночный B2B-Viewer Документов -->
+    <dialog id="certModal" class="cert-modal">
+      <div class="cert-modal__dialog">
+        <div class="cert-modal__header">
+          <div class="cert-modal__header-info">
+            <h3 id="certModalTitle" class="cert-modal__title">Документ</h3>
+            <span class="cert-modal__subtitle"
+              >Просмотр официально зарегистрированного документа</span
+            >
+          </div>
+          <button
+            class="cert-modal__close"
+            onclick="closeCert()"
+            aria-label="Закрыть окно"
+            type="button"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="cert-modal__grid">
+          <!-- Метаданные (Левая колонка) -->
+          <aside class="cert-modal__meta">
+            <div class="meta-card">
+              <span class="meta-card__label">Регистрационный номер</span>
+              <div class="meta-card__value-wrap">
+                <strong id="certModalRegNum" class="meta-card__value">-</strong>
+                <button
+                  class="meta-card__copy-btn"
+                  type="button"
+                  onclick="copyRegNum()"
+                  title="Скопировать номер"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect
+                      x="9"
+                      y="9"
+                      width="13"
+                      height="13"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <path
+                      d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="meta-card">
+              <span class="meta-card__label">Срок действия</span>
+              <strong id="certModalValidUntil" class="meta-card__value"
+                >-</strong
+              >
+            </div>
+
+            <div class="meta-card">
+              <span class="meta-card__label"
+                >Орган по сертификации / Лаборатория</span
+              >
+              <p id="certModalIssuer" class="meta-card__text">-</p>
+            </div>
+
+            <div class="cert-modal__actions">
+              <a
+                id="certModalDownload"
+                href=""
+                download
+                class="btn btn--primary cert-modal__download-btn"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Скачать оригинал PDF
+              </a>
+            </div>
+          </aside>
+
+          <!-- Просмотр скан-копии (Правая колонка) -->
+          <main class="cert-modal__preview">
+            <div class="cert-modal__img-wrapper">
+              <img
+                id="certModalImg"
+                src=""
+                alt="Скан документа"
+                class="cert-modal__img"
+              />
+            </div>
+          </main>
+        </div>
+      </div>
+    </dialog>
 
     <footer class="footer">
       <div class="container">

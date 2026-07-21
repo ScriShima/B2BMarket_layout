@@ -1,25 +1,40 @@
-.mission-about {
-  padding: 40px 0 80px 0;
-}
-
-.mission-about__grid {
+.benefits-about__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
-.mission-about__img-block {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-radius: var(--radius-xl);
+.benefit-card {
+  background-color: var(--color-bg-body);
   border: 1px solid var(--color-border);
-  background-color: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
 }
 
-@media (max-width: 768px) {
-  .mission-about__grid {
+.benefit-card__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-primary);
+  margin-bottom: 24px;
+}
+
+.benefit-card__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.benefit-card__text {
+  font-size: 15px;
+  color: var(--color-text-main);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .benefits-about__grid {
     grid-template-columns: 1fr;
   }
 }

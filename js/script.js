@@ -756,4 +756,51 @@ document.addEventListener("DOMContentLoaded", function () {
       trustSection.setAttribute("data-trust-mode", e.target.value);
     });
   }
+
+  // =========================================================
+  // БЛОК: Управление блоком просмотра сертификатов
+  // =========================================================
+  const certModal = document.getElementById("certModal");
+
+  // Делаем функции глобальными, чтобы onclick в HTML их видел
+  window.openCert = function (data) {
+    document.getElementById("certModalTitle").textContent = data.title;
+    document.getElementById("certModalImg").src = data.imgSrc;
+    document.getElementById("certModalRegNum").textContent = data.regNum;
+    document.getElementById("certModalValidUntil").textContent =
+      data.validUntil;
+    document.getElementById("certModalIssuer").textContent = data.issuer;
+
+    const downloadBtn = document.getElementById("certModalDownload");
+    if (downloadBtn) downloadBtn.href = data.imgSrc;
+
+    // Защита: открываем, только если окно есть в DOM
+    if (certModal) {
+      certModal.showModal();
+      document.body.style.overflow = "hidden";
+    }
+  };
+
+  window.closeCert = function () {
+    if (certModal) {
+      certModal.close();
+      document.body.style.overflow = "";
+    }
+  };
+
+  window.copyRegNum = function () {
+    const regNumEl = document.getElementById("certModalRegNum");
+    if (regNumEl) {
+      navigator.clipboard.writeText(regNumEl.textContent).then(() => {
+        alert("Регистрационный номер скопирован в буфер обмена");
+      });
+    }
+  };
+
+  // Защита: вешаем событие клика ТОЛЬКО если модалка существует на странице
+  if (certModal) {
+    certModal.addEventListener("click", (e) => {
+      if (e.target === certModal) window.closeCert();
+    });
+  }
 });

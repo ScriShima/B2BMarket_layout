@@ -1,32 +1,55 @@
-.stats-about {
-  padding: 0 0 40px 0;
+.bg-dark {
+  background-color: var(--color-secondary); /* Используем темный цвет бренда */
+  color: var(--color-text-inverse);
 }
 
-.stats-about__wrapper {
-  background-color: var(--color-bg-body);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: 40px;
+.bg-dark .stat-item__title {
+  color: var(--color-text-inverse);
+}
+.bg-dark .stat-item__desc {
+  color: var(--color-text-footer);
+}
+
+.stats-about__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) 0;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
 }
 
 .stat-item__value {
-  font-size: 40px;
+  font-size: clamp(40px, 4vw, 56px);
   font-weight: 800;
-  color: var(--color-primary);
+  color: var(--color-accent); /* Акцентный цвет на темном фоне */
   line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+.stat-item__title {
+  font-size: 18px;
+  font-weight: 700;
   margin-bottom: 8px;
 }
 
-.stat-item__label {
-  font-size: 15px;
-  color: var(--color-text-main);
+.stat-item__desc {
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-@media (max-width: 768px) {
-  .stats-about__wrapper {
+@media (max-width: 992px) {
+  .stats-about__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .stats-about__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 }
